@@ -1457,7 +1457,7 @@ var Client = function () {
 
     this.apiKey = apiKey;
     this.engineName = engineName;
-    this.searchEndpoint = 'https://' + accountHostKey + '.api.swiftype.com/api/as/v1/';
+    this.apiEndpoint = 'https://' + accountHostKey + '.api.swiftype.com/api/as/v1/';
     this.searchPath = 'engines/' + this.engineName + '/search';
   }
 
@@ -1473,26 +1473,31 @@ var Client = function () {
 
   Client.prototype.search = function search(query, options) {
     var params = Object.assign({ query: query }, options);
-    return this._request('' + this.searchEndpoint + this.searchPath + '.json', params);
+    return this._request(this.searchPath + '.json', params).then(function (_ref) {
+      var response = _ref.response,
+          json = _ref.json;
+
+      if (json.errors) {
+        throw new Error('[' + response.status + '] ' + json.errors);
+      }
+      return new _result_list2.default(json.results, (0, _omit3.default)(json, 'results'));
+    });
   };
 
-  Client.prototype._request = function _request(url, params) {
+  Client.prototype._request = function _request(path, params) {
     var headers = new Headers({
       'Authorization': 'Bearer ' + this.apiKey,
       'Content-Type': 'application/json'
     });
 
-    return fetch(url, {
+    return fetch('' + this.apiEndpoint + path, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(params),
       credentials: 'include'
     }).then(function (response) {
       return response.json().then(function (json) {
-        if (!response.ok) {
-          throw new Error('[' + response.status + '] ' + json.errors);
-        }
-        return new _result_list2.default(json.results, (0, _omit3.default)(json, 'results'));
+        return { response: response, json: json };
       });
     });
   };
