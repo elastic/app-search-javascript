@@ -8,7 +8,7 @@ export default class Client {
   constructor(accountHostKey, apiKey, engineName) {
     this.apiKey = apiKey
     this.engineName = engineName
-    this.searchEndpoint = `https://${accountHostKey}.api.swiftype.com/api/as/v1/`
+    this.apiEndpoint = `https://${accountHostKey}.api.swiftype.com/api/as/v1/`
     this.searchPath = `engines/${this.engineName}/search`
   }
 
@@ -22,26 +22,28 @@ export default class Client {
    */
   search(query, options) {
     const params = Object.assign({ query: query }, options)
-    return this._request(`${this.searchEndpoint}${this.searchPath}.json`, params)
+    return this._request(`${this.searchPath}.json`, params).then(({ response, json }) => {
+      if (!response.ok) {
+        throw new Error(`[${response.status}] ${json.errors}`)
+      }
+      return new ResultList(json.results, _omit(json, 'results'))
+    })
   }
 
-  _request(url, params) {
+  _request(path, params) {
     const headers = new Headers({
       'Authorization': `Bearer ${this.apiKey}`,
       'Content-Type': 'application/json'
     })
 
-    return fetch(url, {
+    return fetch(`${this.apiEndpoint}${path}`, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(params),
       credentials: 'include'
     }).then((response) => {
       return response.json().then((json) => {
-        if (!response.ok) {
-          throw new Error(`[${response.status}] ${json.errors}`)
-        }
-        return new ResultList(json.results, _omit(json, 'results'))
+        return { response: response, json: json }
       })
     })
   }
