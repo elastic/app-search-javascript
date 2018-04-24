@@ -1477,7 +1477,7 @@ var Client = function () {
       var response = _ref.response,
           json = _ref.json;
 
-      if (json.errors) {
+      if (!response.ok) {
         throw new Error('[' + response.status + '] ' + json.errors);
       }
       return new _result_list2.default(json.results, (0, _omit3.default)(json, 'results'));
