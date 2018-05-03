@@ -1,14 +1,22 @@
 {
   "name": "swiftype-app-search-javascript",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Javascript client for the Swiftype App Search Api",
   "main": "public/bundle.js",
   "module": "dist/swiftype_app_search.js",
   "scripts": {
     "build": "webpack --progress --profile --colors && babel --out-dir dist src"
   },
-  "author": "",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swiftype/swiftype-app-search-javascript.git"
+  },
+  "author": "Swiftype",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swiftype/swiftype-app-search-javascript/issues"
+  },
+  "homepage": "https://github.com/swiftype/swiftype-app-search-javascript",
   "babel": {
     "presets": [
       [
@@ -21,7 +29,6 @@
     ]
   },
   "dependencies": {
-    "jquery": "^3.1.0",
     "lodash": "^4.17.4"
   },
   "devDependencies": {

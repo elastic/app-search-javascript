@@ -1,6 +1,5 @@
 'use strict'
 
-import $ from 'jquery'
 import _omit from 'lodash/omit'
 import ResultList from './result_list'
 
