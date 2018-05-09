@@ -1,0 +1,24 @@
+POST /api/as/v1/engines/invalid/click.json
+authorization: Bearer invalid
+content-type: application/json
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"tags\":[]}
+
+HTTP/1.1 404 Not Found
+date: Wed, 09 May 2018 16:12:30 GMT
+content-type: application/json
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 404 Not Found
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+cache-control: no-cache
+x-request-id: fc853327c36328866ddb52301d267c60
+x-runtime: 0.025238
+x-swiftype-datacenter: dal05
+x-swiftype-frontend-node: web02.dal05
+x-swiftype-edge-node: web02.dal05
+

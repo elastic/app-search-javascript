@@ -1,0 +1,25 @@
+POST /api/as/v1/engines/test-engine/click.json
+authorization: Bearer search-aw9sk38fjs7akd9ajbnfav69
+content-type: application/json
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"tags\":[]}
+
+HTTP/1.1 400 Bad Request
+date: Wed, 09 May 2018 16:02:38 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: close
+status: 400 Bad Request
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+vary: Origin
+cache-control: no-cache
+x-request-id: 06a7db330df5cb90c8a6b40f43aa1e13
+x-runtime: 0.091783
+x-swiftype-datacenter: dal05
+x-swiftype-frontend-node: web02.dal05
+x-swiftype-edge-node: web02.dal05
+
+{"errors":["Missing required parameter: query"]}

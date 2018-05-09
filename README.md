@@ -73,6 +73,48 @@ client.search('cat', options).then((resultList) => {
 
 Note that `options` supports all options listed here: https://swiftype.com/documentation/app-search/guides/searching.
 
+### Click Through Tracking
+
+```javascript
+client.click(
+  'Cat',
+  '1234567',
+  '8b55561954484f13d872728f849ffd22',
+  ['Animal']
+).catch((error) => {
+  console.log(`error: ${error}`)
+})
+```
+
+Click throughs can be tracked by binding `client.click` calls to click events on individual search result links.
+
+The following example shows how this can be implemented declaratively by annotating links with class and data attributes.
+
+```javascript
+document.addEventListener('click', function(e) {
+  const el = e.target;
+  if !(el.classList.contains('track-click')) return;
+
+  client.click(
+    el.getAttribute('data-query'),
+    el.getAttribute('data-document-id'),
+    el.getAttribute('data-request-id'),
+    [el.getAttribute('data-tag')]
+  )
+})
+```
+
+```html
+<a href="/items/1234567"
+    class="track-click"
+    data-request-id="8b55561954484f13d872728f849ffd22"
+    data-document-id="1234567"
+    data-query="Cat"
+    data-tag="Animal">
+  Item 1
+</a>
+```
+
 ## Build
 
 ```bash

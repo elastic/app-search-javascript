@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Client #click should resolve 1`] = `undefined`;
+
+exports[`Client #click should resolve if no tags are provided 1`] = `undefined`;
+
 exports[`Client #search should query 1`] = `
 ResultList {
   "info": Object {

@@ -1,0 +1,23 @@
+POST /api/as/v1/engines/test-engine/click.json
+authorization: Bearer search-aw9sk38fjs7akd9ajbnfav69
+content-type: application/json
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"query\":\"Cat\",\"document_id\":\"rex-cli\",\"search_request_id\":\"8b55561954484f13d872728f849ffd22\",\"tags\":[\"Cat\"]}
+
+HTTP/1.1 200 OK
+date: Wed, 09 May 2018 15:55:44 GMT
+content-type: application/json
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 200 OK
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+cache-control: no-cache
+x-request-id: 63269ef84df0c805e011a386d78f1550
+x-runtime: 0.090510
+x-swiftype-datacenter: dal05
+x-swiftype-frontend-node: web01.dal05
+x-swiftype-edge-node: web01.dal05
