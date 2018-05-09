@@ -1,0 +1,1008 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Client #search should query 1`] = `
+ResultList {
+  "info": Object {
+    "meta": Object {
+      "page": Object {
+        "current": 1,
+        "size": 10,
+        "total_pages": 62,
+        "total_results": 615,
+      },
+      "request_id": "0ba8232f2ad2a054d9ebb86e5010c922",
+    },
+  },
+  "rawInfo": Object {
+    "meta": Object {
+      "page": Object {
+        "current": 1,
+        "size": 10,
+        "total_pages": 62,
+        "total_results": 615,
+      },
+      "request_id": "0ba8232f2ad2a054d9ebb86e5010c922",
+    },
+  },
+  "rawResults": Array [
+    Object {
+      "_meta": Object {
+        "score": 26.908445,
+      },
+      "created": Object {
+        "raw": "2012-10-15T23:26:48+00:00",
+      },
+      "dependencies": Object {
+        "raw": null,
+      },
+      "description": Object {
+        "raw": "Categories for Javascript",
+      },
+      "homepage": Object {
+        "raw": "http://lcfrs.org/cats",
+      },
+      "id": Object {
+        "raw": "cats",
+      },
+      "keywords": Object {
+        "raw": Array [
+          "monad",
+          "functor",
+          "monoid",
+          "async",
+        ],
+      },
+      "license": Object {
+        "raw": Array [
+          "BSD",
+        ],
+      },
+      "modified": Object {
+        "raw": "2012-10-18T16:14:10+00:00",
+      },
+      "name": Object {
+        "raw": "cats",
+      },
+      "owners": Object {
+        "raw": Array [
+          "neuman.vong@gmail.com",
+        ],
+      },
+      "repository": Object {
+        "raw": Array [
+          "https://github.com/luciferous/cats",
+        ],
+      },
+      "version": Object {
+        "raw": "0.0.2",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 24.4244,
+      },
+      "created": Object {
+        "raw": "2013-01-23T04:51:39+00:00",
+      },
+      "dependencies": Object {
+        "raw": Array [
+          "coffee-script",
+          "argparse",
+          "source-map",
+        ],
+      },
+      "description": Object {
+        "raw": "WIP cat for JS source maps.",
+      },
+      "id": Object {
+        "raw": "source-map-cat",
+      },
+      "keywords": Object {
+        "raw": null,
+      },
+      "license": Object {
+        "raw": Array [
+          "BSD",
+        ],
+      },
+      "modified": Object {
+        "raw": "2013-01-23T04:51:42+00:00",
+      },
+      "name": Object {
+        "raw": "source-map-cat",
+      },
+      "owners": Object {
+        "raw": Array [
+          "gregg@aweber.com",
+        ],
+      },
+      "repository": Object {
+        "raw": null,
+      },
+      "version": Object {
+        "raw": "0.0.0",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 19.189716,
+      },
+      "created": Object {
+        "raw": "2012-04-12T06:27:43+00:00",
+      },
+      "dependencies": Object {
+        "raw": null,
+      },
+      "description": Object {
+        "raw": "Cat4D Framework Implementation",
+      },
+      "homepage": Object {
+        "raw": "http://www.dumb.cat",
+      },
+      "id": Object {
+        "raw": "Cat4D",
+      },
+      "keywords": Object {
+        "raw": Array [
+          "Cat4D",
+          "dumb",
+          "cat",
+        ],
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2012-04-12T06:39:23+00:00",
+      },
+      "name": Object {
+        "raw": "Cat4D",
+      },
+      "owners": Object {
+        "raw": Array [
+          "Cat@Dumb.Cat",
+        ],
+      },
+      "repository": Object {
+        "raw": Array [
+          "https://github.com/Cat4D/Cat4D",
+        ],
+      },
+      "version": Object {
+        "raw": "0.0.2",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 15.885805,
+      },
+      "created": Object {
+        "raw": "2013-01-06T13:43:21+00:00",
+      },
+      "dependencies": Object {
+        "raw": Array [
+          "rex",
+          "cat",
+          "htmlparser",
+        ],
+      },
+      "description": Object {
+        "raw": "Rex Javascript compiling for root",
+      },
+      "id": Object {
+        "raw": "response.require",
+      },
+      "keywords": Object {
+        "raw": Array [
+          "root",
+          "rex",
+          "require",
+        ],
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2013-01-06T13:43:23+00:00",
+      },
+      "name": Object {
+        "raw": "response.require",
+      },
+      "owners": Object {
+        "raw": Array [
+          "mirza.kapetanovic@gmail.com",
+        ],
+      },
+      "repository": Object {
+        "raw": Array [
+          "https://github.com/kapetan/response.require",
+        ],
+      },
+      "version": Object {
+        "raw": "0.1.0",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 15.885805,
+      },
+      "created": Object {
+        "raw": "2012-05-01T21:32:09+00:00",
+      },
+      "dependencies": Object {
+        "raw": Array [
+          "common",
+          "rex",
+          "optimist",
+          "cat",
+        ],
+      },
+      "description": Object {
+        "raw": "rex-cli is the cli equivivalent of rex",
+      },
+      "id": Object {
+        "raw": "rex-cli",
+      },
+      "keywords": Object {
+        "raw": Array [
+          "browser",
+          "commonjs",
+          "cli",
+          "require",
+        ],
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2013-01-02T12:48:38+00:00",
+      },
+      "name": Object {
+        "raw": "rex-cli",
+      },
+      "owners": Object {
+        "raw": Array [
+          "mathiasbuus@gmail.com",
+        ],
+      },
+      "repository": Object {
+        "raw": Array [
+          "https://github.com/gett/rex",
+        ],
+      },
+      "version": Object {
+        "raw": "0.3.2",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 7.3872757,
+      },
+      "created": Object {
+        "raw": "2013-01-28T16:50:08+00:00",
+      },
+      "dependencies": Object {
+        "raw": null,
+      },
+      "description": Object {
+        "raw": "Declarative structural remapping for the web.",
+      },
+      "homepage": Object {
+        "raw": "http://www.treesheets.org",
+      },
+      "id": Object {
+        "raw": "cts",
+      },
+      "keywords": Object {
+        "raw": Array [
+          "treesheets",
+          "cts",
+          "cats",
+          "structure",
+          "cascading treesheets",
+          "tree",
+        ],
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2013-01-28T16:50:09+00:00",
+      },
+      "name": Object {
+        "raw": "cts",
+      },
+      "owners": Object {
+        "raw": Array [
+          "eob@csail.mit.edu",
+        ],
+      },
+      "repository": Object {
+        "raw": Array [
+          "https://github.com/cts/cts-js",
+        ],
+      },
+      "version": Object {
+        "raw": "0.5.0",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 1.4417334,
+      },
+      "created": Object {
+        "raw": "2013-01-10T01:48:15+00:00",
+      },
+      "dependencies": Object {
+        "raw": null,
+      },
+      "description": Object {
+        "raw": "microscopic Node error helpers",
+      },
+      "id": Object {
+        "raw": "catcher",
+      },
+      "keywords": Object {
+        "raw": Array [
+          "error",
+          "handling",
+        ],
+      },
+      "license": Object {
+        "raw": Array [
+          "MIT",
+        ],
+      },
+      "modified": Object {
+        "raw": "2013-01-10T01:48:16+00:00",
+      },
+      "name": Object {
+        "raw": "catcher",
+      },
+      "owners": Object {
+        "raw": Array [
+          "stuart@testtrack4.com",
+        ],
+      },
+      "repository": Object {
+        "raw": Array [
+          "https://github.com/stuartpb/catcher",
+        ],
+      },
+      "version": Object {
+        "raw": "0.1.0",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 1.4417334,
+      },
+      "created": Object {
+        "raw": "2012-12-20T21:05:36+00:00",
+      },
+      "dependencies": Object {
+        "raw": null,
+      },
+      "description": Object {
+        "raw": "models++",
+      },
+      "id": Object {
+        "raw": "catwalk",
+      },
+      "keywords": Object {
+        "raw": null,
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2012-12-20T21:05:38+00:00",
+      },
+      "name": Object {
+        "raw": "catwalk",
+      },
+      "owners": Object {
+        "raw": Array [
+          "a@so.hn",
+        ],
+      },
+      "repository": Object {
+        "raw": null,
+      },
+      "version": Object {
+        "raw": "0.0.1",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 0.45672405,
+      },
+      "created": Object {
+        "raw": "2011-07-16T16:31:00+00:00",
+      },
+      "dependencies": Object {
+        "raw": Array [
+          "jshelpers",
+        ],
+      },
+      "description": Object {
+        "raw": "A JavaScript utility to trace the original url of a shortened url.",
+      },
+      "homepage": Object {
+        "raw": "https://github.com/CatChen/traceurl",
+      },
+      "id": Object {
+        "raw": "traceurl",
+      },
+      "keywords": Object {
+        "raw": null,
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2011-12-16T16:38:49+00:00",
+      },
+      "name": Object {
+        "raw": "traceurl",
+      },
+      "owners": Object {
+        "raw": Array [
+          "cathsfz@gmail.com",
+        ],
+      },
+      "repository": Object {
+        "raw": null,
+      },
+      "version": Object {
+        "raw": "0.2.8",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 0.44973475,
+      },
+      "created": Object {
+        "raw": "2011-06-24T15:38:51+00:00",
+      },
+      "dependencies": Object {
+        "raw": Array [
+          "jshelpers",
+        ],
+      },
+      "description": Object {
+        "raw": "A simple user and role system for Node.js and Redis.",
+      },
+      "homepage": Object {
+        "raw": "https://github.com/CatChen/redis-user",
+      },
+      "id": Object {
+        "raw": "redis-user",
+      },
+      "keywords": Object {
+        "raw": null,
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2011-07-20T04:00:12+00:00",
+      },
+      "name": Object {
+        "raw": "redis-user",
+      },
+      "owners": Object {
+        "raw": Array [
+          "cathsfz@gmail.com",
+        ],
+      },
+      "repository": Object {
+        "raw": null,
+      },
+      "version": Object {
+        "raw": "0.2.4",
+      },
+    },
+  ],
+  "results": Array [
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 26.908445,
+        },
+        "created": Object {
+          "raw": "2012-10-15T23:26:48+00:00",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "Categories for Javascript",
+        },
+        "homepage": Object {
+          "raw": "http://lcfrs.org/cats",
+        },
+        "id": Object {
+          "raw": "cats",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "monad",
+            "functor",
+            "monoid",
+            "async",
+          ],
+        },
+        "license": Object {
+          "raw": Array [
+            "BSD",
+          ],
+        },
+        "modified": Object {
+          "raw": "2012-10-18T16:14:10+00:00",
+        },
+        "name": Object {
+          "raw": "cats",
+        },
+        "owners": Object {
+          "raw": Array [
+            "neuman.vong@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/luciferous/cats",
+          ],
+        },
+        "version": Object {
+          "raw": "0.0.2",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 24.4244,
+        },
+        "created": Object {
+          "raw": "2013-01-23T04:51:39+00:00",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "coffee-script",
+            "argparse",
+            "source-map",
+          ],
+        },
+        "description": Object {
+          "raw": "WIP cat for JS source maps.",
+        },
+        "id": Object {
+          "raw": "source-map-cat",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": Array [
+            "BSD",
+          ],
+        },
+        "modified": Object {
+          "raw": "2013-01-23T04:51:42+00:00",
+        },
+        "name": Object {
+          "raw": "source-map-cat",
+        },
+        "owners": Object {
+          "raw": Array [
+            "gregg@aweber.com",
+          ],
+        },
+        "repository": Object {
+          "raw": null,
+        },
+        "version": Object {
+          "raw": "0.0.0",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 19.189716,
+        },
+        "created": Object {
+          "raw": "2012-04-12T06:27:43+00:00",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "Cat4D Framework Implementation",
+        },
+        "homepage": Object {
+          "raw": "http://www.dumb.cat",
+        },
+        "id": Object {
+          "raw": "Cat4D",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "Cat4D",
+            "dumb",
+            "cat",
+          ],
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-04-12T06:39:23+00:00",
+        },
+        "name": Object {
+          "raw": "Cat4D",
+        },
+        "owners": Object {
+          "raw": Array [
+            "Cat@Dumb.Cat",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/Cat4D/Cat4D",
+          ],
+        },
+        "version": Object {
+          "raw": "0.0.2",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 15.885805,
+        },
+        "created": Object {
+          "raw": "2013-01-06T13:43:21+00:00",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "rex",
+            "cat",
+            "htmlparser",
+          ],
+        },
+        "description": Object {
+          "raw": "Rex Javascript compiling for root",
+        },
+        "id": Object {
+          "raw": "response.require",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "root",
+            "rex",
+            "require",
+          ],
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2013-01-06T13:43:23+00:00",
+        },
+        "name": Object {
+          "raw": "response.require",
+        },
+        "owners": Object {
+          "raw": Array [
+            "mirza.kapetanovic@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/kapetan/response.require",
+          ],
+        },
+        "version": Object {
+          "raw": "0.1.0",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 15.885805,
+        },
+        "created": Object {
+          "raw": "2012-05-01T21:32:09+00:00",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "common",
+            "rex",
+            "optimist",
+            "cat",
+          ],
+        },
+        "description": Object {
+          "raw": "rex-cli is the cli equivivalent of rex",
+        },
+        "id": Object {
+          "raw": "rex-cli",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "browser",
+            "commonjs",
+            "cli",
+            "require",
+          ],
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2013-01-02T12:48:38+00:00",
+        },
+        "name": Object {
+          "raw": "rex-cli",
+        },
+        "owners": Object {
+          "raw": Array [
+            "mathiasbuus@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/gett/rex",
+          ],
+        },
+        "version": Object {
+          "raw": "0.3.2",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 7.3872757,
+        },
+        "created": Object {
+          "raw": "2013-01-28T16:50:08+00:00",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "Declarative structural remapping for the web.",
+        },
+        "homepage": Object {
+          "raw": "http://www.treesheets.org",
+        },
+        "id": Object {
+          "raw": "cts",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "treesheets",
+            "cts",
+            "cats",
+            "structure",
+            "cascading treesheets",
+            "tree",
+          ],
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2013-01-28T16:50:09+00:00",
+        },
+        "name": Object {
+          "raw": "cts",
+        },
+        "owners": Object {
+          "raw": Array [
+            "eob@csail.mit.edu",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/cts/cts-js",
+          ],
+        },
+        "version": Object {
+          "raw": "0.5.0",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 1.4417334,
+        },
+        "created": Object {
+          "raw": "2013-01-10T01:48:15+00:00",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "microscopic Node error helpers",
+        },
+        "id": Object {
+          "raw": "catcher",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "error",
+            "handling",
+          ],
+        },
+        "license": Object {
+          "raw": Array [
+            "MIT",
+          ],
+        },
+        "modified": Object {
+          "raw": "2013-01-10T01:48:16+00:00",
+        },
+        "name": Object {
+          "raw": "catcher",
+        },
+        "owners": Object {
+          "raw": Array [
+            "stuart@testtrack4.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/stuartpb/catcher",
+          ],
+        },
+        "version": Object {
+          "raw": "0.1.0",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 1.4417334,
+        },
+        "created": Object {
+          "raw": "2012-12-20T21:05:36+00:00",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "models++",
+        },
+        "id": Object {
+          "raw": "catwalk",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-12-20T21:05:38+00:00",
+        },
+        "name": Object {
+          "raw": "catwalk",
+        },
+        "owners": Object {
+          "raw": Array [
+            "a@so.hn",
+          ],
+        },
+        "repository": Object {
+          "raw": null,
+        },
+        "version": Object {
+          "raw": "0.0.1",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 0.45672405,
+        },
+        "created": Object {
+          "raw": "2011-07-16T16:31:00+00:00",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "jshelpers",
+          ],
+        },
+        "description": Object {
+          "raw": "A JavaScript utility to trace the original url of a shortened url.",
+        },
+        "homepage": Object {
+          "raw": "https://github.com/CatChen/traceurl",
+        },
+        "id": Object {
+          "raw": "traceurl",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2011-12-16T16:38:49+00:00",
+        },
+        "name": Object {
+          "raw": "traceurl",
+        },
+        "owners": Object {
+          "raw": Array [
+            "cathsfz@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": null,
+        },
+        "version": Object {
+          "raw": "0.2.8",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 0.44973475,
+        },
+        "created": Object {
+          "raw": "2011-06-24T15:38:51+00:00",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "jshelpers",
+          ],
+        },
+        "description": Object {
+          "raw": "A simple user and role system for Node.js and Redis.",
+        },
+        "homepage": Object {
+          "raw": "https://github.com/CatChen/redis-user",
+        },
+        "id": Object {
+          "raw": "redis-user",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2011-07-20T04:00:12+00:00",
+        },
+        "name": Object {
+          "raw": "redis-user",
+        },
+        "owners": Object {
+          "raw": Array [
+            "cathsfz@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": null,
+        },
+        "version": Object {
+          "raw": "0.2.4",
+        },
+      },
+    },
+  ],
+}
+`;
