@@ -1,0 +1,24 @@
+POST /api/as/v1/engines/invalid/search.json
+authorization: Bearer invalid
+content-type: application/json
+accept: */*
+accept-encoding: gzip,deflate
+body: {}
+
+HTTP/1.1 404 Not Found
+date: Tue, 15 May 2018 17:14:52 GMT
+content-type: application/json
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 404 Not Found
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+cache-control: no-cache
+x-request-id: 6111bf0d61221b0c745d416fe1600d45
+x-runtime: 0.019072
+x-swiftype-datacenter: dal05
+x-swiftype-frontend-node: web02.dal05
+x-swiftype-edge-node: web02.dal05
+

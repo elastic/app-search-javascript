@@ -73,6 +73,52 @@ client.search('cat', options).then((resultList) => {
 
 Note that `options` supports all options listed here: https://swiftype.com/documentation/app-search/guides/searching.
 
+### Click Through Tracking
+
+```javascript
+client.click(
+  {
+    query: 'Cat',
+    documentId: '1234567',
+    requestId: '8b55561954484f13d872728f849ffd22',
+    tags: ['Animal']
+  }
+).catch((error) => {
+  console.log(`error: ${error}`)
+})
+```
+
+Click throughs can be tracked by binding `client.click` calls to click events on individual search result links.
+
+The following example shows how this can be implemented declaratively by annotating links with class and data attributes.
+
+```javascript
+document.addEventListener('click', function(e) {
+  const el = e.target;
+  if !(el.classList.contains('track-click')) return;
+
+  client.click(
+    {
+      query:  el.getAttribute('data-query'),
+      documentId:  el.getAttribute('data-document-id'),
+      requestId:  el.getAttribute('data-request-id'),
+      tags: [el.getAttribute('data-tag')]
+    }
+  )
+})
+```
+
+```html
+<a href="/items/1234567"
+    class="track-click"
+    data-request-id="8b55561954484f13d872728f849ffd22"
+    data-document-id="1234567"
+    data-query="Cat"
+    data-tag="Animal">
+  Item 1
+</a>
+```
+
 ## Build
 
 ```bash
@@ -80,6 +126,21 @@ yarn install
 yarn build
 ```
 
+## Running Tests
+
+  $ yarn test
+
+## Adding and updating
+
+  The specs in this project use [node-replay](https://github.com/assaf/node-replay) to capture responses.
+
+  To capture new responses, run tests with the following command:
+
+  ```
+  REPLAY=record yarn test
+  ```
+
 ## Contributions
 
-  To contribute code to this gem, please fork the repository and submit a pull request.
+  To contribute code, please fork the repository and submit a pull request.
+`
