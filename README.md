@@ -128,16 +128,16 @@ yarn build
 
 ## Running Tests
 
-  $ npm test
+  $ yarn test
 
-## Adding an updating Tests
+## Adding and updating
 
   The specs in this project use [node-replay](https://github.com/assaf/node-replay) to capture responses.
 
   To capture new responses, run tests with the following command:
 
   ```
-  REPLAY=record npm test
+  REPLAY=record yarn test
   ```
 
 ## Contributions
