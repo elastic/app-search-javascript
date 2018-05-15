@@ -94,17 +94,15 @@ The following example shows how this can be implemented declaratively by annotat
 
 ```javascript
 document.addEventListener('click', function(e) {
-  const el = e.target;
-  if !(el.classList.contains('track-click')) return;
+  const el = e.target
+  if (!el.classList.contains('track-click')) return
 
-  client.click(
-    {
-      query:  el.getAttribute('data-query'),
-      documentId:  el.getAttribute('data-document-id'),
-      requestId:  el.getAttribute('data-request-id'),
-      tags: [el.getAttribute('data-tag')]
-    }
-  )
+  client.click({
+    query: el.getAttribute('data-query'),
+    documentId: el.getAttribute('data-document-id'),
+    requestId: el.getAttribute('data-request-id'),
+    tags: [el.getAttribute('data-tag')]
+  })
 })
 ```
 
