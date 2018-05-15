@@ -44,27 +44,27 @@ describe("Client", () => {
 
   describe("#click", () => {
     test("should resolve", async () => {
-      const result = await client.click(
-        "Cat",
-        "rex-cli",
-        "8b55561954484f13d872728f849ffd22",
-        ["Cat"]
-      );
+      const result = await client.click({
+        query: "Cat",
+        documentId: "rex-cli",
+        requestId: "8b55561954484f13d872728f849ffd22",
+        tags: ["Cat"]
+      });
       expect(result).toMatchSnapshot();
     });
 
     test("should resolve if no tags are provided", async () => {
-      const result = await client.click(
-        "Cat",
-        "rex-cli",
-        "8b55561954484f13d872728f849ffd22"
-      );
+      const result = await client.click({
+        query: "Cat",
+        documentId: "rex-cli",
+        requestId: "8b55561954484f13d872728f849ffd22"
+      });
       expect(result).toMatchSnapshot();
     });
 
     test("should should reject when given invalid options", async () => {
       try {
-        await client.click();
+        await client.click({});
       } catch (e) {
         expect(e).toEqual(new Error("[400] Missing required parameter: query"));
       }
@@ -73,7 +73,7 @@ describe("Client", () => {
     test("should reject on a 404", async () => {
       const badClient = new Client("invalid", "invalid", "invalid");
       try {
-        await badClient.click();
+        await badClient.click({});
       } catch (e) {
         expect(e).toEqual(new Error("[404]"));
       }

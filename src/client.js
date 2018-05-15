@@ -35,10 +35,10 @@ export default class Client {
    * @param {String} query Query that was used to perform the search request
    * @param {String} documentId ID of the document that was clicked
    * @param {String} requestId Request_id from search response
-   * @param {String[]} tags Unique tags to identify this request in the Dashboard
+   * @param {String[]} tags Tags to categorize this request in the Dashboard
    * @returns {Promise} An empty Promise, otherwise throws an Error.
    */
-  click(query, documentId, requestId, tags = []) {
+  click({query, documentId, requestId, tags = []}) {
     const params = {
       query,
       document_id: documentId,

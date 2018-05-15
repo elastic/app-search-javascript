@@ -77,10 +77,12 @@ Note that `options` supports all options listed here: https://swiftype.com/docum
 
 ```javascript
 client.click(
-  'Cat',
-  '1234567',
-  '8b55561954484f13d872728f849ffd22',
-  ['Animal']
+  {
+    query: 'Cat',
+    documentId: '1234567',
+    requestId: '8b55561954484f13d872728f849ffd22',
+    tags: ['Animal']
+  }
 ).catch((error) => {
   console.log(`error: ${error}`)
 })
@@ -96,10 +98,12 @@ document.addEventListener('click', function(e) {
   if !(el.classList.contains('track-click')) return;
 
   client.click(
-    el.getAttribute('data-query'),
-    el.getAttribute('data-document-id'),
-    el.getAttribute('data-request-id'),
-    [el.getAttribute('data-tag')]
+    {
+      query:  el.getAttribute('data-query'),
+      documentId:  el.getAttribute('data-document-id'),
+      requestId:  el.getAttribute('data-request-id'),
+      tags: [el.getAttribute('data-tag')]
+    }
   )
 })
 ```
