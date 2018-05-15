@@ -2,9 +2,9 @@ import Client from "../src/client";
 import fetch, { Headers } from "node-fetch";
 import Replay from "replay";
 
-const accountHostKey = "host-01kd84";
-const apiKey = "search-aw9sk38fjs7akd9ajbnfav69";
-const engineName = "test-engine";
+const accountHostKey = "host-2376rb";
+const apiKey = "api-hean6g8dmxnm2shqqiag757a";
+const engineName = "node-modules";
 
 describe("Client", () => {
   beforeAll(() => {

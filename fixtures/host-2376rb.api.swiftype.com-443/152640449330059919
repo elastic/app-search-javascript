@@ -1,23 +1,23 @@
-POST /api/as/v1/engines/invalid/click.json
-authorization: Bearer invalid
+POST /api/as/v1/engines/node-modules/click.json
+authorization: Bearer api-hean6g8dmxnm2shqqiag757a
 content-type: application/json
 accept: */*
 accept-encoding: gzip,deflate
-body: {\"tags\":[]}
+body: {\"query\":\"Cat\",\"document_id\":\"rex-cli\",\"search_request_id\":\"8b55561954484f13d872728f849ffd22\",\"tags\":[\"Cat\"]}
 
-HTTP/1.1 404 Not Found
-date: Wed, 09 May 2018 16:12:30 GMT
+HTTP/1.1 200 OK
+date: Tue, 15 May 2018 17:14:53 GMT
 content-type: application/json
 transfer-encoding: chunked
 connection: close
 vary: Accept-Encoding, Origin
-status: 404 Not Found
+status: 200 OK
 x-frame-options: SAMEORIGIN
 x-xss-protection: 1; mode=block
 x-content-type-options: nosniff
 cache-control: no-cache
-x-request-id: fc853327c36328866ddb52301d267c60
-x-runtime: 0.025238
+x-request-id: 8666eb8bce32d8f1a94728b54796913d
+x-runtime: 0.061761
 x-swiftype-datacenter: dal05
 x-swiftype-frontend-node: web02.dal05
 x-swiftype-edge-node: web02.dal05

@@ -11,10 +11,11 @@ ResultList {
       "page": Object {
         "current": 1,
         "size": 10,
-        "total_pages": 62,
-        "total_results": 615,
+        "total_pages": 65,
+        "total_results": 642,
       },
-      "request_id": "0ba8232f2ad2a054d9ebb86e5010c922",
+      "request_id": "d3923546fd2fc9ee36aa1107e99aec6e",
+      "warnings": Array [],
     },
   },
   "rawInfo": Object {
@@ -22,71 +23,20 @@ ResultList {
       "page": Object {
         "current": 1,
         "size": 10,
-        "total_pages": 62,
-        "total_results": 615,
+        "total_pages": 65,
+        "total_results": 642,
       },
-      "request_id": "0ba8232f2ad2a054d9ebb86e5010c922",
+      "request_id": "d3923546fd2fc9ee36aa1107e99aec6e",
+      "warnings": Array [],
     },
   },
   "rawResults": Array [
     Object {
       "_meta": Object {
-        "score": 26.908445,
+        "score": 19.145737,
       },
       "created": Object {
-        "raw": "2012-10-15T23:26:48+00:00",
-      },
-      "dependencies": Object {
-        "raw": null,
-      },
-      "description": Object {
-        "raw": "Categories for Javascript",
-      },
-      "homepage": Object {
-        "raw": "http://lcfrs.org/cats",
-      },
-      "id": Object {
-        "raw": "cats",
-      },
-      "keywords": Object {
-        "raw": Array [
-          "monad",
-          "functor",
-          "monoid",
-          "async",
-        ],
-      },
-      "license": Object {
-        "raw": Array [
-          "BSD",
-        ],
-      },
-      "modified": Object {
-        "raw": "2012-10-18T16:14:10+00:00",
-      },
-      "name": Object {
-        "raw": "cats",
-      },
-      "owners": Object {
-        "raw": Array [
-          "neuman.vong@gmail.com",
-        ],
-      },
-      "repository": Object {
-        "raw": Array [
-          "https://github.com/luciferous/cats",
-        ],
-      },
-      "version": Object {
-        "raw": "0.0.2",
-      },
-    },
-    Object {
-      "_meta": Object {
-        "score": 24.4244,
-      },
-      "created": Object {
-        "raw": "2013-01-23T04:51:39+00:00",
+        "raw": "2013-01-23T04:51:39.995Z",
       },
       "dependencies": Object {
         "raw": Array [
@@ -110,7 +60,7 @@ ResultList {
         ],
       },
       "modified": Object {
-        "raw": "2013-01-23T04:51:42+00:00",
+        "raw": "2013-01-23T04:51:42.782Z",
       },
       "name": Object {
         "raw": "source-map-cat",
@@ -129,10 +79,10 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 19.189716,
+        "score": 18.945496,
       },
       "created": Object {
-        "raw": "2012-04-12T06:27:43+00:00",
+        "raw": "2012-04-12T06:27:43.515Z",
       },
       "dependencies": Object {
         "raw": null,
@@ -157,7 +107,7 @@ ResultList {
         "raw": null,
       },
       "modified": Object {
-        "raw": "2012-04-12T06:39:23+00:00",
+        "raw": "2012-04-12T06:39:23.334Z",
       },
       "name": Object {
         "raw": "Cat4D",
@@ -178,10 +128,10 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 15.885805,
+        "score": 17.527254,
       },
       "created": Object {
-        "raw": "2013-01-06T13:43:21+00:00",
+        "raw": "2013-01-06T13:43:21.012Z",
       },
       "dependencies": Object {
         "raw": Array [
@@ -207,7 +157,7 @@ ResultList {
         "raw": null,
       },
       "modified": Object {
-        "raw": "2013-01-06T13:43:23+00:00",
+        "raw": "2013-01-06T13:43:23.680Z",
       },
       "name": Object {
         "raw": "response.require",
@@ -228,10 +178,10 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 15.885805,
+        "score": 15.792556,
       },
       "created": Object {
-        "raw": "2012-05-01T21:32:09+00:00",
+        "raw": "2012-05-01T21:32:09.544Z",
       },
       "dependencies": Object {
         "raw": Array [
@@ -259,7 +209,7 @@ ResultList {
         "raw": null,
       },
       "modified": Object {
-        "raw": "2013-01-02T12:48:38+00:00",
+        "raw": "2013-01-02T12:48:38.182Z",
       },
       "name": Object {
         "raw": "rex-cli",
@@ -280,10 +230,62 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 7.3872757,
+        "score": 12.985308,
       },
       "created": Object {
-        "raw": "2013-01-28T16:50:08+00:00",
+        "raw": "2012-10-15T23:26:48.468Z",
+      },
+      "dependencies": Object {
+        "raw": null,
+      },
+      "description": Object {
+        "raw": "Categories for Javascript",
+      },
+      "homepage": Object {
+        "raw": "http://lcfrs.org/cats",
+      },
+      "id": Object {
+        "raw": "cats",
+      },
+      "keywords": Object {
+        "raw": Array [
+          "monad",
+          "functor",
+          "monoid",
+          "async",
+        ],
+      },
+      "license": Object {
+        "raw": Array [
+          "BSD",
+        ],
+      },
+      "modified": Object {
+        "raw": "2012-10-18T16:14:10.680Z",
+      },
+      "name": Object {
+        "raw": "cats",
+      },
+      "owners": Object {
+        "raw": Array [
+          "neuman.vong@gmail.com",
+        ],
+      },
+      "repository": Object {
+        "raw": Array [
+          "https://github.com/luciferous/cats",
+        ],
+      },
+      "version": Object {
+        "raw": "0.0.2",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 7.3349295,
+      },
+      "created": Object {
+        "raw": "2013-01-28T16:50:08.471Z",
       },
       "dependencies": Object {
         "raw": null,
@@ -311,7 +313,7 @@ ResultList {
         "raw": null,
       },
       "modified": Object {
-        "raw": "2013-01-28T16:50:09+00:00",
+        "raw": "2013-01-28T16:50:09.891Z",
       },
       "name": Object {
         "raw": "cts",
@@ -332,142 +334,10 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 1.4417334,
+        "score": 3.2000582,
       },
       "created": Object {
-        "raw": "2013-01-10T01:48:15+00:00",
-      },
-      "dependencies": Object {
-        "raw": null,
-      },
-      "description": Object {
-        "raw": "microscopic Node error helpers",
-      },
-      "id": Object {
-        "raw": "catcher",
-      },
-      "keywords": Object {
-        "raw": Array [
-          "error",
-          "handling",
-        ],
-      },
-      "license": Object {
-        "raw": Array [
-          "MIT",
-        ],
-      },
-      "modified": Object {
-        "raw": "2013-01-10T01:48:16+00:00",
-      },
-      "name": Object {
-        "raw": "catcher",
-      },
-      "owners": Object {
-        "raw": Array [
-          "stuart@testtrack4.com",
-        ],
-      },
-      "repository": Object {
-        "raw": Array [
-          "https://github.com/stuartpb/catcher",
-        ],
-      },
-      "version": Object {
-        "raw": "0.1.0",
-      },
-    },
-    Object {
-      "_meta": Object {
-        "score": 1.4417334,
-      },
-      "created": Object {
-        "raw": "2012-12-20T21:05:36+00:00",
-      },
-      "dependencies": Object {
-        "raw": null,
-      },
-      "description": Object {
-        "raw": "models++",
-      },
-      "id": Object {
-        "raw": "catwalk",
-      },
-      "keywords": Object {
-        "raw": null,
-      },
-      "license": Object {
-        "raw": null,
-      },
-      "modified": Object {
-        "raw": "2012-12-20T21:05:38+00:00",
-      },
-      "name": Object {
-        "raw": "catwalk",
-      },
-      "owners": Object {
-        "raw": Array [
-          "a@so.hn",
-        ],
-      },
-      "repository": Object {
-        "raw": null,
-      },
-      "version": Object {
-        "raw": "0.0.1",
-      },
-    },
-    Object {
-      "_meta": Object {
-        "score": 0.45672405,
-      },
-      "created": Object {
-        "raw": "2011-07-16T16:31:00+00:00",
-      },
-      "dependencies": Object {
-        "raw": Array [
-          "jshelpers",
-        ],
-      },
-      "description": Object {
-        "raw": "A JavaScript utility to trace the original url of a shortened url.",
-      },
-      "homepage": Object {
-        "raw": "https://github.com/CatChen/traceurl",
-      },
-      "id": Object {
-        "raw": "traceurl",
-      },
-      "keywords": Object {
-        "raw": null,
-      },
-      "license": Object {
-        "raw": null,
-      },
-      "modified": Object {
-        "raw": "2011-12-16T16:38:49+00:00",
-      },
-      "name": Object {
-        "raw": "traceurl",
-      },
-      "owners": Object {
-        "raw": Array [
-          "cathsfz@gmail.com",
-        ],
-      },
-      "repository": Object {
-        "raw": null,
-      },
-      "version": Object {
-        "raw": "0.2.8",
-      },
-    },
-    Object {
-      "_meta": Object {
-        "score": 0.44973475,
-      },
-      "created": Object {
-        "raw": "2011-06-24T15:38:51+00:00",
+        "raw": "2011-06-24T15:38:51.745Z",
       },
       "dependencies": Object {
         "raw": Array [
@@ -490,7 +360,7 @@ ResultList {
         "raw": null,
       },
       "modified": Object {
-        "raw": "2011-07-20T04:00:12+00:00",
+        "raw": "2011-07-20T04:00:12.987Z",
       },
       "name": Object {
         "raw": "redis-user",
@@ -507,69 +377,147 @@ ResultList {
         "raw": "0.2.4",
       },
     },
+    Object {
+      "_meta": Object {
+        "score": 2.892126,
+      },
+      "created": Object {
+        "raw": "2011-07-16T16:31:00.287Z",
+      },
+      "dependencies": Object {
+        "raw": Array [
+          "jshelpers",
+        ],
+      },
+      "description": Object {
+        "raw": "A JavaScript utility to trace the original url of a shortened url.",
+      },
+      "homepage": Object {
+        "raw": "https://github.com/CatChen/traceurl",
+      },
+      "id": Object {
+        "raw": "traceurl",
+      },
+      "keywords": Object {
+        "raw": null,
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2011-12-16T16:38:49.255Z",
+      },
+      "name": Object {
+        "raw": "traceurl",
+      },
+      "owners": Object {
+        "raw": Array [
+          "cathsfz@gmail.com",
+        ],
+      },
+      "repository": Object {
+        "raw": null,
+      },
+      "version": Object {
+        "raw": "0.2.8",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 0.73255426,
+      },
+      "created": Object {
+        "raw": "2013-01-10T01:48:15.743Z",
+      },
+      "dependencies": Object {
+        "raw": null,
+      },
+      "description": Object {
+        "raw": "microscopic Node error helpers",
+      },
+      "id": Object {
+        "raw": "catcher",
+      },
+      "keywords": Object {
+        "raw": Array [
+          "error",
+          "handling",
+        ],
+      },
+      "license": Object {
+        "raw": Array [
+          "MIT",
+        ],
+      },
+      "modified": Object {
+        "raw": "2013-01-10T01:48:16.381Z",
+      },
+      "name": Object {
+        "raw": "catcher",
+      },
+      "owners": Object {
+        "raw": Array [
+          "stuart@testtrack4.com",
+        ],
+      },
+      "repository": Object {
+        "raw": Array [
+          "https://github.com/stuartpb/catcher",
+        ],
+      },
+      "version": Object {
+        "raw": "0.1.0",
+      },
+    },
+    Object {
+      "_meta": Object {
+        "score": 0.7191974,
+      },
+      "created": Object {
+        "raw": "2012-12-20T21:05:36.757Z",
+      },
+      "dependencies": Object {
+        "raw": null,
+      },
+      "description": Object {
+        "raw": "models++",
+      },
+      "id": Object {
+        "raw": "catwalk",
+      },
+      "keywords": Object {
+        "raw": null,
+      },
+      "license": Object {
+        "raw": null,
+      },
+      "modified": Object {
+        "raw": "2012-12-20T21:05:38.476Z",
+      },
+      "name": Object {
+        "raw": "catwalk",
+      },
+      "owners": Object {
+        "raw": Array [
+          "a@so.hn",
+        ],
+      },
+      "repository": Object {
+        "raw": null,
+      },
+      "version": Object {
+        "raw": "0.0.1",
+      },
+    },
   ],
   "results": Array [
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 26.908445,
+          "score": 19.145737,
         },
         "created": Object {
-          "raw": "2012-10-15T23:26:48+00:00",
-        },
-        "dependencies": Object {
-          "raw": null,
-        },
-        "description": Object {
-          "raw": "Categories for Javascript",
-        },
-        "homepage": Object {
-          "raw": "http://lcfrs.org/cats",
-        },
-        "id": Object {
-          "raw": "cats",
-        },
-        "keywords": Object {
-          "raw": Array [
-            "monad",
-            "functor",
-            "monoid",
-            "async",
-          ],
-        },
-        "license": Object {
-          "raw": Array [
-            "BSD",
-          ],
-        },
-        "modified": Object {
-          "raw": "2012-10-18T16:14:10+00:00",
-        },
-        "name": Object {
-          "raw": "cats",
-        },
-        "owners": Object {
-          "raw": Array [
-            "neuman.vong@gmail.com",
-          ],
-        },
-        "repository": Object {
-          "raw": Array [
-            "https://github.com/luciferous/cats",
-          ],
-        },
-        "version": Object {
-          "raw": "0.0.2",
-        },
-      },
-    },
-    ResultItem {
-      "data": Object {
-        "_meta": Object {
-          "score": 24.4244,
-        },
-        "created": Object {
-          "raw": "2013-01-23T04:51:39+00:00",
+          "raw": "2013-01-23T04:51:39.995Z",
         },
         "dependencies": Object {
           "raw": Array [
@@ -593,7 +541,7 @@ ResultList {
           ],
         },
         "modified": Object {
-          "raw": "2013-01-23T04:51:42+00:00",
+          "raw": "2013-01-23T04:51:42.782Z",
         },
         "name": Object {
           "raw": "source-map-cat",
@@ -614,10 +562,10 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 19.189716,
+          "score": 18.945496,
         },
         "created": Object {
-          "raw": "2012-04-12T06:27:43+00:00",
+          "raw": "2012-04-12T06:27:43.515Z",
         },
         "dependencies": Object {
           "raw": null,
@@ -642,7 +590,7 @@ ResultList {
           "raw": null,
         },
         "modified": Object {
-          "raw": "2012-04-12T06:39:23+00:00",
+          "raw": "2012-04-12T06:39:23.334Z",
         },
         "name": Object {
           "raw": "Cat4D",
@@ -665,10 +613,10 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 15.885805,
+          "score": 17.527254,
         },
         "created": Object {
-          "raw": "2013-01-06T13:43:21+00:00",
+          "raw": "2013-01-06T13:43:21.012Z",
         },
         "dependencies": Object {
           "raw": Array [
@@ -694,7 +642,7 @@ ResultList {
           "raw": null,
         },
         "modified": Object {
-          "raw": "2013-01-06T13:43:23+00:00",
+          "raw": "2013-01-06T13:43:23.680Z",
         },
         "name": Object {
           "raw": "response.require",
@@ -717,10 +665,10 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 15.885805,
+          "score": 15.792556,
         },
         "created": Object {
-          "raw": "2012-05-01T21:32:09+00:00",
+          "raw": "2012-05-01T21:32:09.544Z",
         },
         "dependencies": Object {
           "raw": Array [
@@ -748,7 +696,7 @@ ResultList {
           "raw": null,
         },
         "modified": Object {
-          "raw": "2013-01-02T12:48:38+00:00",
+          "raw": "2013-01-02T12:48:38.182Z",
         },
         "name": Object {
           "raw": "rex-cli",
@@ -771,10 +719,64 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 7.3872757,
+          "score": 12.985308,
         },
         "created": Object {
-          "raw": "2013-01-28T16:50:08+00:00",
+          "raw": "2012-10-15T23:26:48.468Z",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "Categories for Javascript",
+        },
+        "homepage": Object {
+          "raw": "http://lcfrs.org/cats",
+        },
+        "id": Object {
+          "raw": "cats",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "monad",
+            "functor",
+            "monoid",
+            "async",
+          ],
+        },
+        "license": Object {
+          "raw": Array [
+            "BSD",
+          ],
+        },
+        "modified": Object {
+          "raw": "2012-10-18T16:14:10.680Z",
+        },
+        "name": Object {
+          "raw": "cats",
+        },
+        "owners": Object {
+          "raw": Array [
+            "neuman.vong@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/luciferous/cats",
+          ],
+        },
+        "version": Object {
+          "raw": "0.0.2",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 7.3349295,
+        },
+        "created": Object {
+          "raw": "2013-01-28T16:50:08.471Z",
         },
         "dependencies": Object {
           "raw": null,
@@ -802,7 +804,7 @@ ResultList {
           "raw": null,
         },
         "modified": Object {
-          "raw": "2013-01-28T16:50:09+00:00",
+          "raw": "2013-01-28T16:50:09.891Z",
         },
         "name": Object {
           "raw": "cts",
@@ -825,148 +827,10 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 1.4417334,
+          "score": 3.2000582,
         },
         "created": Object {
-          "raw": "2013-01-10T01:48:15+00:00",
-        },
-        "dependencies": Object {
-          "raw": null,
-        },
-        "description": Object {
-          "raw": "microscopic Node error helpers",
-        },
-        "id": Object {
-          "raw": "catcher",
-        },
-        "keywords": Object {
-          "raw": Array [
-            "error",
-            "handling",
-          ],
-        },
-        "license": Object {
-          "raw": Array [
-            "MIT",
-          ],
-        },
-        "modified": Object {
-          "raw": "2013-01-10T01:48:16+00:00",
-        },
-        "name": Object {
-          "raw": "catcher",
-        },
-        "owners": Object {
-          "raw": Array [
-            "stuart@testtrack4.com",
-          ],
-        },
-        "repository": Object {
-          "raw": Array [
-            "https://github.com/stuartpb/catcher",
-          ],
-        },
-        "version": Object {
-          "raw": "0.1.0",
-        },
-      },
-    },
-    ResultItem {
-      "data": Object {
-        "_meta": Object {
-          "score": 1.4417334,
-        },
-        "created": Object {
-          "raw": "2012-12-20T21:05:36+00:00",
-        },
-        "dependencies": Object {
-          "raw": null,
-        },
-        "description": Object {
-          "raw": "models++",
-        },
-        "id": Object {
-          "raw": "catwalk",
-        },
-        "keywords": Object {
-          "raw": null,
-        },
-        "license": Object {
-          "raw": null,
-        },
-        "modified": Object {
-          "raw": "2012-12-20T21:05:38+00:00",
-        },
-        "name": Object {
-          "raw": "catwalk",
-        },
-        "owners": Object {
-          "raw": Array [
-            "a@so.hn",
-          ],
-        },
-        "repository": Object {
-          "raw": null,
-        },
-        "version": Object {
-          "raw": "0.0.1",
-        },
-      },
-    },
-    ResultItem {
-      "data": Object {
-        "_meta": Object {
-          "score": 0.45672405,
-        },
-        "created": Object {
-          "raw": "2011-07-16T16:31:00+00:00",
-        },
-        "dependencies": Object {
-          "raw": Array [
-            "jshelpers",
-          ],
-        },
-        "description": Object {
-          "raw": "A JavaScript utility to trace the original url of a shortened url.",
-        },
-        "homepage": Object {
-          "raw": "https://github.com/CatChen/traceurl",
-        },
-        "id": Object {
-          "raw": "traceurl",
-        },
-        "keywords": Object {
-          "raw": null,
-        },
-        "license": Object {
-          "raw": null,
-        },
-        "modified": Object {
-          "raw": "2011-12-16T16:38:49+00:00",
-        },
-        "name": Object {
-          "raw": "traceurl",
-        },
-        "owners": Object {
-          "raw": Array [
-            "cathsfz@gmail.com",
-          ],
-        },
-        "repository": Object {
-          "raw": null,
-        },
-        "version": Object {
-          "raw": "0.2.8",
-        },
-      },
-    },
-    ResultItem {
-      "data": Object {
-        "_meta": Object {
-          "score": 0.44973475,
-        },
-        "created": Object {
-          "raw": "2011-06-24T15:38:51+00:00",
+          "raw": "2011-06-24T15:38:51.745Z",
         },
         "dependencies": Object {
           "raw": Array [
@@ -989,7 +853,7 @@ ResultList {
           "raw": null,
         },
         "modified": Object {
-          "raw": "2011-07-20T04:00:12+00:00",
+          "raw": "2011-07-20T04:00:12.987Z",
         },
         "name": Object {
           "raw": "redis-user",
@@ -1004,6 +868,144 @@ ResultList {
         },
         "version": Object {
           "raw": "0.2.4",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 2.892126,
+        },
+        "created": Object {
+          "raw": "2011-07-16T16:31:00.287Z",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "jshelpers",
+          ],
+        },
+        "description": Object {
+          "raw": "A JavaScript utility to trace the original url of a shortened url.",
+        },
+        "homepage": Object {
+          "raw": "https://github.com/CatChen/traceurl",
+        },
+        "id": Object {
+          "raw": "traceurl",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2011-12-16T16:38:49.255Z",
+        },
+        "name": Object {
+          "raw": "traceurl",
+        },
+        "owners": Object {
+          "raw": Array [
+            "cathsfz@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": null,
+        },
+        "version": Object {
+          "raw": "0.2.8",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 0.73255426,
+        },
+        "created": Object {
+          "raw": "2013-01-10T01:48:15.743Z",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "microscopic Node error helpers",
+        },
+        "id": Object {
+          "raw": "catcher",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "error",
+            "handling",
+          ],
+        },
+        "license": Object {
+          "raw": Array [
+            "MIT",
+          ],
+        },
+        "modified": Object {
+          "raw": "2013-01-10T01:48:16.381Z",
+        },
+        "name": Object {
+          "raw": "catcher",
+        },
+        "owners": Object {
+          "raw": Array [
+            "stuart@testtrack4.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/stuartpb/catcher",
+          ],
+        },
+        "version": Object {
+          "raw": "0.1.0",
+        },
+      },
+    },
+    ResultItem {
+      "data": Object {
+        "_meta": Object {
+          "score": 0.7191974,
+        },
+        "created": Object {
+          "raw": "2012-12-20T21:05:36.757Z",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "models++",
+        },
+        "id": Object {
+          "raw": "catwalk",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-12-20T21:05:38.476Z",
+        },
+        "name": Object {
+          "raw": "catwalk",
+        },
+        "owners": Object {
+          "raw": Array [
+            "a@so.hn",
+          ],
+        },
+        "repository": Object {
+          "raw": null,
+        },
+        "version": Object {
+          "raw": "0.0.1",
         },
       },
     },

@@ -128,21 +128,13 @@ yarn build
 
 ## Adding an updating Tests
 
-  The specs in this project use [node-replay](https://github.com/assaf/node-replay) to capture responses. The engine which was used to capture these
-  responses was created using the engine created in [this](https://github.com/swiftype/app-search-demo-react#push-data-to-the-node-modules-engine) tutorial. They were then swapped out with fake credentials as to not expose them publicly.
+  The specs in this project use [node-replay](https://github.com/assaf/node-replay) to capture responses.
 
-  To capture new responses:
+  To capture new responses, run tests with the following command:
 
-  1. Re-create that engine per that tutorial, but using "test-engine" as the Engine name. Take note of the new Account and API Keys.
-  2. Rename the folder "fixtures/host-01kd84.api.swiftype.com-443" to match your new Account Key.
-  3. Replace all instances of "search-aw9sk38fjs7akd9ajbnfav69" in this project with your new Search API Key.
-  4. Run the tests and observe that they pass.
-  5. Make whatever updates you need, including generating new fixtures with `REPLAY=record npm test`.
-  6. Once you're done making changes, do steps 2. and 3. in reverse to swap out your real credentials with fake credentials.
-  7. Run the tests and observe that they pass.
-  8. Commit your changes.
-
-  We hope to smooth this process out in the future, right now it can be a bit clunky.
+  ```
+  REPLAY=record npm test
+  ```
 
 ## Contributions
 
