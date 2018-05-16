@@ -52,9 +52,14 @@ var client = SwiftypeAppSearch.createClient({
 })
 ```
 
-\* Please note that you should only ever use a read-only API Key within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found here: https://swiftype.com/documentation/app-search/understanding-api-authentication.
+\* Please note that you should only ever use a read-only API Key within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found here: https://swiftype.com/documentation/app-search/api-keys
 
-### Searching
+### API Methods
+
+This client is a thin interface to the Swiftype App Search Api. Additional details for requests and responses can be
+found in the [documentation](https://swiftype.com/documentation/app-search).
+
+#### Searching
 
 ```javascript
 var options = {
@@ -71,9 +76,9 @@ client.search('cat', options).then((resultList) => {
 })
 ```
 
-Note that `options` supports all options listed here: https://swiftype.com/documentation/app-search/guides/searching.
+Note that `options` supports all options listed here: https://swiftype.com/documentation/app-search/guides/search.
 
-### Click Through Tracking
+#### Click Through Tracking
 
 ```javascript
 client.click(
@@ -141,4 +146,3 @@ yarn build
 ## Contributions
 
   To contribute code, please fork the repository and submit a pull request.
-`
