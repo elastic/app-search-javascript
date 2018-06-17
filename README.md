@@ -54,7 +54,7 @@ var client = SwiftypeAppSearch.createClient({
 
 ### API Methods
 
-This client is a thin interface to the Swiftype App Search Api. Additional details for requests and responses can be
+This client is a thin interface to the Swiftype App Search API. Additional details for requests and responses can be
 found in the [documentation](https://swiftype.com/documentation/app-search).
 
 #### Searching
