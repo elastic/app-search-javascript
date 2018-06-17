@@ -59,13 +59,15 @@ found in the [documentation](https://swiftype.com/documentation/app-search).
 
 #### Searching
 
+For the query term `lion`, a search call is constructed as follows:
+
 ```javascript
 var options = {
   search_fields: {title: {}},
   result_fields: {id: {raw: {}}, title: {raw: {}}}
 }
 
-client.search('cat', options).then((resultList) => {
+client.search('tiger', options).then((resultList) => {
   resultList.results.forEach((result) => {
     console.log(`id: ${result.getRaw('id')} raw: ${result.getRaw('title')}`)
   })
@@ -76,12 +78,12 @@ client.search('cat', options).then((resultList) => {
 
 Note that `options` supports all options listed here: https://swiftype.com/documentation/app-search/guides/search.
 
-#### Click Through Tracking
+#### Clickthrough Tracking
 
 ```javascript
 client.click(
   {
-    query: 'Cat',
+    query: 'lion',
     documentId: '1234567',
     requestId: '8b55561954484f13d872728f849ffd22',
     tags: ['Animal']
@@ -91,7 +93,7 @@ client.click(
 })
 ```
 
-Click throughs can be tracked by binding `client.click` calls to click events on individual search result links.
+Clickthroughs can be tracked by binding `client.click` calls to click events on individual search result links.
 
 The following example shows how this can be implemented declaratively by annotating links with class and data attributes.
 
@@ -114,7 +116,7 @@ document.addEventListener('click', function(e) {
     class="track-click"
     data-request-id="8b55561954484f13d872728f849ffd22"
     data-document-id="1234567"
-    data-query="Cat"
+    data-query="lion"
     data-tag="Animal">
   Item 1
 </a>
