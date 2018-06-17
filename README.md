@@ -67,7 +67,7 @@ var options = {
   result_fields: {id: {raw: {}}, title: {raw: {}}}
 }
 
-client.search('tiger', options).then((resultList) => {
+client.search('lion', options).then((resultList) => {
   resultList.results.forEach((result) => {
     console.log(`id: ${result.getRaw('id')} raw: ${result.getRaw('title')}`)
   })
