@@ -2,8 +2,8 @@ import Client from "../src/client";
 import fetch, { Headers } from "node-fetch";
 import Replay from "replay";
 
-const accountHostKey = "host-2376rb";
-const apiKey = "api-hean6g8dmxnm2shqqiag757a";
+const hostIdentifier = "host-2376rb";
+const searchKey = "api-hean6g8dmxnm2shqqiag757a";
 const engineName = "node-modules";
 
 describe("Client", () => {
@@ -12,7 +12,7 @@ describe("Client", () => {
     global.fetch = fetch;
   });
 
-  const client = new Client(accountHostKey, apiKey, engineName);
+  const client = new Client(hostIdentifier, searchKey, engineName);
 
   test("can be instantiated", () => {
     expect(client).toBeInstanceOf(Client);
