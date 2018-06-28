@@ -50,7 +50,7 @@ var client = SwiftypeAppSearch.createClient({
 })
 ```
 
-\* Please note that you should only ever use a read-only **Private API Key** or a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found here: https://swiftype.com/documentation/app-search/api-keys
+\* Please note that you should only ever use a read-only **Private API Key** or a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found in the [documentation](https://swiftype.com/documentation/app-search/credentials).
 
 ### API Methods
 
