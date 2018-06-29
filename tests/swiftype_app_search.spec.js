@@ -1,0 +1,28 @@
+import {createClient} from "../src/swiftype_app_search";
+import Client from "../src/client";
+
+const hostIdentifier = "host-2376rb";
+const searchKey = "api-hean6g8dmxnm2shqqiag757a";
+const engineName = "node-modules";
+
+describe("SwiftypeAppSearch#createClient", () => {
+  test("instantiates a new client", () => {
+    var client = createClient({
+      hostIdentifier,
+      searchKey,
+      engineName
+    })
+
+    expect(client).toBeInstanceOf(Client);
+  });
+
+  test("instantiates a new client with deprecates accountHostKey parameter", () => {
+    var client = createClient({
+      accountHostKey: hostIdentifier,
+      searchKey,
+      engineName
+    })
+
+    expect(client).toBeInstanceOf(Client);
+  });
+});
