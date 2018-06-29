@@ -2,6 +2,7 @@
 
 import Client from './client'
 
-export function createClient({accountHostKey, apiKey, engineName}) {
-  return new Client(accountHostKey, apiKey, engineName)
+export function createClient({hostIdentifier, accountHostKey, apiKey, engineName}) {
+  hostIdentifier = hostIdentifier || accountHostKey; // accountHostKey is deprecated
+  return new Client(hostIdentifier, apiKey, engineName)
 }

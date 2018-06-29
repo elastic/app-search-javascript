@@ -4,10 +4,10 @@ import _omit from 'lodash/omit'
 import ResultList from './result_list'
 
 export default class Client {
-  constructor(accountHostKey, apiKey, engineName) {
+  constructor(hostIdentifier, apiKey, engineName) {
     this.apiKey = apiKey
     this.engineName = engineName
-    this.apiEndpoint = `https://${accountHostKey}.api.swiftype.com/api/as/v1/`
+    this.apiEndpoint = `https://${hostIdentifier}.api.swiftype.com/api/as/v1/`
     this.searchPath = `engines/${this.engineName}/search`
     this.clickPath = `engines/${this.engineName}/click`
   }
