@@ -1419,11 +1419,13 @@ var _client2 = _interopRequireDefault(_client);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function createClient(_ref) {
-  var accountHostKey = _ref.accountHostKey,
+  var hostIdentifier = _ref.hostIdentifier,
+      accountHostKey = _ref.accountHostKey,
       apiKey = _ref.apiKey,
       engineName = _ref.engineName;
 
-  return new _client2.default(accountHostKey, apiKey, engineName);
+  hostIdentifier = hostIdentifier || accountHostKey; // accountHostKey is deprecated
+  return new _client2.default(hostIdentifier, apiKey, engineName);
 }
 
 /***/ }),
@@ -1448,12 +1450,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Client = function () {
-  function Client(accountHostKey, apiKey, engineName) {
+  function Client(hostIdentifier, apiKey, engineName) {
     _classCallCheck(this, Client);
 
     this.apiKey = apiKey;
     this.engineName = engineName;
-    this.apiEndpoint = 'https://' + accountHostKey + '.api.swiftype.com/api/as/v1/';
+    this.apiEndpoint = 'https://' + hostIdentifier + '.api.swiftype.com/api/as/v1/';
     this.searchPath = 'engines/' + this.engineName + '/search';
     this.clickPath = 'engines/' + this.engineName + '/click';
   }
