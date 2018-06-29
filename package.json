@@ -1,6 +1,6 @@
 {
   "name": "swiftype-app-search-javascript",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Javascript client for the Swiftype App Search Api",
   "main": "public/bundle.js",
   "module": "dist/swiftype_app_search.js",

@@ -6,7 +6,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@1.2.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@1.2.1"></script>
 ```
 
 This will make the client available globally at:
