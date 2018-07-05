@@ -3,10 +3,10 @@ authorization: Bearer api-hean6g8dmxnm2shqqiag757a
 content-type: application/json
 accept: */*
 accept-encoding: gzip,deflate
-body: {\"query\":\"Cat\",\"document_id\":\"rex-cli\",\"search_request_id\":\"8b55561954484f13d872728f849ffd22\",\"tags\":[]}
+body: {\"query\":\"Cat\",\"document_id\":\"rex-cli\",\"request_id\":\"8b55561954484f13d872728f849ffd22\",\"tags\":[\"Cat\"]}
 
 HTTP/1.1 200 OK
-date: Tue, 15 May 2018 17:14:53 GMT
+date: Thu, 05 Jul 2018 14:27:07 GMT
 content-type: application/json
 transfer-encoding: chunked
 connection: close
@@ -16,8 +16,8 @@ x-frame-options: SAMEORIGIN
 x-xss-protection: 1; mode=block
 x-content-type-options: nosniff
 cache-control: no-cache
-x-request-id: 6b49845a2d29f933d1205a650d3b0d00
-x-runtime: 0.087313
+x-request-id: 8f27fd02a0118ecae9d64a69a76837d3
+x-runtime: 0.234436
 x-swiftype-datacenter: dal05
 x-swiftype-frontend-node: web02.dal05
 x-swiftype-edge-node: web02.dal05

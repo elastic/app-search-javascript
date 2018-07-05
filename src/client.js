@@ -42,7 +42,7 @@ export default class Client {
     const params = {
       query,
       document_id: documentId,
-      search_request_id: requestId,
+      request_id: requestId,
       tags
     }
 
