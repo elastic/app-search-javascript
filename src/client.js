@@ -1,6 +1,5 @@
 'use strict'
 
-import _omit from 'lodash/omit'
 import ResultList from './result_list'
 
 export default class Client {
@@ -25,7 +24,7 @@ export default class Client {
       if (!response.ok) {
         throw new Error(`[${response.status}]${json.errors ? ' ' + json.errors : ''}`)
       }
-      return new ResultList(json.results, _omit(json, 'results'))
+      return new ResultList(json.results, omit(json, 'results'))
     })
   }
 
@@ -77,5 +76,13 @@ export default class Client {
       credentials: 'include'
     })
   }
+}
 
+function omit(obj, keyToOmit) {
+  if (!obj) return;
+  return Object.keys(obj).reduce((acc, key) => {
+    const value = obj[key];
+    if (key !== keyToOmit) acc[key] = value;
+    return acc;
+  }, {})
 }
