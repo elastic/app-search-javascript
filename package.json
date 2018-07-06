@@ -7,8 +7,10 @@
   "module": "dist/swiftype_app_search.es.js",
   "scripts": {
     "test": "BABEL_ENV=test jest",
+    "format": "prettier --write \"**/*.js\"",
     "build": "BABEL_ENV=dev rollup -c",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "precommit": "pretty-quick --staged"
   },
   "repository": {
     "type": "git",
@@ -29,8 +31,11 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-runtime": "^6.9.2",
+    "husky": "^0.14.3",
     "jest": "^22.4.3",
     "node-fetch": "^2.1.2",
+    "prettier": "1.13.7",
+    "pretty-quick": "^1.6.0",
     "regenerator-runtime": "^0.11.1",
     "replay": "^2.3.0",
     "rollup": "^0.62.0",

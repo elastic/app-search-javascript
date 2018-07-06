@@ -1,11 +1,11 @@
-'use strict'
+"use strict";
 
 /**
  * An individual search result
  */
 export default class ResultItem {
   constructor(data) {
-    this.data = data
+    this.data = data;
   }
 
   /**
@@ -16,7 +16,7 @@ export default class ResultItem {
    * @returns {any} the raw value of the field
    */
   getRaw(key) {
-    return (this.data[key] || {}).raw
+    return (this.data[key] || {}).raw;
   }
 
   /**
@@ -27,6 +27,6 @@ export default class ResultItem {
    * @returns {any} the snippet value of the field
    */
   getSnippet(key) {
-    return (this.data[key] || {}).snippet
+    return (this.data[key] || {}).snippet;
   }
 }
