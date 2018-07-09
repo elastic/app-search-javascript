@@ -7,7 +7,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@1.3.0/dist/swiftype_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@1.3.1/dist/swiftype_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
@@ -126,25 +126,56 @@ document.addEventListener("click", function(e) {
 </a>
 ```
 
-## Build
+## Development
 
-```bash
-yarn install
+### Node
+
+We depend upon the version of node defined in [.nvmrc](.nvmrc).
+
+You will probably want to install a node version manager. nvm is recommended.
+
+To install and use the correct node version with nvm:
+
+```
+nvm install
+```
+
+### Running Tests
+
+```
+nvm use
+yarn test
+```
+
+### Build
+
+This is run on `prepare` in [package.json](package.json). That means
+this will be run when running `yarn` to install dependencies, and
+also before publishing to npm.
+
+```
+nvm use
 yarn build
 ```
 
-## Running Tests
+### Publish
 
-$ yarn test
+```
+nvm use
+yarn publish
+```
 
-## Adding and updating
+### Adding and updating tests
 
 The specs in this project use [node-replay](https://github.com/assaf/node-replay) to capture responses.
 
-To capture new responses, run tests with the following command:
+The responses are then check against Jest snapshots.
+
+To capture new responses and update snapshots, run tests with the following commands:
 
 ```
-REPLAY=record yarn test
+nvm use // Be sure to use the correct version of node
+REPLAY=record yarn test -u
 ```
 
 ## Contributions
