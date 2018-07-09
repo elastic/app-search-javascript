@@ -1,12 +1,14 @@
-POST /api/as/v1/engines/node-modules/search.json
+POST /api/as/v1/engines/node-modules/click.json
 authorization: Bearer api-hean6g8dmxnm2shqqiag757a
 content-type: application/json
+x-swiftype-client: swiftype-app-search-javascript
+x-swiftype-client-version: 1.2.1
 accept: */*
 accept-encoding: gzip,deflate
-body: {}
+body: {\"tags\":[]}
 
 HTTP/1.1 400 Bad Request
-date: Tue, 15 May 2018 17:14:52 GMT
+date: Mon, 09 Jul 2018 14:14:40 GMT
 content-type: application/json; charset=utf-8
 transfer-encoding: chunked
 connection: close
@@ -16,8 +18,8 @@ x-xss-protection: 1; mode=block
 x-content-type-options: nosniff
 vary: Origin
 cache-control: no-cache
-x-request-id: 74ed0613d173828f6b5ca902329b048f
-x-runtime: 0.038313
+x-request-id: 3fc40b48a8b58c21a254013511ce0e6b
+x-runtime: 0.079922
 x-swiftype-datacenter: dal05
 x-swiftype-frontend-node: web02.dal05
 x-swiftype-edge-node: web02.dal05

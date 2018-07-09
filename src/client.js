@@ -1,7 +1,7 @@
 "use strict";
 
+import { version, name } from "../package.json";
 import ResultList from "./result_list";
-
 export default class Client {
   constructor(hostIdentifier, apiKey, engineName) {
     this.apiKey = apiKey;
@@ -75,9 +75,12 @@ export default class Client {
   }
 
   _request(path, params) {
+    debugger;
     const headers = new Headers({
       Authorization: `Bearer ${this.apiKey}`,
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "X-Swiftype-Client": name,
+      "X-Swiftype-Client-Version": version
     });
 
     return fetch(`${this.apiEndpoint}${path}`, {
