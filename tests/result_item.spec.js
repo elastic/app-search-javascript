@@ -19,7 +19,7 @@ describe("ResultItem", () => {
     test("returns undefined if the field isn't contained within the response", () => {
       const resultItem = new ResultItem({});
       expect(resultItem.getRaw("field")).toBeUndefined;
-    })
+    });
   });
 
   describe("#getSnippet", () => {
@@ -35,6 +35,6 @@ describe("ResultItem", () => {
     test("returns undefined if the field isn't contained within the response", () => {
       const resultItem = new ResultItem({});
       expect(resultItem.getSnippet("field")).toBeUndefined;
-    })
+    });
   });
 });

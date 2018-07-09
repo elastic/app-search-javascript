@@ -1,15 +1,14 @@
-'use strict'
+"use strict";
 
-import _omit from 'lodash/omit'
-import ResultList from './result_list'
+import ResultList from "./result_list";
 
 export default class Client {
   constructor(hostIdentifier, apiKey, engineName) {
-    this.apiKey = apiKey
-    this.engineName = engineName
-    this.apiEndpoint = `https://${hostIdentifier}.api.swiftype.com/api/as/v1/`
-    this.searchPath = `engines/${this.engineName}/search`
-    this.clickPath = `engines/${this.engineName}/click`
+    this.apiKey = apiKey;
+    this.engineName = engineName;
+    this.apiEndpoint = `https://${hostIdentifier}.api.swiftype.com/api/as/v1/`;
+    this.searchPath = `engines/${this.engineName}/search`;
+    this.clickPath = `engines/${this.engineName}/click`;
   }
 
   /**
@@ -20,13 +19,17 @@ export default class Client {
    * @returns {Promise<ResultList>} a Promise that returns a {ResultList} when resolved, otherwise throws an Error.
    */
   search(query, options) {
-    const params = Object.assign({ query: query }, options)
-    return this._requestJSON(`${this.searchPath}.json`, params).then(({ response, json }) => {
-      if (!response.ok) {
-        throw new Error(`[${response.status}]${json.errors ? ' ' + json.errors : ''}`)
+    const params = Object.assign({ query: query }, options);
+    return this._requestJSON(`${this.searchPath}.json`, params).then(
+      ({ response, json }) => {
+        if (!response.ok) {
+          throw new Error(
+            `[${response.status}]${json.errors ? " " + json.errors : ""}`
+          );
+        }
+        return new ResultList(json.results, omit(json, "results"));
       }
-      return new ResultList(json.results, _omit(json, 'results'))
-    })
+    );
   }
 
   /**
@@ -38,44 +41,59 @@ export default class Client {
    * @param {String[]} tags Tags to categorize this request in the Dashboard
    * @returns {Promise} An empty Promise, otherwise throws an Error.
    */
-  click({query, documentId, requestId, tags = []}) {
+  click({ query, documentId, requestId, tags = [] }) {
     const params = {
       query,
       document_id: documentId,
       request_id: requestId,
       tags
-    }
+    };
 
-    return this._requestJSON(`${this.clickPath}.json`, params).then(({ response, json }) => {
-      if (!response.ok) {
-        throw new Error(`[${response.status}]${json.errors ? ' ' + json.errors : ''}`)
+    return this._requestJSON(`${this.clickPath}.json`, params).then(
+      ({ response, json }) => {
+        if (!response.ok) {
+          throw new Error(
+            `[${response.status}]${json.errors ? " " + json.errors : ""}`
+          );
+        }
+        return;
       }
-      return
-    })
+    );
   }
 
   _requestJSON(path, params) {
     return this._request(path, params).then(response => {
-      return response.json().then((json) => {
-        return { response: response, json: json }
-      }).catch(() => {
-        return { response: response, json: {} }
-      })
-    })
+      return response
+        .json()
+        .then(json => {
+          return { response: response, json: json };
+        })
+        .catch(() => {
+          return { response: response, json: {} };
+        });
+    });
   }
 
   _request(path, params) {
     const headers = new Headers({
-      'Authorization': `Bearer ${this.apiKey}`,
-      'Content-Type': 'application/json'
-    })
+      Authorization: `Bearer ${this.apiKey}`,
+      "Content-Type": "application/json"
+    });
 
     return fetch(`${this.apiEndpoint}${path}`, {
-      method: 'POST',
+      method: "POST",
       headers: headers,
       body: JSON.stringify(params),
-      credentials: 'include'
-    })
+      credentials: "include"
+    });
   }
+}
 
+function omit(obj, keyToOmit) {
+  if (!obj) return;
+  return Object.keys(obj).reduce((acc, key) => {
+    const value = obj[key];
+    if (key !== keyToOmit) acc[key] = value;
+    return acc;
+  }, {});
 }

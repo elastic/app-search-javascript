@@ -1,4 +1,4 @@
-import {createClient} from "../src/swiftype_app_search";
+import { createClient } from "../src/swiftype_app_search";
 import Client from "../src/client";
 
 const hostIdentifier = "host-2376rb";
@@ -11,7 +11,7 @@ describe("SwiftypeAppSearch#createClient", () => {
       hostIdentifier,
       searchKey,
       engineName
-    })
+    });
 
     expect(client).toBeInstanceOf(Client);
   });
@@ -21,7 +21,7 @@ describe("SwiftypeAppSearch#createClient", () => {
       accountHostKey: hostIdentifier,
       searchKey,
       engineName
-    })
+    });
 
     expect(client).toBeInstanceOf(Client);
   });
