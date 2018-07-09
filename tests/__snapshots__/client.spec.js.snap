@@ -14,7 +14,7 @@ ResultList {
         "total_pages": 65,
         "total_results": 642,
       },
-      "request_id": "d3923546fd2fc9ee36aa1107e99aec6e",
+      "request_id": "8bedbf97e0a9ed0e9335665938502c27",
       "warnings": Array [],
     },
   },
@@ -26,14 +26,14 @@ ResultList {
         "total_pages": 65,
         "total_results": 642,
       },
-      "request_id": "d3923546fd2fc9ee36aa1107e99aec6e",
+      "request_id": "8bedbf97e0a9ed0e9335665938502c27",
       "warnings": Array [],
     },
   },
   "rawResults": Array [
     Object {
       "_meta": Object {
-        "score": 19.145737,
+        "score": 19.10181,
       },
       "created": Object {
         "raw": "2013-01-23T04:51:39.995Z",
@@ -79,7 +79,7 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 18.945496,
+        "score": 18.906376,
       },
       "created": Object {
         "raw": "2012-04-12T06:27:43.515Z",
@@ -178,7 +178,7 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 15.792556,
+        "score": 15.753918,
       },
       "created": Object {
         "raw": "2012-05-01T21:32:09.544Z",
@@ -230,7 +230,7 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 12.985308,
+        "score": 12.959391,
       },
       "created": Object {
         "raw": "2012-10-15T23:26:48.468Z",
@@ -282,7 +282,7 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 7.3349295,
+        "score": 7.3216166,
       },
       "created": Object {
         "raw": "2013-01-28T16:50:08.471Z",
@@ -334,7 +334,7 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 3.2000582,
+        "score": 3.2000966,
       },
       "created": Object {
         "raw": "2011-06-24T15:38:51.745Z",
@@ -379,7 +379,7 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 2.892126,
+        "score": 2.8856053,
       },
       "created": Object {
         "raw": "2011-07-16T16:31:00.287Z",
@@ -424,7 +424,7 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 0.73255426,
+        "score": 0.73055637,
       },
       "created": Object {
         "raw": "2013-01-10T01:48:15.743Z",
@@ -471,7 +471,7 @@ ResultList {
     },
     Object {
       "_meta": Object {
-        "score": 0.7191974,
+        "score": 0.7191726,
       },
       "created": Object {
         "raw": "2012-12-20T21:05:36.757Z",
@@ -514,7 +514,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 19.145737,
+          "score": 19.10181,
         },
         "created": Object {
           "raw": "2013-01-23T04:51:39.995Z",
@@ -562,7 +562,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 18.945496,
+          "score": 18.906376,
         },
         "created": Object {
           "raw": "2012-04-12T06:27:43.515Z",
@@ -665,7 +665,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 15.792556,
+          "score": 15.753918,
         },
         "created": Object {
           "raw": "2012-05-01T21:32:09.544Z",
@@ -719,7 +719,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 12.985308,
+          "score": 12.959391,
         },
         "created": Object {
           "raw": "2012-10-15T23:26:48.468Z",
@@ -773,7 +773,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 7.3349295,
+          "score": 7.3216166,
         },
         "created": Object {
           "raw": "2013-01-28T16:50:08.471Z",
@@ -827,7 +827,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 3.2000582,
+          "score": 3.2000966,
         },
         "created": Object {
           "raw": "2011-06-24T15:38:51.745Z",
@@ -874,7 +874,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 2.892126,
+          "score": 2.8856053,
         },
         "created": Object {
           "raw": "2011-07-16T16:31:00.287Z",
@@ -921,7 +921,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 0.73255426,
+          "score": 0.73055637,
         },
         "created": Object {
           "raw": "2013-01-10T01:48:15.743Z",
@@ -970,7 +970,7 @@ ResultList {
     ResultItem {
       "data": Object {
         "_meta": Object {
-          "score": 0.7191974,
+          "score": 0.7191726,
         },
         "created": Object {
           "raw": "2012-12-20T21:05:36.757Z",
