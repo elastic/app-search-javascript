@@ -1,0 +1,12 @@
+{
+  "extends": ["plugin:prettier/recommended"],
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-debugger": 2
+  }
+}
