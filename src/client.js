@@ -75,7 +75,6 @@ export default class Client {
   }
 
   _request(path, params) {
-    debugger;
     const headers = new Headers({
       Authorization: `Bearer ${this.apiKey}`,
       "Content-Type": "application/json",
