@@ -43,12 +43,12 @@ import * as SwiftypeAppSearch from "swiftype-app-search-javascript";
 Using this client assumes that you have already created an [App Search](https://swiftype.com/app-search) account, and subsequently created an Engine. You'll need to configure the client with the name of your Engine and your authentication credentials, which can be found here: https://app.swiftype.com/as/credentials.
 
 - hostIdentifier -> Your **Host Identifier**, should start with `host-`
-- searchKey -> Your **Public Search Key**. It should start with `search-`.
+- apiKey -> Your **Public Search Key**. It should start with `search-`.
 
 ```javascript
 var client = SwiftypeAppSearch.createClient({
   hostIdentifier: "host-c5s2mj",
-  searchKey: "search-mu75psc5egt9ppzuycnc2mc3",
+  apiKey: "search-mu75psc5egt9ppzuycnc2mc3",
   engineName: "favorite-videos"
 });
 ```
