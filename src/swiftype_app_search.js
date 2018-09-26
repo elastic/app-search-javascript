@@ -6,8 +6,9 @@ export function createClient({
   hostIdentifier,
   accountHostKey,
   apiKey,
-  engineName
+  engineName,
+  endpointBase
 }) {
   hostIdentifier = hostIdentifier || accountHostKey; // accountHostKey is deprecated
-  return new Client(hostIdentifier, apiKey, engineName);
+  return new Client(hostIdentifier, apiKey, engineName, { endpointBase });
 }

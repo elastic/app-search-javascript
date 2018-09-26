@@ -18,6 +18,15 @@ describe("Client", () => {
     expect(client).toBeInstanceOf(Client);
   });
 
+  test("can be instantiated with an endpointBase", async () => {
+    const client = new Client(hostIdentifier, searchKey, engineName, {
+      endpointBase: "http://localhost.swiftype.com:3002"
+    });
+
+    const result = await client.search("cat", {});
+    expect(result).toMatchSnapshot();
+  });
+
   describe("#search", () => {
     test("should query", async () => {
       const result = await client.search("cat", {});

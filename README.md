@@ -9,7 +9,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@1.3.2/dist/swiftype_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@1.4.0/dist/swiftype_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
@@ -42,9 +42,6 @@ import * as SwiftypeAppSearch from "swiftype-app-search-javascript";
 
 Using this client assumes that you have already created an [App Search](https://swiftype.com/app-search) account, and subsequently created an Engine. You'll need to configure the client with the name of your Engine and your authentication credentials, which can be found here: https://app.swiftype.com/as/credentials.
 
-- hostIdentifier -> Your **Host Identifier**, should start with `host-`
-- apiKey -> Your **Public Search Key**. It should start with `search-`.
-
 ```javascript
 var client = SwiftypeAppSearch.createClient({
   hostIdentifier: "host-c5s2mj",
@@ -54,6 +51,15 @@ var client = SwiftypeAppSearch.createClient({
 ```
 
 \* Please note that you should only ever use a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found in the [documentation](https://swiftype.com/documentation/app-search/credentials).
+
+List of configuration options:
+
+| Option         | Required | Description                                                                                                                                                             |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hostIdentifier | Yes      | Your **Host Identifier**, should start with `host-`                                                                                                                     |
+| apiKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                             |
+| engineName     | Yes      |                                                                                                                                                                         |
+| endpointBase   | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API or developing against a local API server. Ex. "http://localhost:3000" |
 
 ### API Methods
 
