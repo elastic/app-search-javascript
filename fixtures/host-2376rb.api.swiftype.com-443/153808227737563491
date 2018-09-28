@@ -1,0 +1,29 @@
+POST /api/as/v1/engines/node-modules/search.json
+authorization: Bearer api-hean6g8dmxnm2shqqiag757a
+content-type: application/json
+x-swiftype-client: swiftype-app-search-javascript
+x-swiftype-client-version: 1.4.0
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"query\":\"cat\",\"page\":{\"size\":1},\"filters\":{\"all\":[{\"dependencies\":\"socket.io\"}]},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}]}}
+
+HTTP/1.1 200 OK
+date: Thu, 27 Sep 2018 21:04:37 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 200 OK
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+etag: W/"3d0a9854946dc61b9a424fa156f6c6dd"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 97feb1c3696b7ee64633e7ce00af384f
+x-runtime: 0.173476
+x-swiftype-frontend-datacenter: dal05
+x-swiftype-frontend-node: web02.dal05
+x-swiftype-edge-datacenter: dal05
+x-swiftype-edge-node: web02.dal05
+
+{"meta":{"warnings":[],"page":{"current":1,"total_pages":28,"total_results":28,"size":1},"request_id":"97feb1c3696b7ee64633e7ce00af384f"},"results":[{"license":{"raw":null},"name":{"raw":"brainy-server"},"repository":{"raw":["https://github.com/brainyio/brainy-server"]},"created":{"raw":"2013-02-18T07:37:10.852Z"},"dependencies":{"raw":["backbone","brainy-sync-api","brainy-sync","express","file","nconf","requirejs","socket.io","underscore"]},"keywords":{"raw":["brainy","backbone","client","framework"]},"description":{"raw":"a server side and client side framework for Backbone"},"modified":{"raw":"2013-03-02T20:46:27.738Z"},"id":{"raw":"brainy-server"},"version":{"raw":"0.0.5"},"owners":{"raw":["caden@catshirt.net"]},"_meta":{"score":0.45596027}}],"facets":{"license":[{"type":"value","data":[{"value":"BSD","count":5},{"value":"MIT","count":3},{"value":"GPL","count":1}]}]}}

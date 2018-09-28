@@ -49,6 +49,168 @@ describe("Client", () => {
         expect(e).toEqual(new Error("[404]"));
       }
     });
+
+    describe("disjunctive facets", () => {
+      const config = {
+        page: {
+          size: 1 //To make the response fixture manageable
+        },
+        filters: {
+          license: ["BSD"]
+        },
+        facets: {
+          license: [{ type: "value", size: 3 }]
+        }
+      };
+
+      const licenseFacetWithFullCounts = [
+        { count: 101, value: "MIT" },
+        { count: 33, value: "BSD" },
+        { count: 3, value: "MIT/X11" }
+      ];
+
+      const licenseFacetWithFilteredCounts = [
+        {
+          value: "BSD", // Only BSD values are returned, since we've filtered to BSD
+          count: 33
+        }
+      ];
+
+      const licenseFacetWithFilteredCountsByDependency = [
+        { count: 5, value: "BSD" },
+        { count: 3, value: "MIT" },
+        { count: 1, value: "GPL" }
+      ];
+
+      const dependenciesFacetWithFullCounts = [
+        { count: 67, value: "underscore" },
+        { count: 49, value: "pkginfo" },
+        { count: 48, value: "express" }
+      ];
+
+      const dependenciesFacetWithFilteredCounts = [
+        { count: 5, value: "request" },
+        { count: 5, value: "socket.io" },
+        { count: 4, value: "express" }
+      ];
+
+      const dependenciesFacetsWithFilteredCountsByLicense = [
+        { count: 5, value: "request" },
+        { count: 5, value: "socket.io" },
+        { count: 4, value: "express" }
+      ];
+
+      it("returns filtered facet values when facet is not disjunctive", async () => {
+        const result = await client.search("cat", config);
+        expect(result.info.facets.license[0].data).toEqual(
+          licenseFacetWithFilteredCounts
+        );
+      });
+
+      it("returns facet counts as if filter is not applied and facet is disjunctive", async () => {
+        const result = await client.search("cat", {
+          ...config,
+          disjunctiveFacets: ["license"]
+        });
+
+        expect(result.info.facets.license[0].data).toEqual(
+          licenseFacetWithFullCounts
+        );
+      });
+
+      it("returns filtered facet values if facet is disjunctive, but no corresponding filter is applied", async () => {
+        const result = await client.search("cat", {
+          ...config,
+          filters: {},
+          disjunctiveFacets: ["license"]
+        });
+
+        expect(result.info.facets.license[0].data).toEqual(
+          licenseFacetWithFullCounts
+        );
+      });
+
+      it("will return full results when multiple disjunctive facets, but no filters", async () => {
+        const result = await client.search("cat", {
+          page: { size: 1 },
+          facets: {
+            license: [{ type: "value", size: 3 }],
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+
+        expect(result.info.facets.license[0].data).toEqual(
+          licenseFacetWithFullCounts
+        );
+        expect(result.info.facets.dependencies[0].data).toEqual(
+          dependenciesFacetWithFullCounts
+        );
+      });
+
+      it("will return only one set of filtered facet counts when  multiple disjunctive facets, with only one filter", async () => {
+        const result = await client.search("cat", {
+          ...config,
+          filters: {
+            license: "BSD"
+          },
+          facets: {
+            license: [{ type: "value", size: 3 }],
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+
+        expect(result.info.facets.license[0].data).toEqual(
+          licenseFacetWithFullCounts
+        );
+        expect(result.info.facets.dependencies[0].data).toEqual(
+          dependenciesFacetWithFilteredCounts
+        );
+      });
+
+      it("will return both sets of filtered facet counts when multiple disjunctive facets and both are filtered", async () => {
+        const result = await client.search("cat", {
+          ...config,
+          filters: {
+            all: [{ license: "BSD" }, { dependencies: "socket.io" }]
+          },
+          facets: {
+            license: [{ type: "value", size: 3 }],
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+
+        expect(result.info.facets.license[0].data).toEqual(
+          licenseFacetWithFilteredCountsByDependency
+        );
+        expect(result.info.facets.dependencies[0].data).toEqual(
+          dependenciesFacetsWithFilteredCountsByLicense
+        );
+      });
+
+      it("works when facets don't use array syntax", async () => {
+        const result = await client.search("cat", {
+          ...config,
+          filters: {
+            all: [{ license: "BSD" }, { dependencies: "socket.io" }]
+          },
+          facets: {
+            license: { type: "value", size: 3 },
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+
+        expect(result.info.facets.license[0].data).toEqual(
+          licenseFacetWithFilteredCountsByDependency
+        );
+        expect(result.info.facets.dependencies[0].data).toEqual(
+          dependenciesFacetsWithFilteredCountsByLicense
+        );
+      });
+    });
   });
 
   describe("#click", () => {

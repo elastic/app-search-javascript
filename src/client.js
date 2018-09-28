@@ -2,6 +2,27 @@
 
 import { version, name } from "../package.json";
 import ResultList from "./result_list";
+import Filters from "./filters";
+
+function omit(obj, keyToOmit) {
+  if (!obj) return;
+  return Object.keys(obj).reduce((acc, key) => {
+    const value = obj[key];
+    if (key !== keyToOmit) acc[key] = value;
+    return acc;
+  }, {});
+}
+
+function removeOption(options, optionKey) {
+  const option = options[optionKey];
+  const updatedOptions = omit(options, optionKey);
+  return [option, updatedOptions];
+}
+
+function formatResultsJSON(json) {
+  return new ResultList(json.results, omit(json, "results"));
+}
+
 export default class Client {
   constructor(hostIdentifier, apiKey, engineName, { endpointBase = "" } = {}) {
     this.apiKey = apiKey;
@@ -20,8 +41,61 @@ export default class Client {
    * @param {Object} options Object used for configuring the search like search_fields and result_fields
    * @returns {Promise<ResultList>} a Promise that returns a {ResultList} when resolved, otherwise throws an Error.
    */
-  search(query, options) {
-    const params = Object.assign({ query: query }, options);
+  search(query, options = {}) {
+    const [disjunctiveFacets, validOptions] = removeOption(
+      options,
+      "disjunctiveFacets"
+    );
+
+    const params = Object.assign({ query: query }, validOptions);
+
+    if (disjunctiveFacets && disjunctiveFacets.length > 0) {
+      return this._performDisjunctiveSearch(params, disjunctiveFacets).then(
+        formatResultsJSON
+      );
+    }
+    return this._performSearch(params).then(formatResultsJSON);
+  }
+
+  _performDisjunctiveSearch(params, disjunctiveFacets) {
+    const baseQueryPromise = this._performSearch(params);
+
+    const filters = new Filters(params.filters);
+    const appliedFilers = filters.getListOfAppliedFilters();
+    const listOfAppliedDisjunctiveFilters = appliedFilers.filter(filter => {
+      return disjunctiveFacets.includes(filter);
+    });
+
+    if (!listOfAppliedDisjunctiveFilters.length) {
+      return baseQueryPromise;
+    }
+
+    const disjunctiveQueriesPromises = listOfAppliedDisjunctiveFilters.map(
+      appliedDisjunctiveFilter => {
+        return this._performSearch({
+          ...params,
+          filters: filters.removeFilter(appliedDisjunctiveFilter).filtersJSON,
+          facets: {
+            [appliedDisjunctiveFilter]: params.facets[appliedDisjunctiveFilter]
+          }
+        });
+      }
+    );
+
+    return Promise.all([baseQueryPromise, ...disjunctiveQueriesPromises]).then(
+      ([baseQueryResults, ...disjunctiveQueries]) => {
+        disjunctiveQueries.forEach(disjunctiveQueryResults => {
+          const [facetName, facetValue] = Object.entries(
+            disjunctiveQueryResults.facets
+          )[0];
+          baseQueryResults.facets[facetName] = facetValue;
+        });
+        return baseQueryResults;
+      }
+    );
+  }
+
+  _performSearch(params) {
     return this._requestJSON(`${this.searchPath}.json`, params).then(
       ({ response, json }) => {
         if (!response.ok) {
@@ -29,7 +103,7 @@ export default class Client {
             `[${response.status}]${json.errors ? " " + json.errors : ""}`
           );
         }
-        return new ResultList(json.results, omit(json, "results"));
+        return json;
       }
     );
   }
@@ -91,13 +165,4 @@ export default class Client {
       credentials: "include"
     });
   }
-}
-
-function omit(obj, keyToOmit) {
-  if (!obj) return;
-  return Object.keys(obj).reduce((acc, key) => {
-    const value = obj[key];
-    if (key !== keyToOmit) acc[key] = value;
-    return acc;
-  }, {});
 }
