@@ -1,8 +1,8 @@
 "use strict";
 
-import { version, name } from "../package.json";
 import ResultList from "./result_list";
 import Filters from "./filters";
+import { request } from "./request.js";
 
 function omit(obj, keyToOmit) {
   if (!obj) return;
@@ -96,16 +96,19 @@ export default class Client {
   }
 
   _performSearch(params) {
-    return this._requestJSON(`${this.searchPath}.json`, params).then(
-      ({ response, json }) => {
-        if (!response.ok) {
-          throw new Error(
-            `[${response.status}]${json.errors ? " " + json.errors : ""}`
-          );
-        }
-        return json;
+    return request(
+      this.apiKey,
+      this.apiEndpoint,
+      `${this.searchPath}.json`,
+      params
+    ).then(({ response, json }) => {
+      if (!response.ok) {
+        throw new Error(
+          `[${response.status}]${json.errors ? " " + json.errors : ""}`
+        );
       }
-    );
+      return json;
+    });
   }
 
   /**
@@ -125,44 +128,18 @@ export default class Client {
       tags
     };
 
-    return this._requestJSON(`${this.clickPath}.json`, params).then(
-      ({ response, json }) => {
-        if (!response.ok) {
-          throw new Error(
-            `[${response.status}]${json.errors ? " " + json.errors : ""}`
-          );
-        }
-        return;
+    return request(
+      this.apiKey,
+      this.apiEndpoint,
+      `${this.clickPath}.json`,
+      params
+    ).then(({ response, json }) => {
+      if (!response.ok) {
+        throw new Error(
+          `[${response.status}]${json.errors ? " " + json.errors : ""}`
+        );
       }
-    );
-  }
-
-  _requestJSON(path, params) {
-    return this._request(path, params).then(response => {
-      return response
-        .json()
-        .then(json => {
-          return { response: response, json: json };
-        })
-        .catch(() => {
-          return { response: response, json: {} };
-        });
-    });
-  }
-
-  _request(path, params) {
-    const headers = new Headers({
-      Authorization: `Bearer ${this.apiKey}`,
-      "Content-Type": "application/json",
-      "X-Swiftype-Client": name,
-      "X-Swiftype-Client-Version": version
-    });
-
-    return fetch(`${this.apiEndpoint}${path}`, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(params),
-      credentials: "include"
+      return;
     });
   }
 }

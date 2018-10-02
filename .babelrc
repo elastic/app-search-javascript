@@ -9,7 +9,7 @@
           }
         ]
       ],
-      "plugins": ["external-helpers"]
+      "plugins": ["external-helpers", "transform-object-rest-spread"]
     },
     "test": {
       "presets": ["env"]
