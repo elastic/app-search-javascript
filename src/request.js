@@ -2,12 +2,14 @@ import { version, name } from "../package.json";
 import QueryCache from "./query_cache";
 const cache = new QueryCache();
 
-export function request(apiKey, apiEndpoint, path, params) {
+export function request(apiKey, apiEndpoint, path, params, cacheResponses) {
   const method = "POST";
   const key = cache.getKey(method, apiEndpoint + path, params);
-  const cachedResult = cache.retrieve(key);
-  if (cachedResult) {
-    return Promise.resolve(cachedResult);
+  if (cacheResponses) {
+    const cachedResult = cache.retrieve(key);
+    if (cachedResult) {
+      return Promise.resolve(cachedResult);
+    }
   }
 
   return _request(method, apiKey, apiEndpoint, path, params).then(response => {
@@ -15,7 +17,7 @@ export function request(apiKey, apiEndpoint, path, params) {
       .json()
       .then(json => {
         const result = { response: response, json: json };
-        cache.store(key, result);
+        if (cacheResponses) cache.store(key, result);
         return result;
       })
       .catch(() => {

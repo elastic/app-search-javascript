@@ -26,12 +26,13 @@ describe("SwiftypeAppSearch#createClient", () => {
     expect(client).toBeInstanceOf(Client);
   });
 
-  test("instantiates a new client with the endpointBase option", () => {
+  test("instantiates a new client with options", () => {
     var client = createClient({
       hostIdentifier,
       searchKey,
       engineName,
-      endpointBase: "http://localhost:3002"
+      endpointBase: "http://localhost:3002",
+      cacheResponses: true
     });
 
     expect(client).toBeInstanceOf(Client);

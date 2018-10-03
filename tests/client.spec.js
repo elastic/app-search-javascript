@@ -18,9 +18,10 @@ describe("Client", () => {
     expect(client).toBeInstanceOf(Client);
   });
 
-  test("can be instantiated with an endpointBase", async () => {
+  test("can be instantiated with options", async () => {
     const client = new Client(hostIdentifier, searchKey, engineName, {
-      endpointBase: "http://localhost.swiftype.com:3002"
+      endpointBase: "http://localhost.swiftype.com:3002",
+      cacheResponses: true
     });
 
     const result = await client.search("cat", {});

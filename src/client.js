@@ -30,8 +30,14 @@ function formatResultsJSON(json) {
 }
 
 export default class Client {
-  constructor(hostIdentifier, apiKey, engineName, { endpointBase = "" } = {}) {
+  constructor(
+    hostIdentifier,
+    apiKey,
+    engineName,
+    { endpointBase = "", cacheResponses = false } = {}
+  ) {
     this.apiKey = apiKey;
+    this.cacheResponses = cacheResponses;
     this.engineName = engineName;
     this.apiEndpoint = endpointBase
       ? `${endpointBase}/api/as/v1/`
@@ -125,7 +131,8 @@ export default class Client {
       this.apiKey,
       this.apiEndpoint,
       `${this.searchPath}.json`,
-      params
+      params,
+      this.cacheResponses
     ).then(({ response, json }) => {
       if (!response.ok) {
         throw new Error(
@@ -157,7 +164,8 @@ export default class Client {
       this.apiKey,
       this.apiEndpoint,
       `${this.clickPath}.json`,
-      params
+      params,
+      this.cacheResponses
     ).then(({ response, json }) => {
       if (!response.ok) {
         throw new Error(
