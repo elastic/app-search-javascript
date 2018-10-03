@@ -90,8 +90,7 @@ client
 
 Note that `options` supports all options listed here: https://swiftype.com/documentation/app-search/guides/search.
 
-In addition to the support option above, we also support the following
-additional fields:
+In addition to the supported options above, we also support the following fields:
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | disjunctiveFacets | Array[String] | An array of field names. Every field listed here must also be provided as a facet in the `facet` field. It denotes that a facet should be considered disjunctive. When returning counts for disjunctive facets, the counts will be returned as if no filter is applied on this field, even if one is applied.

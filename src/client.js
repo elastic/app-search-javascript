@@ -4,6 +4,9 @@ import ResultList from "./result_list";
 import Filters from "./filters";
 import { request } from "./request.js";
 
+/**
+ * Omit a single key from an object
+ */
 function omit(obj, keyToOmit) {
   if (!obj) return;
   return Object.keys(obj).reduce((acc, key) => {
@@ -13,10 +16,13 @@ function omit(obj, keyToOmit) {
   }, {});
 }
 
-function removeOption(options, optionKey) {
-  const option = options[optionKey];
-  const updatedOptions = omit(options, optionKey);
-  return [option, updatedOptions];
+/**
+ * Similar to omit, but return the removed value
+ */
+function remove(obj, keyToRemove) {
+  const removed = obj[keyToRemove];
+  const updatedObj = omit(obj, keyToRemove);
+  return [removed, updatedObj];
 }
 
 function formatResultsJSON(json) {
@@ -42,7 +48,7 @@ export default class Client {
    * @returns {Promise<ResultList>} a Promise that returns a {ResultList} when resolved, otherwise throws an Error.
    */
   search(query, options = {}) {
-    const [disjunctiveFacets, validOptions] = removeOption(
+    const [disjunctiveFacets, validOptions] = remove(
       options,
       "disjunctiveFacets"
     );
@@ -57,6 +63,25 @@ export default class Client {
     return this._performSearch(params).then(formatResultsJSON);
   }
 
+  /*
+   * A disjunctive search, as opposed to a regular search is used any time
+   * a `disjunctiveFacet` option is provided to the `search` method. A
+   * a disjunctive facet requires multiple API calls.
+   *
+   * Typically:
+   *
+   * 1 API call to get the base results
+   * 1 additional API call to get the "disjunctive" facet counts for each
+   * facet configured as "disjunctive".
+   *
+   * The additional API calls are required, because a "disjunctive" facet
+   * is one where we want the counts for a facet as if there is no filter applied
+   * to a particular field.
+   *
+   * After all queries are performed, we merge the facet values on the
+   * additional requests into the facet values of the original request, thus
+   * creating a single response with the disjunctive facet values.
+   */
   _performDisjunctiveSearch(params, disjunctiveFacets) {
     const baseQueryPromise = this._performSearch(params);
 

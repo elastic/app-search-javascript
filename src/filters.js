@@ -11,6 +11,10 @@ function removeObjectsFromArrayIfTheyHaveKey(array, key) {
   });
 }
 
+/**
+ * A helper for working with the JSON structure which represent
+ * filters in API requests.
+ */
 export default class Filters {
   constructor(filtersJSON = {}) {
     this.filtersJSON = filtersJSON;
