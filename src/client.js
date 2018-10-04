@@ -34,7 +34,7 @@ export default class Client {
     hostIdentifier,
     apiKey,
     engineName,
-    { endpointBase = "", cacheResponses = false } = {}
+    { endpointBase = "", cacheResponses = true } = {}
   ) {
     this.apiKey = apiKey;
     this.cacheResponses = cacheResponses;
