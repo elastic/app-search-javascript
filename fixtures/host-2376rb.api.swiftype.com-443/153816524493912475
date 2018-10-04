@@ -1,0 +1,29 @@
+POST /api/as/v1/engines/node-modules/search.json
+authorization: Bearer api-hean6g8dmxnm2shqqiag757a
+content-type: application/json
+x-swiftype-client: swiftype-app-search-javascript
+x-swiftype-client-version: 1.4.0
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"query\":\"cat\",\"page\":{\"size\":1},\"filters\":{\"all\":[{\"license\":\"BSD\"},{\"dependencies\":\"socket.io\"}]},\"facets\":{\"license\":{\"type\":\"value\",\"size\":3},\"dependencies\":[{\"type\":\"value\",\"size\":3}]}}
+
+HTTP/1.1 200 OK
+date: Fri, 28 Sep 2018 20:07:24 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 200 OK
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+etag: W/"2bba9fb440214c4932629a0f695c5bec"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 93b521c3dba5a4b9e05d77006e3b4786
+x-runtime: 0.126792
+x-swiftype-frontend-datacenter: dal05
+x-swiftype-frontend-node: web02.dal05
+x-swiftype-edge-datacenter: dal05
+x-swiftype-edge-node: web02.dal05
+
+{"meta":{"warnings":[],"page":{"current":1,"total_pages":5,"total_results":5,"size":1},"request_id":"93b521c3dba5a4b9e05d77006e3b4786"},"results":[{"license":{"raw":["BSD"]},"name":{"raw":"battlefield-tanks"},"repository":{"raw":null},"created":{"raw":"2012-11-17T18:37:08.507Z"},"dependencies":{"raw":["express","socket.io","mongoose","caterpillar","jade","connect","underscore"]},"keywords":{"raw":["game","websocket","tank"]},"description":{"raw":"Realtime game with easeljs, node.js, mongodb and socket.io"},"modified":{"raw":"2012-11-19T17:59:43.452Z"},"id":{"raw":"battlefield-tanks"},"version":{"raw":"0.1.9"},"owners":{"raw":["tim@visualappeal.de"]},"_meta":{"score":0.17728129}}],"facets":{"dependencies":[{"type":"value","data":[{"value":"socket.io","count":5},{"value":"express","count":2},{"value":"async","count":1}]}],"license":[{"type":"value","data":[{"value":"BSD","count":5}]}]}}

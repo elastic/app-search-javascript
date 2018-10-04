@@ -1013,7 +1013,7 @@ ResultList {
 }
 `;
 
-exports[`Client can be instantiated with an endpointBase 1`] = `
+exports[`Client can be instantiated with options 1`] = `
 ResultList {
   "info": Object {
     "meta": Object {

@@ -32,14 +32,16 @@
     "url": "https://github.com/swiftype/swiftype-app-search-javascript/issues"
   },
   "homepage": "https://github.com/swiftype/swiftype-app-search-javascript",
-  "dependencies": {},
+  "dependencies": {
+    "object-hash": "^1.3.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.26.3",
     "babel-jest": "^22.4.3",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-es2015": "^6.9.0",
     "babel-runtime": "^6.9.2",
     "eslint": "^5.1.0",
     "eslint-config-prettier": "^2.9.0",

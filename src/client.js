@@ -1,10 +1,43 @@
 "use strict";
 
-import { version, name } from "../package.json";
 import ResultList from "./result_list";
+import Filters from "./filters";
+import { request } from "./request.js";
+
+/**
+ * Omit a single key from an object
+ */
+function omit(obj, keyToOmit) {
+  if (!obj) return;
+  return Object.keys(obj).reduce((acc, key) => {
+    const value = obj[key];
+    if (key !== keyToOmit) acc[key] = value;
+    return acc;
+  }, {});
+}
+
+/**
+ * Similar to omit, but return the removed value
+ */
+function remove(obj, keyToRemove) {
+  const removed = obj[keyToRemove];
+  const updatedObj = omit(obj, keyToRemove);
+  return [removed, updatedObj];
+}
+
+function formatResultsJSON(json) {
+  return new ResultList(json.results, omit(json, "results"));
+}
+
 export default class Client {
-  constructor(hostIdentifier, apiKey, engineName, { endpointBase = "" } = {}) {
+  constructor(
+    hostIdentifier,
+    apiKey,
+    engineName,
+    { endpointBase = "", cacheResponses = false } = {}
+  ) {
     this.apiKey = apiKey;
+    this.cacheResponses = cacheResponses;
     this.engineName = engineName;
     this.apiEndpoint = endpointBase
       ? `${endpointBase}/api/as/v1/`
@@ -20,18 +53,94 @@ export default class Client {
    * @param {Object} options Object used for configuring the search like search_fields and result_fields
    * @returns {Promise<ResultList>} a Promise that returns a {ResultList} when resolved, otherwise throws an Error.
    */
-  search(query, options) {
-    const params = Object.assign({ query: query }, options);
-    return this._requestJSON(`${this.searchPath}.json`, params).then(
-      ({ response, json }) => {
-        if (!response.ok) {
-          throw new Error(
-            `[${response.status}]${json.errors ? " " + json.errors : ""}`
-          );
-        }
-        return new ResultList(json.results, omit(json, "results"));
+  search(query, options = {}) {
+    const [disjunctiveFacets, validOptions] = remove(
+      options,
+      "disjunctiveFacets"
+    );
+
+    const params = Object.assign({ query: query }, validOptions);
+
+    if (disjunctiveFacets && disjunctiveFacets.length > 0) {
+      return this._performDisjunctiveSearch(params, disjunctiveFacets).then(
+        formatResultsJSON
+      );
+    }
+    return this._performSearch(params).then(formatResultsJSON);
+  }
+
+  /*
+   * A disjunctive search, as opposed to a regular search is used any time
+   * a `disjunctiveFacet` option is provided to the `search` method. A
+   * a disjunctive facet requires multiple API calls.
+   *
+   * Typically:
+   *
+   * 1 API call to get the base results
+   * 1 additional API call to get the "disjunctive" facet counts for each
+   * facet configured as "disjunctive".
+   *
+   * The additional API calls are required, because a "disjunctive" facet
+   * is one where we want the counts for a facet as if there is no filter applied
+   * to a particular field.
+   *
+   * After all queries are performed, we merge the facet values on the
+   * additional requests into the facet values of the original request, thus
+   * creating a single response with the disjunctive facet values.
+   */
+  _performDisjunctiveSearch(params, disjunctiveFacets) {
+    const baseQueryPromise = this._performSearch(params);
+
+    const filters = new Filters(params.filters);
+    const appliedFilers = filters.getListOfAppliedFilters();
+    const listOfAppliedDisjunctiveFilters = appliedFilers.filter(filter => {
+      return disjunctiveFacets.includes(filter);
+    });
+
+    if (!listOfAppliedDisjunctiveFilters.length) {
+      return baseQueryPromise;
+    }
+
+    const disjunctiveQueriesPromises = listOfAppliedDisjunctiveFilters.map(
+      appliedDisjunctiveFilter => {
+        return this._performSearch({
+          ...params,
+          filters: filters.removeFilter(appliedDisjunctiveFilter).filtersJSON,
+          facets: {
+            [appliedDisjunctiveFilter]: params.facets[appliedDisjunctiveFilter]
+          }
+        });
       }
     );
+
+    return Promise.all([baseQueryPromise, ...disjunctiveQueriesPromises]).then(
+      ([baseQueryResults, ...disjunctiveQueries]) => {
+        disjunctiveQueries.forEach(disjunctiveQueryResults => {
+          const [facetName, facetValue] = Object.entries(
+            disjunctiveQueryResults.facets
+          )[0];
+          baseQueryResults.facets[facetName] = facetValue;
+        });
+        return baseQueryResults;
+      }
+    );
+  }
+
+  _performSearch(params) {
+    return request(
+      this.apiKey,
+      this.apiEndpoint,
+      `${this.searchPath}.json`,
+      params,
+      this.cacheResponses
+    ).then(({ response, json }) => {
+      if (!response.ok) {
+        throw new Error(
+          `[${response.status}]${json.errors ? " " + json.errors : ""}`
+        );
+      }
+      return json;
+    });
   }
 
   /**
@@ -51,53 +160,19 @@ export default class Client {
       tags
     };
 
-    return this._requestJSON(`${this.clickPath}.json`, params).then(
-      ({ response, json }) => {
-        if (!response.ok) {
-          throw new Error(
-            `[${response.status}]${json.errors ? " " + json.errors : ""}`
-          );
-        }
-        return;
+    return request(
+      this.apiKey,
+      this.apiEndpoint,
+      `${this.clickPath}.json`,
+      params,
+      this.cacheResponses
+    ).then(({ response, json }) => {
+      if (!response.ok) {
+        throw new Error(
+          `[${response.status}]${json.errors ? " " + json.errors : ""}`
+        );
       }
-    );
-  }
-
-  _requestJSON(path, params) {
-    return this._request(path, params).then(response => {
-      return response
-        .json()
-        .then(json => {
-          return { response: response, json: json };
-        })
-        .catch(() => {
-          return { response: response, json: {} };
-        });
+      return;
     });
   }
-
-  _request(path, params) {
-    const headers = new Headers({
-      Authorization: `Bearer ${this.apiKey}`,
-      "Content-Type": "application/json",
-      "X-Swiftype-Client": name,
-      "X-Swiftype-Client-Version": version
-    });
-
-    return fetch(`${this.apiEndpoint}${path}`, {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(params),
-      credentials: "include"
-    });
-  }
-}
-
-function omit(obj, keyToOmit) {
-  if (!obj) return;
-  return Object.keys(obj).reduce((acc, key) => {
-    const value = obj[key];
-    if (key !== keyToOmit) acc[key] = value;
-    return acc;
-  }, {});
 }
