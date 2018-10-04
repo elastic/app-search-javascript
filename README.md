@@ -9,7 +9,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@1.4.0/dist/swiftype_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@2.0.0/dist/swiftype_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
@@ -60,6 +60,7 @@ List of configuration options:
 | apiKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                             |
 | engineName     | Yes      |                                                                                                                                                                         |
 | endpointBase   | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API or developing against a local API server. Ex. "http://localhost:3000" |
+| cacheResponses | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                         |
 
 ### API Methods
 
@@ -94,6 +95,28 @@ In addition to the supported options above, we also support the following fields
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | disjunctiveFacets | Array[String] | An array of field names. Every field listed here must also be provided as a facet in the `facet` field. It denotes that a facet should be considered disjunctive. When returning counts for disjunctive facets, the counts will be returned as if no filter is applied on this field, even if one is applied.
+
+_Response_
+
+The search method returns the response wrapped in a `ResultList` type:
+
+```javascript
+ResultList {
+  rawResults: [], // List of raw `results` from JSON response
+  rawInfo: { // Object wrapping the raw `meta` property from JSON response
+    meta: {}
+  },
+  results: [ResultItem], // List of `results` wrapped in `ResultItem` type
+  info: { // Currently the same as `rawInfo`
+    meta: {}
+  }
+}
+
+ResultItem {
+  getRaw(fieldName), // Returns the HTML-unsafe raw value for a field, if it exists
+  getSnippet(fieldName) // Returns the HTML-safe snippet value for a field, if it exists
+}
+```
 
 #### Clickthrough Tracking
 
