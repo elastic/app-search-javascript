@@ -5,6 +5,12 @@
  */
 export default class ResultItem {
   constructor(data) {
+    if (data._group && data._group.length > 0) {
+      data = {
+        ...data,
+        _group: data._group.map(nestedData => new ResultItem(nestedData))
+      };
+    }
     this.data = data;
   }
 

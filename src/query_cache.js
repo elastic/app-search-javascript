@@ -1,12 +1,10 @@
-import hash from "object-hash";
-
 export default class QueryCache {
   constructor() {
     this.cache = {};
   }
 
   getKey(method, url, params) {
-    return method + url + hash(params);
+    return method + url + JSON.stringify(params);
   }
 
   store(key, response) {
