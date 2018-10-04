@@ -9,6 +9,7 @@
     "test": "BABEL_ENV=test jest",
     "format": "prettier --write \"**/*.js\"",
     "build": "BABEL_ENV=dev rollup -c",
+    "watch": "BABEL_ENV=dev rollup -c --watch",
     "prepare": "npm run build",
     "precommit": "lint-staged"
   },

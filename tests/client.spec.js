@@ -1,5 +1,6 @@
 import Client from "../src/client";
 import fetch, { Headers } from "node-fetch";
+import ResultItem from "../src/result_item";
 import Replay from "replay";
 
 const hostIdentifier = "host-2376rb";
@@ -49,6 +50,18 @@ describe("Client", () => {
       } catch (e) {
         expect(e).toEqual(new Error("[404]"));
       }
+    });
+
+    test("should wrap grouped results in ResultItem", async () => {
+      const result = await client.search("cat", {
+        page: {
+          size: 1
+        },
+        group: {
+          field: "license"
+        }
+      });
+      expect(result.results[0].data._group[0]).toBeInstanceOf(ResultItem);
     });
 
     describe("disjunctive facets", () => {
