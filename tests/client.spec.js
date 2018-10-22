@@ -227,6 +227,45 @@ describe("Client", () => {
     });
   });
 
+  describe("#multiSearch", () => {
+    function subject({
+      firstOptions = { page: { size: 1 } },
+      secondOptions = {}
+    } = {}) {
+      return client.multiSearch([
+        {
+          query: "cat",
+          options: firstOptions
+        },
+        {
+          query: "dog",
+          options: secondOptions
+        }
+      ]);
+    }
+
+    test("should perform multi search", async () => {
+      expect(await subject()).toMatchSnapshot();
+    });
+
+    test("should pass through error messages", async () => {
+      let error;
+      try {
+        await subject({
+          firstOptions: { invalid: "parameter" },
+          secondOptions: { another: "parameter" }
+        });
+      } catch (e) {
+        error = e;
+      }
+      expect(error).toEqual(
+        new Error(
+          "[400] Options contains invalid key: invalid, Options contains invalid key: another"
+        )
+      );
+    });
+  });
+
   describe("#click", () => {
     test("should resolve", async () => {
       const result = await client.click({

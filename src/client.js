@@ -4,6 +4,11 @@ import ResultList from "./result_list";
 import Filters from "./filters";
 import { request } from "./request.js";
 
+const SEARCH_TYPES = {
+  SEARCH: "SEARCH",
+  MULTI_SEARCH: "MULTI_SEARCH"
+};
+
 /**
  * Omit a single key from an object
  */
@@ -25,8 +30,22 @@ function remove(obj, keyToRemove) {
   return [removed, updatedObj];
 }
 
+function flatten(arrayOfArrays) {
+  return [].concat.apply([], arrayOfArrays);
+}
+
 function formatResultsJSON(json) {
   return new ResultList(json.results, omit(json, "results"));
+}
+
+function handleErrorResponse({ response, json }) {
+  if (!response.ok) {
+    const message = Array.isArray(json)
+      ? ` ${flatten(json.map(response => response.errors)).join(", ")}`
+      : `${json.errors ? " " + json.errors : ""}`;
+    throw new Error(`[${response.status}]${message}`);
+  }
+  return json;
 }
 
 export default class Client {
@@ -43,6 +62,7 @@ export default class Client {
       ? `${endpointBase}/api/as/v1/`
       : `https://${hostIdentifier}.api.swiftype.com/api/as/v1/`;
     this.searchPath = `engines/${this.engineName}/search`;
+    this.multiSearchPath = `engines/${this.engineName}/multi_search`;
     this.clickPath = `engines/${this.engineName}/click`;
   }
 
@@ -67,6 +87,27 @@ export default class Client {
       );
     }
     return this._performSearch(params).then(formatResultsJSON);
+  }
+
+  /**
+   * Sends multiple search requests to the Swiftype App Search Api, using the
+   * "multi_search" endpoint
+   *
+   * @param {Array[Object]} searches searches to send, valid keys are:
+   * - query: String
+   * - options: Object (optional)
+   * @returns {Promise<[ResultList]>} a Promise that returns an array of {ResultList} when resolved, otherwise throws an Error.
+   */
+  multiSearch(searches) {
+    const params = searches.map(search => ({
+      query: search.query,
+      ...(search.options || {})
+    }));
+
+    return this._performSearch(
+      { queries: params },
+      SEARCH_TYPES.MULTI_SEARCH
+    ).then(responses => responses.map(formatResultsJSON));
   }
 
   /*
@@ -126,21 +167,18 @@ export default class Client {
     );
   }
 
-  _performSearch(params) {
+  _performSearch(params, searchType = SEARCH_TYPES.SEARCH) {
+    const searchPath =
+      searchType === SEARCH_TYPES.MULTI_SEARCH
+        ? this.multiSearchPath
+        : this.searchPath;
     return request(
       this.apiKey,
       this.apiEndpoint,
-      `${this.searchPath}.json`,
+      `${searchPath}.json`,
       params,
       this.cacheResponses
-    ).then(({ response, json }) => {
-      if (!response.ok) {
-        throw new Error(
-          `[${response.status}]${json.errors ? " " + json.errors : ""}`
-        );
-      }
-      return json;
-    });
+    ).then(handleErrorResponse);
   }
 
   /**
@@ -166,13 +204,6 @@ export default class Client {
       `${this.clickPath}.json`,
       params,
       this.cacheResponses
-    ).then(({ response, json }) => {
-      if (!response.ok) {
-        throw new Error(
-          `[${response.status}]${json.errors ? " " + json.errors : ""}`
-        );
-      }
-      return;
-    });
+    ).then(handleErrorResponse);
   }
 }
