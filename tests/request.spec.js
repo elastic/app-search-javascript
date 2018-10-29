@@ -10,7 +10,7 @@ describe("request", () => {
     json: () => Promise.reject()
   };
 
-  const apiKey = "api-12345";
+  const searchKey = "api-12345";
   const endpoint = "http://www.example.com";
   const path = "/v1/search";
   const params = {
@@ -29,20 +29,20 @@ describe("request", () => {
   });
 
   it("can fetch", async () => {
-    const res = await request(apiKey, endpoint, path, params, true);
+    const res = await request(searchKey, endpoint, path, params, true);
     expect(res.response).toBe(response);
     expect(global.fetch.mock.calls.length).toBe(1);
   });
 
   it("will return a cached response if already called once", async () => {
-    const res = await request(apiKey, endpoint, path, params, true);
+    const res = await request(searchKey, endpoint, path, params, true);
     expect(res.response).toBe(response);
     expect(global.fetch.mock.calls.length).toBe(0);
   });
 
   it("will not return the cached response if endpoint changes", async () => {
     const res = await request(
-      apiKey,
+      searchKey,
       "http://www.jira.com",
       path,
       params,
@@ -53,14 +53,14 @@ describe("request", () => {
   });
 
   it("will not return the cached response if path changes", async () => {
-    const res = await request(apiKey, endpoint, "/new/path", params, true);
+    const res = await request(searchKey, endpoint, "/new/path", params, true);
     expect(res.response).toBe(response);
     expect(global.fetch.mock.calls.length).toBe(1);
   });
 
   it("will not return the cached response if path params change", async () => {
     const res = await request(
-      apiKey,
+      searchKey,
       endpoint,
       path,
       {
@@ -75,7 +75,7 @@ describe("request", () => {
 
   it("will return another cached response", async () => {
     const res = await request(
-      apiKey,
+      searchKey,
       endpoint,
       path,
       {
@@ -93,17 +93,17 @@ describe("request", () => {
       .fn()
       .mockImplementation(() => Promise.resolve(responseWithParsingError));
 
-    let res = await request(apiKey, "bad/endpoint", path, params, true);
+    let res = await request(searchKey, "bad/endpoint", path, params, true);
     expect(res.json).toEqual({});
     expect(global.fetch.mock.calls.length).toBe(1);
 
-    res = await request(apiKey, "bad/endpoint", path, params, true);
+    res = await request(searchKey, "bad/endpoint", path, params, true);
     expect(res.json).toEqual({});
     expect(global.fetch.mock.calls.length).toBe(2);
   });
 
   it("will ignore cache if cacheResponses is false", async () => {
-    const res = await request(apiKey, endpoint, path, params, false);
+    const res = await request(searchKey, endpoint, path, params, false);
     expect(res.response).toBe(response);
     expect(global.fetch.mock.calls.length).toBe(1);
   });

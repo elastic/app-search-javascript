@@ -51,11 +51,11 @@ function handleErrorResponse({ response, json }) {
 export default class Client {
   constructor(
     hostIdentifier,
-    apiKey,
+    searchKey,
     engineName,
     { endpointBase = "", cacheResponses = true } = {}
   ) {
-    this.apiKey = apiKey;
+    this.searchKey = searchKey;
     this.cacheResponses = cacheResponses;
     this.engineName = engineName;
     this.apiEndpoint = endpointBase
@@ -173,7 +173,7 @@ export default class Client {
         ? this.multiSearchPath
         : this.searchPath;
     return request(
-      this.apiKey,
+      this.searchKey,
       this.apiEndpoint,
       `${searchPath}.json`,
       params,
@@ -199,7 +199,7 @@ export default class Client {
     };
 
     return request(
-      this.apiKey,
+      this.searchKey,
       this.apiEndpoint,
       `${this.clickPath}.json`,
       params,

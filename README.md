@@ -45,7 +45,7 @@ Using this client assumes that you have already created an [App Search](https://
 ```javascript
 var client = SwiftypeAppSearch.createClient({
   hostIdentifier: "host-c5s2mj",
-  apiKey: "search-mu75psc5egt9ppzuycnc2mc3",
+  searchKey: "search-mu75psc5egt9ppzuycnc2mc3",
   engineName: "favorite-videos"
 });
 ```
@@ -57,7 +57,7 @@ List of configuration options:
 | Option         | Required | Description                                                                                                                                                             |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hostIdentifier | Yes      | Your **Host Identifier**, should start with `host-`                                                                                                                     |
-| apiKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                             |
+| searchKey      | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                             |
 | engineName     | Yes      |                                                                                                                                                                         |
 | endpointBase   | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API or developing against a local API server. Ex. "http://localhost:3000" |
 | cacheResponses | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                         |
