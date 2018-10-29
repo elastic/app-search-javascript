@@ -118,6 +118,34 @@ ResultItem {
 }
 ```
 
+#### Multi Search
+
+It is possible to run multiple queries at once using the `multiSearch` method.
+
+To search for the term `lion` and `tiger`, a search call is constructed as follows:
+
+```javascript
+var options = {
+  search_fields: { name: {} },
+  result_fields: { id: { raw: {} }, title: { raw: {} } }
+};
+
+client
+  .multiSearch([{ query: "node", options }, { query: "java", options }])
+  .then(allResults => {
+    allResults.forEach(resultList => {
+      resultList.results.forEach(result => {
+        console.log(
+          `id: ${result.getRaw("id")} raw: ${result.getRaw("title")}`
+        );
+      });
+    });
+  })
+  .catch(error => {
+    console.log(`error: ${error}`);
+  });
+```
+
 #### Clickthrough Tracking
 
 ```javascript
