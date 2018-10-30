@@ -9,7 +9,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@2.0.0/dist/swiftype_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@2.1.0/dist/swiftype_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
@@ -45,7 +45,7 @@ Using this client assumes that you have already created an [App Search](https://
 ```javascript
 var client = SwiftypeAppSearch.createClient({
   hostIdentifier: "host-c5s2mj",
-  apiKey: "search-mu75psc5egt9ppzuycnc2mc3",
+  searchKey: "search-mu75psc5egt9ppzuycnc2mc3",
   engineName: "favorite-videos"
 });
 ```
@@ -57,7 +57,7 @@ List of configuration options:
 | Option         | Required | Description                                                                                                                                                             |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hostIdentifier | Yes      | Your **Host Identifier**, should start with `host-`                                                                                                                     |
-| apiKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                             |
+| searchKey      | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                             |
 | engineName     | Yes      |                                                                                                                                                                         |
 | endpointBase   | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API or developing against a local API server. Ex. "http://localhost:3000" |
 | cacheResponses | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                         |
@@ -117,6 +117,34 @@ ResultItem {
   getRaw(fieldName), // Returns the HTML-unsafe raw value for a field, if it exists
   getSnippet(fieldName) // Returns the HTML-safe snippet value for a field, if it exists
 }
+```
+
+#### Multi Search
+
+It is possible to run multiple queries at once using the `multiSearch` method.
+
+To search for the term `lion` and `tiger`, a search call is constructed as follows:
+
+```javascript
+var options = {
+  search_fields: { name: {} },
+  result_fields: { id: { raw: {} }, title: { raw: {} } }
+};
+
+client
+  .multiSearch([{ query: "node", options }, { query: "java", options }])
+  .then(allResults => {
+    allResults.forEach(resultList => {
+      resultList.results.forEach(result => {
+        console.log(
+          `id: ${result.getRaw("id")} raw: ${result.getRaw("title")}`
+        );
+      });
+    });
+  })
+  .catch(error => {
+    console.log(`error: ${error}`);
+  });
 ```
 
 #### Clickthrough Tracking

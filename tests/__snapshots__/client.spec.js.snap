@@ -1,8 +1,1031 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Client #click should resolve 1`] = `undefined`;
+exports[`Client #click should resolve 1`] = `Object {}`;
 
-exports[`Client #click should resolve if no tags are provided 1`] = `undefined`;
+exports[`Client #click should resolve if no tags are provided 1`] = `Object {}`;
+
+exports[`Client #multiSearch should perform multi search 1`] = `
+Array [
+  ResultList {
+    "info": Object {
+      "meta": Object {
+        "page": Object {
+          "current": 1,
+          "size": 1,
+          "total_pages": 642,
+          "total_results": 642,
+        },
+        "request_id": "5da20f6cc47205df9ddce06c6efb1a18",
+        "warnings": Array [],
+      },
+    },
+    "rawInfo": Object {
+      "meta": Object {
+        "page": Object {
+          "current": 1,
+          "size": 1,
+          "total_pages": 642,
+          "total_results": 642,
+        },
+        "request_id": "5da20f6cc47205df9ddce06c6efb1a18",
+        "warnings": Array [],
+      },
+    },
+    "rawResults": Array [
+      Object {
+        "_meta": Object {
+          "score": 18.773478,
+        },
+        "created": Object {
+          "raw": "2013-01-23T04:51:39.995Z",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "coffee-script",
+            "argparse",
+            "source-map",
+          ],
+        },
+        "description": Object {
+          "raw": "WIP cat for JS source maps.",
+        },
+        "id": Object {
+          "raw": "source-map-cat",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": Array [
+            "BSD",
+          ],
+        },
+        "modified": Object {
+          "raw": "2013-01-23T04:51:42.782Z",
+        },
+        "name": Object {
+          "raw": "source-map-cat",
+        },
+        "owners": Object {
+          "raw": Array [
+            "gregg@aweber.com",
+          ],
+        },
+        "repository": Object {
+          "raw": null,
+        },
+        "version": Object {
+          "raw": "0.0.0",
+        },
+      },
+    ],
+    "results": Array [
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 18.773478,
+          },
+          "created": Object {
+            "raw": "2013-01-23T04:51:39.995Z",
+          },
+          "dependencies": Object {
+            "raw": Array [
+              "coffee-script",
+              "argparse",
+              "source-map",
+            ],
+          },
+          "description": Object {
+            "raw": "WIP cat for JS source maps.",
+          },
+          "id": Object {
+            "raw": "source-map-cat",
+          },
+          "keywords": Object {
+            "raw": null,
+          },
+          "license": Object {
+            "raw": Array [
+              "BSD",
+            ],
+          },
+          "modified": Object {
+            "raw": "2013-01-23T04:51:42.782Z",
+          },
+          "name": Object {
+            "raw": "source-map-cat",
+          },
+          "owners": Object {
+            "raw": Array [
+              "gregg@aweber.com",
+            ],
+          },
+          "repository": Object {
+            "raw": null,
+          },
+          "version": Object {
+            "raw": "0.0.0",
+          },
+        },
+      },
+    ],
+  },
+  ResultList {
+    "info": Object {
+      "meta": Object {
+        "page": Object {
+          "current": 1,
+          "size": 10,
+          "total_pages": 1,
+          "total_results": 9,
+        },
+        "request_id": "5da20f6cc47205df9ddce06c6efb1a18",
+        "warnings": Array [],
+      },
+    },
+    "rawInfo": Object {
+      "meta": Object {
+        "page": Object {
+          "current": 1,
+          "size": 10,
+          "total_pages": 1,
+          "total_results": 9,
+        },
+        "request_id": "5da20f6cc47205df9ddce06c6efb1a18",
+        "warnings": Array [],
+      },
+    },
+    "rawResults": Array [
+      Object {
+        "_meta": Object {
+          "score": 0.17133085,
+        },
+        "created": Object {
+          "raw": "2012-10-09T01:10:48.905Z",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "request",
+            "cheerio",
+          ],
+        },
+        "description": Object {
+          "raw": "Release some Bulldogs to watch internet for you",
+        },
+        "id": Object {
+          "raw": "bulldog",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "bulldog",
+            "bulldogjs",
+            "watcher",
+            "web watcher",
+            "site watcher",
+          ],
+        },
+        "license": Object {
+          "raw": Array [
+            "MIT",
+          ],
+        },
+        "modified": Object {
+          "raw": "2012-10-09T01:10:56.277Z",
+        },
+        "name": Object {
+          "raw": "bulldog",
+        },
+        "owners": Object {
+          "raw": Array [
+            "social@fernetjs.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/fernetjs/bulldogjs",
+          ],
+        },
+        "version": Object {
+          "raw": "0.1.0",
+        },
+      },
+      Object {
+        "_meta": Object {
+          "score": 0.09943935,
+        },
+        "created": Object {
+          "raw": "2012-02-15T09:48:45.804Z",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "synchronize data between logic layer and persistence layer",
+        },
+        "id": Object {
+          "raw": "Squirrel",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-02-15T09:48:53.668Z",
+        },
+        "name": Object {
+          "raw": "Squirrel",
+        },
+        "owners": Object {
+          "raw": Array [
+            "dubodog@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/pomelo-modules/data-sync",
+          ],
+        },
+        "version": Object {
+          "raw": "0.0.1",
+        },
+      },
+      Object {
+        "_meta": Object {
+          "score": 0.082790785,
+        },
+        "created": Object {
+          "raw": "2012-07-27T18:47:51.181Z",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "request",
+            "node.extend",
+          ],
+        },
+        "description": Object {
+          "raw": "odata client for node.js",
+        },
+        "id": Object {
+          "raw": "odata-cli",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-11-08T16:05:41.225Z",
+        },
+        "name": Object {
+          "raw": "odata-cli",
+        },
+        "owners": Object {
+          "raw": Array [
+            "machadogj@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/machadogj/node-odata-cli",
+          ],
+        },
+        "version": Object {
+          "raw": "0.0.4",
+        },
+      },
+      Object {
+        "_meta": Object {
+          "score": 0.077640004,
+        },
+        "created": Object {
+          "raw": "2013-01-10T20:10:30.401Z",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "Winston transport based on mailer. It buffers errors, and packs them in one email if necessary.",
+        },
+        "id": Object {
+          "raw": "winston-mailer",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "winston",
+            "email",
+            "mail",
+            "mailer",
+          ],
+        },
+        "license": Object {
+          "raw": Array [
+            "BSD",
+          ],
+        },
+        "modified": Object {
+          "raw": "2013-01-10T20:10:32.828Z",
+        },
+        "name": Object {
+          "raw": "winston-mailer",
+        },
+        "owners": Object {
+          "raw": Array [
+            "machadogj@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/machadogj/node-winston-mailer",
+          ],
+        },
+        "version": Object {
+          "raw": "0.0.1",
+        },
+      },
+      Object {
+        "_meta": Object {
+          "score": 0.077640004,
+        },
+        "created": Object {
+          "raw": "2012-07-31T18:52:42.198Z",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "request",
+            "odata-cli",
+          ],
+        },
+        "description": Object {
+          "raw": "node.js client for azure acs management service.",
+        },
+        "id": Object {
+          "raw": "acs-cli",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-08-02T13:43:42.049Z",
+        },
+        "name": Object {
+          "raw": "acs-cli",
+        },
+        "owners": Object {
+          "raw": Array [
+            "machadogj@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "{\\"type\\":\\"git\\",\\"url\\":\\"https://bitbucket.org/tellagostudios/node-acs-cli.git\\"}",
+          ],
+        },
+        "version": Object {
+          "raw": "0.0.1",
+        },
+      },
+      Object {
+        "_meta": Object {
+          "score": 0.077640004,
+        },
+        "created": Object {
+          "raw": "2012-10-01T22:18:02.952Z",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "socket.io-client",
+          ],
+        },
+        "description": Object {
+          "raw": "Client package for console.io (https://github.com/TellagoDevLabs/node-console.io).",
+        },
+        "id": Object {
+          "raw": "console.io-client",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-10-26T19:29:57.456Z",
+        },
+        "name": Object {
+          "raw": "console.io-client",
+        },
+        "owners": Object {
+          "raw": Array [
+            "machadogj@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/TellagoDevLabs/node-console.io-client",
+          ],
+        },
+        "version": Object {
+          "raw": "0.0.4",
+        },
+      },
+      Object {
+        "_meta": Object {
+          "score": 0.06188738,
+        },
+        "created": Object {
+          "raw": "2011-02-03T01:29:24.057Z",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "cradle",
+          ],
+        },
+        "description": Object {
+          "raw": "active record for CouchDB",
+        },
+        "homepage": Object {
+          "raw": "https://github.com/scottburch/couch-ar",
+        },
+        "id": Object {
+          "raw": "couch-ar",
+        },
+        "keywords": Object {
+          "raw": null,
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-03-10T20:12:54.478Z",
+        },
+        "name": Object {
+          "raw": "couch-ar",
+        },
+        "owners": Object {
+          "raw": Array [
+            "scott@bulldoginfo.com",
+          ],
+        },
+        "repository": Object {
+          "raw": null,
+        },
+        "version": Object {
+          "raw": "0.3.4",
+        },
+      },
+      Object {
+        "_meta": Object {
+          "score": 0.05774788,
+        },
+        "created": Object {
+          "raw": "2012-08-02T20:47:29.279Z",
+        },
+        "dependencies": Object {
+          "raw": Array [
+            "watch",
+            "mkdirp",
+          ],
+        },
+        "description": Object {
+          "raw": "Checkout http://github/gekitz/jalapeno for further details",
+        },
+        "id": Object {
+          "raw": "jalapeno",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "jalapeno",
+            "watchdog",
+            "file copy",
+          ],
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-08-02T20:47:31.161Z",
+        },
+        "name": Object {
+          "raw": "jalapeno",
+        },
+        "owners": Object {
+          "raw": Array [
+            "georgkitz@gmail.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "https://github.com/gekitz/jalapeno",
+          ],
+        },
+        "version": Object {
+          "raw": "0.1.1",
+        },
+      },
+      Object {
+        "_meta": Object {
+          "score": 0.040761493,
+        },
+        "created": Object {
+          "raw": "2012-05-08T11:03:10.224Z",
+        },
+        "dependencies": Object {
+          "raw": null,
+        },
+        "description": Object {
+          "raw": "Park-Miller-Carta pseudo-random number generator library",
+        },
+        "homepage": Object {
+          "raw": "https://github.com/odogono/prng-parkmiller-js/",
+        },
+        "id": Object {
+          "raw": "prng-parkmiller-js",
+        },
+        "keywords": Object {
+          "raw": Array [
+            "random",
+            "number",
+            "generator",
+            "park-miller",
+            "prng",
+          ],
+        },
+        "license": Object {
+          "raw": null,
+        },
+        "modified": Object {
+          "raw": "2012-05-08T11:07:48.042Z",
+        },
+        "name": Object {
+          "raw": "prng-parkmiller-js",
+        },
+        "owners": Object {
+          "raw": Array [
+            "alex@opendoorgonorth.com",
+          ],
+        },
+        "repository": Object {
+          "raw": Array [
+            "{\\"type\\":\\"git\\",\\"url\\":\\"git://github.com:odogono/prng-parkmiller-js.git\\"}",
+          ],
+        },
+        "version": Object {
+          "raw": "0.1.1",
+        },
+      },
+    ],
+    "results": Array [
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.17133085,
+          },
+          "created": Object {
+            "raw": "2012-10-09T01:10:48.905Z",
+          },
+          "dependencies": Object {
+            "raw": Array [
+              "request",
+              "cheerio",
+            ],
+          },
+          "description": Object {
+            "raw": "Release some Bulldogs to watch internet for you",
+          },
+          "id": Object {
+            "raw": "bulldog",
+          },
+          "keywords": Object {
+            "raw": Array [
+              "bulldog",
+              "bulldogjs",
+              "watcher",
+              "web watcher",
+              "site watcher",
+            ],
+          },
+          "license": Object {
+            "raw": Array [
+              "MIT",
+            ],
+          },
+          "modified": Object {
+            "raw": "2012-10-09T01:10:56.277Z",
+          },
+          "name": Object {
+            "raw": "bulldog",
+          },
+          "owners": Object {
+            "raw": Array [
+              "social@fernetjs.com",
+            ],
+          },
+          "repository": Object {
+            "raw": Array [
+              "https://github.com/fernetjs/bulldogjs",
+            ],
+          },
+          "version": Object {
+            "raw": "0.1.0",
+          },
+        },
+      },
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.09943935,
+          },
+          "created": Object {
+            "raw": "2012-02-15T09:48:45.804Z",
+          },
+          "dependencies": Object {
+            "raw": null,
+          },
+          "description": Object {
+            "raw": "synchronize data between logic layer and persistence layer",
+          },
+          "id": Object {
+            "raw": "Squirrel",
+          },
+          "keywords": Object {
+            "raw": null,
+          },
+          "license": Object {
+            "raw": null,
+          },
+          "modified": Object {
+            "raw": "2012-02-15T09:48:53.668Z",
+          },
+          "name": Object {
+            "raw": "Squirrel",
+          },
+          "owners": Object {
+            "raw": Array [
+              "dubodog@gmail.com",
+            ],
+          },
+          "repository": Object {
+            "raw": Array [
+              "https://github.com/pomelo-modules/data-sync",
+            ],
+          },
+          "version": Object {
+            "raw": "0.0.1",
+          },
+        },
+      },
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.082790785,
+          },
+          "created": Object {
+            "raw": "2012-07-27T18:47:51.181Z",
+          },
+          "dependencies": Object {
+            "raw": Array [
+              "request",
+              "node.extend",
+            ],
+          },
+          "description": Object {
+            "raw": "odata client for node.js",
+          },
+          "id": Object {
+            "raw": "odata-cli",
+          },
+          "keywords": Object {
+            "raw": null,
+          },
+          "license": Object {
+            "raw": null,
+          },
+          "modified": Object {
+            "raw": "2012-11-08T16:05:41.225Z",
+          },
+          "name": Object {
+            "raw": "odata-cli",
+          },
+          "owners": Object {
+            "raw": Array [
+              "machadogj@gmail.com",
+            ],
+          },
+          "repository": Object {
+            "raw": Array [
+              "https://github.com/machadogj/node-odata-cli",
+            ],
+          },
+          "version": Object {
+            "raw": "0.0.4",
+          },
+        },
+      },
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.077640004,
+          },
+          "created": Object {
+            "raw": "2013-01-10T20:10:30.401Z",
+          },
+          "dependencies": Object {
+            "raw": null,
+          },
+          "description": Object {
+            "raw": "Winston transport based on mailer. It buffers errors, and packs them in one email if necessary.",
+          },
+          "id": Object {
+            "raw": "winston-mailer",
+          },
+          "keywords": Object {
+            "raw": Array [
+              "winston",
+              "email",
+              "mail",
+              "mailer",
+            ],
+          },
+          "license": Object {
+            "raw": Array [
+              "BSD",
+            ],
+          },
+          "modified": Object {
+            "raw": "2013-01-10T20:10:32.828Z",
+          },
+          "name": Object {
+            "raw": "winston-mailer",
+          },
+          "owners": Object {
+            "raw": Array [
+              "machadogj@gmail.com",
+            ],
+          },
+          "repository": Object {
+            "raw": Array [
+              "https://github.com/machadogj/node-winston-mailer",
+            ],
+          },
+          "version": Object {
+            "raw": "0.0.1",
+          },
+        },
+      },
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.077640004,
+          },
+          "created": Object {
+            "raw": "2012-07-31T18:52:42.198Z",
+          },
+          "dependencies": Object {
+            "raw": Array [
+              "request",
+              "odata-cli",
+            ],
+          },
+          "description": Object {
+            "raw": "node.js client for azure acs management service.",
+          },
+          "id": Object {
+            "raw": "acs-cli",
+          },
+          "keywords": Object {
+            "raw": null,
+          },
+          "license": Object {
+            "raw": null,
+          },
+          "modified": Object {
+            "raw": "2012-08-02T13:43:42.049Z",
+          },
+          "name": Object {
+            "raw": "acs-cli",
+          },
+          "owners": Object {
+            "raw": Array [
+              "machadogj@gmail.com",
+            ],
+          },
+          "repository": Object {
+            "raw": Array [
+              "{\\"type\\":\\"git\\",\\"url\\":\\"https://bitbucket.org/tellagostudios/node-acs-cli.git\\"}",
+            ],
+          },
+          "version": Object {
+            "raw": "0.0.1",
+          },
+        },
+      },
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.077640004,
+          },
+          "created": Object {
+            "raw": "2012-10-01T22:18:02.952Z",
+          },
+          "dependencies": Object {
+            "raw": Array [
+              "socket.io-client",
+            ],
+          },
+          "description": Object {
+            "raw": "Client package for console.io (https://github.com/TellagoDevLabs/node-console.io).",
+          },
+          "id": Object {
+            "raw": "console.io-client",
+          },
+          "keywords": Object {
+            "raw": null,
+          },
+          "license": Object {
+            "raw": null,
+          },
+          "modified": Object {
+            "raw": "2012-10-26T19:29:57.456Z",
+          },
+          "name": Object {
+            "raw": "console.io-client",
+          },
+          "owners": Object {
+            "raw": Array [
+              "machadogj@gmail.com",
+            ],
+          },
+          "repository": Object {
+            "raw": Array [
+              "https://github.com/TellagoDevLabs/node-console.io-client",
+            ],
+          },
+          "version": Object {
+            "raw": "0.0.4",
+          },
+        },
+      },
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.06188738,
+          },
+          "created": Object {
+            "raw": "2011-02-03T01:29:24.057Z",
+          },
+          "dependencies": Object {
+            "raw": Array [
+              "cradle",
+            ],
+          },
+          "description": Object {
+            "raw": "active record for CouchDB",
+          },
+          "homepage": Object {
+            "raw": "https://github.com/scottburch/couch-ar",
+          },
+          "id": Object {
+            "raw": "couch-ar",
+          },
+          "keywords": Object {
+            "raw": null,
+          },
+          "license": Object {
+            "raw": null,
+          },
+          "modified": Object {
+            "raw": "2012-03-10T20:12:54.478Z",
+          },
+          "name": Object {
+            "raw": "couch-ar",
+          },
+          "owners": Object {
+            "raw": Array [
+              "scott@bulldoginfo.com",
+            ],
+          },
+          "repository": Object {
+            "raw": null,
+          },
+          "version": Object {
+            "raw": "0.3.4",
+          },
+        },
+      },
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.05774788,
+          },
+          "created": Object {
+            "raw": "2012-08-02T20:47:29.279Z",
+          },
+          "dependencies": Object {
+            "raw": Array [
+              "watch",
+              "mkdirp",
+            ],
+          },
+          "description": Object {
+            "raw": "Checkout http://github/gekitz/jalapeno for further details",
+          },
+          "id": Object {
+            "raw": "jalapeno",
+          },
+          "keywords": Object {
+            "raw": Array [
+              "jalapeno",
+              "watchdog",
+              "file copy",
+            ],
+          },
+          "license": Object {
+            "raw": null,
+          },
+          "modified": Object {
+            "raw": "2012-08-02T20:47:31.161Z",
+          },
+          "name": Object {
+            "raw": "jalapeno",
+          },
+          "owners": Object {
+            "raw": Array [
+              "georgkitz@gmail.com",
+            ],
+          },
+          "repository": Object {
+            "raw": Array [
+              "https://github.com/gekitz/jalapeno",
+            ],
+          },
+          "version": Object {
+            "raw": "0.1.1",
+          },
+        },
+      },
+      ResultItem {
+        "data": Object {
+          "_meta": Object {
+            "score": 0.040761493,
+          },
+          "created": Object {
+            "raw": "2012-05-08T11:03:10.224Z",
+          },
+          "dependencies": Object {
+            "raw": null,
+          },
+          "description": Object {
+            "raw": "Park-Miller-Carta pseudo-random number generator library",
+          },
+          "homepage": Object {
+            "raw": "https://github.com/odogono/prng-parkmiller-js/",
+          },
+          "id": Object {
+            "raw": "prng-parkmiller-js",
+          },
+          "keywords": Object {
+            "raw": Array [
+              "random",
+              "number",
+              "generator",
+              "park-miller",
+              "prng",
+            ],
+          },
+          "license": Object {
+            "raw": null,
+          },
+          "modified": Object {
+            "raw": "2012-05-08T11:07:48.042Z",
+          },
+          "name": Object {
+            "raw": "prng-parkmiller-js",
+          },
+          "owners": Object {
+            "raw": Array [
+              "alex@opendoorgonorth.com",
+            ],
+          },
+          "repository": Object {
+            "raw": Array [
+              "{\\"type\\":\\"git\\",\\"url\\":\\"git://github.com:odogono/prng-parkmiller-js.git\\"}",
+            ],
+          },
+          "version": Object {
+            "raw": "0.1.1",
+          },
+        },
+      },
+    ],
+  },
+]
+`;
 
 exports[`Client #search should query 1`] = `
 ResultList {
