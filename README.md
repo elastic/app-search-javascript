@@ -54,13 +54,27 @@ var client = SwiftypeAppSearch.createClient({
 
 List of configuration options:
 
-| Option         | Required | Description                                                                                                                                                             |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hostIdentifier | Yes      | Your **Host Identifier**, should start with `host-`                                                                                                                     |
-| searchKey      | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                             |
-| engineName     | Yes      |                                                                                                                                                                         |
-| endpointBase   | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API or developing against a local API server. Ex. "http://localhost:3000" |
-| cacheResponses | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                         |
+| Option         | Required | Description                                                                                                                                                                            |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hostIdentifier | No       | Your **Host Identifier**, should start with `host-`. Required unless explicitly setting `endpointBase`                                                                                 |
+| searchKey      | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                                            |
+| engineName     | Yes      |                                                                                                                                                                                        |
+| endpointBase   | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API, developing against a local server, or a Managed Deploy. Ex. "http://localhost:3002" |
+| cacheResponses | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                                        |
+
+### Using with App Search Managed Deploys
+
+The client can be configured to use a managed deploy by using the
+`endpointBase` parameter. Since managed deploys do not rely on a `hostIdentifier`
+, it can be omitted.
+
+```javascript
+var client = SwiftypeAppSearch.createClient({
+  searchKey: "search-mu75psc5egt9ppzuycnc2mc3",
+  endpointBase: "http://127.0.0.1:3002",
+  engineName: "favorite-videos"
+});
+```
 
 ### API Methods
 
@@ -93,9 +107,9 @@ Note that `options` supports all options listed here: https://swiftype.com/docum
 
 In addition to the supported options above, we also support the following fields:
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| disjunctiveFacets | Array[String] | An array of field names. Every field listed here must also be provided as a facet in the `facet` field. It denotes that a facet should be considered disjunctive. When returning counts for disjunctive facets, the counts will be returned as if no filter is applied on this field, even if one is applied.|
+| Name              | Type          | Description                                                                                                                                                                                                                                                                                                   |
+| ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| disjunctiveFacets | Array[String] | An array of field names. Every field listed here must also be provided as a facet in the `facet` field. It denotes that a facet should be considered disjunctive. When returning counts for disjunctive facets, the counts will be returned as if no filter is applied on this field, even if one is applied. |
 
 _Response_
 
