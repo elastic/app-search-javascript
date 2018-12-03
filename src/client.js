@@ -143,6 +143,8 @@ export default class Client {
     }
 
     const page = params.page || {};
+    const analytics = params.analytics || {};
+    analytics.tags = analytics.tags || ["Facet-Only"];
 
     const disjunctiveQueriesPromises = listOfAppliedDisjunctiveFilters.map(
       appliedDisjunctiveFilter => {
@@ -155,6 +157,7 @@ export default class Client {
             // don't need results
             size: 0
           },
+          analytics,
           facets: {
             [appliedDisjunctiveFilter]: params.facets[appliedDisjunctiveFilter]
           }
