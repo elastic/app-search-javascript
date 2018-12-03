@@ -128,7 +128,7 @@ describe("Client", () => {
       });
 
       // Fixture: search_filter_and_facet
-      // Fixture: disjunctive_license
+      // Fixture: search_with_license_facet
       it("returns facet counts as if filter is not applied and facet is disjunctive", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -153,7 +153,7 @@ describe("Client", () => {
         );
       });
 
-      // Fixture: disjunctive_license_with_deps_filters
+      // Fixture: search_multi_facet
       it("will return full results when multiple disjunctive facets, but no filters", async () => {
         const result = await client.search("cat", {
           page: { size: 1 },

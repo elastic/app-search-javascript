@@ -142,11 +142,19 @@ export default class Client {
       return baseQueryPromise;
     }
 
+    const page = params.page || {};
+
     const disjunctiveQueriesPromises = listOfAppliedDisjunctiveFilters.map(
       appliedDisjunctiveFilter => {
         return this._performSearch({
           ...params,
           filters: filters.removeFilter(appliedDisjunctiveFilter).filtersJSON,
+          page: {
+            ...page,
+            // Set this to 0 for performance, since disjunctive queries
+            // don't need results
+            size: 0
+          },
           facets: {
             [appliedDisjunctiveFilter]: params.facets[appliedDisjunctiveFilter]
           }
