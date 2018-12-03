@@ -195,6 +195,29 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_license
+      // Fixture: search_filter_and_multi_facet_with_tags
+      it("will not pass tags through on disjunctive queries", async () => {
+        // Note, this is tested implicitly by using the same disjunctive fixture as the previous test. This
+        // ensures that tags are not passed through. If they were, this test would fail as no
+        // fixture would match.
+
+        await client.search("cat", {
+          ...config,
+          analytics: {
+            tags: ["SERP"]
+          },
+          filters: {
+            license: "BSD"
+          },
+          facets: {
+            license: [{ type: "value", size: 3 }],
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+      });
+
       // Fixture: disjunctive_license_also_deps
       // Fixture: disjunctive_deps_also_license
       // Fixture: search_multi_filter_multi_facet

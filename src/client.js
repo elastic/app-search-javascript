@@ -143,8 +143,12 @@ export default class Client {
     }
 
     const page = params.page || {};
+
+    // We intentionally drop passed analytics tags here so that we don't get
+    // double counted search analytics in the dashboard from disjunctive
+    // calls
     const analytics = params.analytics || {};
-    analytics.tags = analytics.tags || ["Facet-Only"];
+    analytics.tags = ["Facet-Only"];
 
     const disjunctiveQueriesPromises = listOfAppliedDisjunctiveFilters.map(
       appliedDisjunctiveFilter => {
