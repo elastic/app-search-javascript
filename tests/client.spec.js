@@ -19,6 +19,7 @@ describe("Client", () => {
     expect(client).toBeInstanceOf(Client);
   });
 
+  // localhost_search
   test("can be instantiated with options", async () => {
     const client = new Client(hostIdentifier, searchKey, engineName, {
       endpointBase: "http://localhost.swiftype.com:3002",
@@ -30,11 +31,13 @@ describe("Client", () => {
   });
 
   describe("#search", () => {
+    // Fixture: search_simple
     test("should query", async () => {
       const result = await client.search("cat", {});
       expect(result).toMatchSnapshot();
     });
 
+    // Fixture: search_missing_query
     test("should should reject when given invalid options", async () => {
       try {
         await client.search();
@@ -43,6 +46,7 @@ describe("Client", () => {
       }
     });
 
+    // search_404
     test("should reject on a 404", async () => {
       const badClient = new Client("invalid", "invalid", "invalid");
       try {
@@ -52,6 +56,7 @@ describe("Client", () => {
       }
     });
 
+    // Fixture: search_grouped
     test("should wrap grouped results in ResultItem", async () => {
       const result = await client.search("cat", {
         page: {
@@ -114,6 +119,7 @@ describe("Client", () => {
         { count: 4, value: "express" }
       ];
 
+      // Fixture: search_filter_and_facet
       it("returns filtered facet values when facet is not disjunctive", async () => {
         const result = await client.search("cat", config);
         expect(result.info.facets.license[0].data).toEqual(
@@ -121,6 +127,8 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: search_filter_and_facet
+      // Fixture: disjunctive_license
       it("returns facet counts as if filter is not applied and facet is disjunctive", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -132,6 +140,7 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_license
       it("returns filtered facet values if facet is disjunctive, but no corresponding filter is applied", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -144,6 +153,7 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_license_with_deps_filters
       it("will return full results when multiple disjunctive facets, but no filters", async () => {
         const result = await client.search("cat", {
           page: { size: 1 },
@@ -162,6 +172,8 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_license
+      // Fixture: search_filter_and_multi_facet
       it("will return only one set of filtered facet counts when  multiple disjunctive facets, with only one filter", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -183,6 +195,9 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_license_also_deps
+      // Fixture: disjunctive_deps_also_license
+      // Fixture: search_multi_filter_multi_facet
       it("will return both sets of filtered facet counts when multiple disjunctive facets and both are filtered", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -204,6 +219,9 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_deps_also_license_no_array_syntax
+      // Fixture: disjunctive_license_also_deps
+      // Fixture: search_multi_filter_multi_facet_no_array_syntax
       it("works when facets don't use array syntax", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -244,10 +262,12 @@ describe("Client", () => {
       ]);
     }
 
+    // Fixture: multi_search
     test("should perform multi search", async () => {
       expect(await subject()).toMatchSnapshot();
     });
 
+    // Fixture: multi_search_error
     test("should pass through error messages", async () => {
       let error;
       try {
@@ -267,6 +287,7 @@ describe("Client", () => {
   });
 
   describe("#click", () => {
+    // Fixture: click_ok
     test("should resolve", async () => {
       const result = await client.click({
         query: "Cat",
@@ -277,6 +298,7 @@ describe("Client", () => {
       expect(result).toMatchSnapshot();
     });
 
+    // Fixture: click_no_tags
     test("should resolve if no tags are provided", async () => {
       const result = await client.click({
         query: "Cat",
@@ -286,6 +308,7 @@ describe("Client", () => {
       expect(result).toMatchSnapshot();
     });
 
+    // Fixture: click_no_options
     test("should should reject when given invalid options", async () => {
       try {
         await client.click({});
@@ -294,6 +317,7 @@ describe("Client", () => {
       }
     });
 
+    // Fixture: click_404
     test("should reject on a 404", async () => {
       const badClient = new Client("invalid", "invalid", "invalid");
       try {
