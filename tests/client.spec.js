@@ -15,12 +15,12 @@ describe("Client", () => {
 
   const client = new Client(hostIdentifier, searchKey, engineName);
 
-  test("can be instantiated", () => {
+  it("can be instantiated", () => {
     expect(client).toBeInstanceOf(Client);
   });
 
   // localhost_search
-  test("can be instantiated with options", async () => {
+  it("can be instantiated with options", async () => {
     const client = new Client(hostIdentifier, searchKey, engineName, {
       endpointBase: "http://localhost.swiftype.com:3002",
       cacheResponses: true
@@ -32,13 +32,13 @@ describe("Client", () => {
 
   describe("#search", () => {
     // Fixture: search_simple
-    test("should query", async () => {
+    it("should query", async () => {
       const result = await client.search("cat", {});
       expect(result).toMatchSnapshot();
     });
 
     // Fixture: search_missing_query
-    test("should should reject when given invalid options", async () => {
+    it("should should reject when given invalid options", async () => {
       try {
         await client.search();
       } catch (e) {
@@ -47,7 +47,7 @@ describe("Client", () => {
     });
 
     // search_404
-    test("should reject on a 404", async () => {
+    it("should reject on a 404", async () => {
       const badClient = new Client("invalid", "invalid", "invalid");
       try {
         await badClient.search();
@@ -57,7 +57,7 @@ describe("Client", () => {
     });
 
     // Fixture: search_grouped
-    test("should wrap grouped results in ResultItem", async () => {
+    it("should wrap grouped results in ResultItem", async () => {
       const result = await client.search("cat", {
         page: {
           size: 1
@@ -218,6 +218,26 @@ describe("Client", () => {
         });
       });
 
+      // Fixture: disjunctive_license_with_override_tags
+      // Fixture: Fixture: search_filter_and_multi_facet_with_tags
+      it("will accept an alternative analytics tag for disjunctive queries", async () => {
+        await client.search("cat", {
+          ...config,
+          analytics: {
+            tags: ["SERP"]
+          },
+          filters: {
+            license: "BSD"
+          },
+          facets: {
+            license: [{ type: "value", size: 3 }],
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacetsAnalyticsTags: ["FromSERP", "Disjunctive"],
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+      });
+
       // Fixture: disjunctive_license_also_deps
       // Fixture: disjunctive_deps_also_license
       // Fixture: search_multi_filter_multi_facet
@@ -286,12 +306,12 @@ describe("Client", () => {
     }
 
     // Fixture: multi_search
-    test("should perform multi search", async () => {
+    it("should perform multi search", async () => {
       expect(await subject()).toMatchSnapshot();
     });
 
     // Fixture: multi_search_error
-    test("should pass through error messages", async () => {
+    it("should pass through error messages", async () => {
       let error;
       try {
         await subject({
@@ -311,7 +331,7 @@ describe("Client", () => {
 
   describe("#click", () => {
     // Fixture: click_ok
-    test("should resolve", async () => {
+    it("should resolve", async () => {
       const result = await client.click({
         query: "Cat",
         documentId: "rex-cli",
@@ -322,7 +342,7 @@ describe("Client", () => {
     });
 
     // Fixture: click_no_tags
-    test("should resolve if no tags are provided", async () => {
+    it("should resolve if no tags are provided", async () => {
       const result = await client.click({
         query: "Cat",
         documentId: "rex-cli",
@@ -332,7 +352,7 @@ describe("Client", () => {
     });
 
     // Fixture: click_no_options
-    test("should should reject when given invalid options", async () => {
+    it("should should reject when given invalid options", async () => {
       try {
         await client.click({});
       } catch (e) {
@@ -341,7 +361,7 @@ describe("Client", () => {
     });
 
     // Fixture: click_404
-    test("should reject on a 404", async () => {
+    it("should reject on a 404", async () => {
       const badClient = new Client("invalid", "invalid", "invalid");
       try {
         await badClient.click({});

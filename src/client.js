@@ -14,20 +14,8 @@ const SEARCH_TYPES = {
  */
 function omit(obj, keyToOmit) {
   if (!obj) return;
-  return Object.keys(obj).reduce((acc, key) => {
-    const value = obj[key];
-    if (key !== keyToOmit) acc[key] = value;
-    return acc;
-  }, {});
-}
-
-/**
- * Similar to omit, but return the removed value
- */
-function remove(obj, keyToRemove) {
-  const removed = obj[keyToRemove];
-  const updatedObj = omit(obj, keyToRemove);
-  return [removed, updatedObj];
+  const { [keyToOmit]: _, ...rest } = obj;
+  return rest;
 }
 
 function flatten(arrayOfArrays) {
@@ -74,17 +62,20 @@ export default class Client {
    * @returns {Promise<ResultList>} a Promise that returns a {ResultList} when resolved, otherwise throws an Error.
    */
   search(query, options = {}) {
-    const [disjunctiveFacets, validOptions] = remove(
-      options,
-      "disjunctiveFacets"
-    );
+    const {
+      disjunctiveFacets,
+      disjunctiveFacetsAnalyticsTags,
+      ...validOptions
+    } = options;
 
     const params = Object.assign({ query: query }, validOptions);
 
     if (disjunctiveFacets && disjunctiveFacets.length > 0) {
-      return this._performDisjunctiveSearch(params, disjunctiveFacets).then(
-        formatResultsJSON
-      );
+      return this._performDisjunctiveSearch(
+        params,
+        disjunctiveFacets,
+        disjunctiveFacetsAnalyticsTags
+      ).then(formatResultsJSON);
     }
     return this._performSearch(params).then(formatResultsJSON);
   }
@@ -129,7 +120,11 @@ export default class Client {
    * additional requests into the facet values of the original request, thus
    * creating a single response with the disjunctive facet values.
    */
-  _performDisjunctiveSearch(params, disjunctiveFacets) {
+  _performDisjunctiveSearch(
+    params,
+    disjunctiveFacets,
+    disjunctiveFacetsAnalyticsTags = ["Facet-Only"]
+  ) {
     const baseQueryPromise = this._performSearch(params);
 
     const filters = new Filters(params.filters);
@@ -148,7 +143,7 @@ export default class Client {
     // double counted search analytics in the dashboard from disjunctive
     // calls
     const analytics = params.analytics || {};
-    analytics.tags = ["Facet-Only"];
+    analytics.tags = disjunctiveFacetsAnalyticsTags;
 
     const disjunctiveQueriesPromises = listOfAppliedDisjunctiveFilters.map(
       appliedDisjunctiveFilter => {
