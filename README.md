@@ -9,7 +9,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@2.1.0/dist/swiftype_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@2.2.0/dist/swiftype_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
@@ -107,9 +107,10 @@ Note that `options` supports all options listed here: https://swiftype.com/docum
 
 In addition to the supported options above, we also support the following fields:
 
-| Name              | Type          | Description                                                                                                                                                                                                                                                                                                   |
-| ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| disjunctiveFacets | Array[String] | An array of field names. Every field listed here must also be provided as a facet in the `facet` field. It denotes that a facet should be considered disjunctive. When returning counts for disjunctive facets, the counts will be returned as if no filter is applied on this field, even if one is applied. |
+| Name                           | Type          | Description                                                                                                                                                                                                                                                                                                   |
+| ------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| disjunctiveFacets              | Array[String] | An array of field names. Every field listed here must also be provided as a facet in the `facet` field. It denotes that a facet should be considered disjunctive. When returning counts for disjunctive facets, the counts will be returned as if no filter is applied on this field, even if one is applied. |
+| disjunctiveFacetsAnalyticsTags | Array[String] | Used in conjunction with the `disjunctiveFacets` parameter. Queries will be tagged with "Facet-Only" in the Analytics Dashboard unless specified here.                                                                                                                                                        |
 
 _Response_
 
@@ -260,3 +261,17 @@ REPLAY=record yarn test -u
 ## Contributions
 
 To contribute code, please fork the repository and submit a pull request.
+
+## Development
+
+Install dependencies
+
+```
+yarn
+```
+
+Run dev server
+
+```
+yarn dev
+```

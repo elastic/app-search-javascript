@@ -2,10 +2,10 @@ POST /api/as/v1/engines/node-modules/search.json
 authorization: Bearer api-hean6g8dmxnm2shqqiag757a
 content-type: application/json
 x-swiftype-client: swiftype-app-search-javascript
-x-swiftype-client-version: 2.1.0
+x-swiftype-client-version: 2.2.0
 accept: */*
 accept-encoding: gzip,deflate
-body: {\"query\":\"cat\",\"page\":{\"size\":1},\"filters\":{\"all\":[{\"dependencies\":\"socket.io\"}]},\"facets\":{\"license\":{\"type\":\"value\",\"size\":3}}}
+body: {\"query\":\"cat\",\"page\":{\"size\":0},\"filters\":{\"all\":[{\"dependencies\":\"socket.io\"}]},\"facets\":{\"license\":{\"type\":\"value\",\"size\":3}},\"analytics\":{\"tags\":[\"Facet-Only\"]}}
 
 HTTP/1.1 200 OK
 date: Fri, 28 Sep 2018 20:07:24 GMT

@@ -1,0 +1,29 @@
+POST /api/as/v1/engines/node-modules/search.json
+authorization: Bearer api-hean6g8dmxnm2shqqiag757a
+content-type: application/json
+x-swiftype-client: swiftype-app-search-javascript
+x-swiftype-client-version: 2.2.0
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"query\":\"cat\",\"page\":{\"size\":1},\"filters\":{},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}]}}
+
+HTTP/1.1 200 OK
+date: Thu, 27 Sep 2018 20:36:08 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 200 OK
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+etag: W/"d31aa222a68122cb8392577cf4a1a7f1"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 91197d45d104a3e2281a60eecec630ff
+x-runtime: 0.270027
+x-swiftype-frontend-datacenter: dal05
+x-swiftype-frontend-node: web01.dal05
+x-swiftype-edge-datacenter: dal05
+x-swiftype-edge-node: web01.dal05
+
+{"meta":{"warnings":[],"page":{"current":1,"total_pages":642,"total_results":642,"size":1},"request_id":"91197d45d104a3e2281a60eecec630ff"},"results":[{"license":{"raw":["BSD"]},"name":{"raw":"source-map-cat"},"repository":{"raw":null},"created":{"raw":"2013-01-23T04:51:39.995Z"},"dependencies":{"raw":["coffee-script","argparse","source-map"]},"keywords":{"raw":null},"description":{"raw":"WIP cat for JS source maps."},"modified":{"raw":"2013-01-23T04:51:42.782Z"},"id":{"raw":"source-map-cat"},"version":{"raw":"0.0.0"},"owners":{"raw":["gregg@aweber.com"]},"_meta":{"score":19.12111}}],"facets":{"license":[{"type":"value","data":[{"value":"MIT","count":101},{"value":"BSD","count":33},{"value":"MIT/X11","count":3}]}]}}

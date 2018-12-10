@@ -15,11 +15,12 @@ describe("Client", () => {
 
   const client = new Client(hostIdentifier, searchKey, engineName);
 
-  test("can be instantiated", () => {
+  it("can be instantiated", () => {
     expect(client).toBeInstanceOf(Client);
   });
 
-  test("can be instantiated with options", async () => {
+  // localhost_search
+  it("can be instantiated with options", async () => {
     const client = new Client(hostIdentifier, searchKey, engineName, {
       endpointBase: "http://localhost.swiftype.com:3002",
       cacheResponses: true
@@ -30,12 +31,14 @@ describe("Client", () => {
   });
 
   describe("#search", () => {
-    test("should query", async () => {
+    // Fixture: search_simple
+    it("should query", async () => {
       const result = await client.search("cat", {});
       expect(result).toMatchSnapshot();
     });
 
-    test("should should reject when given invalid options", async () => {
+    // Fixture: search_missing_query
+    it("should should reject when given invalid options", async () => {
       try {
         await client.search();
       } catch (e) {
@@ -43,7 +46,8 @@ describe("Client", () => {
       }
     });
 
-    test("should reject on a 404", async () => {
+    // search_404
+    it("should reject on a 404", async () => {
       const badClient = new Client("invalid", "invalid", "invalid");
       try {
         await badClient.search();
@@ -52,7 +56,8 @@ describe("Client", () => {
       }
     });
 
-    test("should wrap grouped results in ResultItem", async () => {
+    // Fixture: search_grouped
+    it("should wrap grouped results in ResultItem", async () => {
       const result = await client.search("cat", {
         page: {
           size: 1
@@ -114,6 +119,7 @@ describe("Client", () => {
         { count: 4, value: "express" }
       ];
 
+      // Fixture: search_filter_and_facet
       it("returns filtered facet values when facet is not disjunctive", async () => {
         const result = await client.search("cat", config);
         expect(result.info.facets.license[0].data).toEqual(
@@ -121,6 +127,8 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: search_filter_and_facet
+      // Fixture: search_with_license_facet
       it("returns facet counts as if filter is not applied and facet is disjunctive", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -132,6 +140,7 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_license
       it("returns filtered facet values if facet is disjunctive, but no corresponding filter is applied", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -144,6 +153,7 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: search_multi_facet
       it("will return full results when multiple disjunctive facets, but no filters", async () => {
         const result = await client.search("cat", {
           page: { size: 1 },
@@ -162,6 +172,8 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_license
+      // Fixture: search_filter_and_multi_facet
       it("will return only one set of filtered facet counts when  multiple disjunctive facets, with only one filter", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -183,6 +195,52 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_license
+      // Fixture: search_filter_and_multi_facet_with_tags
+      it("will not pass tags through on disjunctive queries", async () => {
+        // Note, this is tested implicitly by using the same disjunctive fixture as the previous test. This
+        // ensures that tags are not passed through. If they were, this test would fail as no
+        // fixture would match.
+
+        await client.search("cat", {
+          ...config,
+          analytics: {
+            tags: ["SERP"]
+          },
+          filters: {
+            license: "BSD"
+          },
+          facets: {
+            license: [{ type: "value", size: 3 }],
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+      });
+
+      // Fixture: disjunctive_license_with_override_tags
+      // Fixture: Fixture: search_filter_and_multi_facet_with_tags
+      it("will accept an alternative analytics tag for disjunctive queries", async () => {
+        await client.search("cat", {
+          ...config,
+          analytics: {
+            tags: ["SERP"]
+          },
+          filters: {
+            license: "BSD"
+          },
+          facets: {
+            license: [{ type: "value", size: 3 }],
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacetsAnalyticsTags: ["FromSERP", "Disjunctive"],
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+      });
+
+      // Fixture: disjunctive_license_also_deps
+      // Fixture: disjunctive_deps_also_license
+      // Fixture: search_multi_filter_multi_facet
       it("will return both sets of filtered facet counts when multiple disjunctive facets and both are filtered", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -204,6 +262,9 @@ describe("Client", () => {
         );
       });
 
+      // Fixture: disjunctive_deps_also_license_no_array_syntax
+      // Fixture: disjunctive_license_also_deps
+      // Fixture: search_multi_filter_multi_facet_no_array_syntax
       it("works when facets don't use array syntax", async () => {
         const result = await client.search("cat", {
           ...config,
@@ -244,11 +305,13 @@ describe("Client", () => {
       ]);
     }
 
-    test("should perform multi search", async () => {
+    // Fixture: multi_search
+    it("should perform multi search", async () => {
       expect(await subject()).toMatchSnapshot();
     });
 
-    test("should pass through error messages", async () => {
+    // Fixture: multi_search_error
+    it("should pass through error messages", async () => {
       let error;
       try {
         await subject({
@@ -267,7 +330,8 @@ describe("Client", () => {
   });
 
   describe("#click", () => {
-    test("should resolve", async () => {
+    // Fixture: click_ok
+    it("should resolve", async () => {
       const result = await client.click({
         query: "Cat",
         documentId: "rex-cli",
@@ -277,7 +341,8 @@ describe("Client", () => {
       expect(result).toMatchSnapshot();
     });
 
-    test("should resolve if no tags are provided", async () => {
+    // Fixture: click_no_tags
+    it("should resolve if no tags are provided", async () => {
       const result = await client.click({
         query: "Cat",
         documentId: "rex-cli",
@@ -286,7 +351,8 @@ describe("Client", () => {
       expect(result).toMatchSnapshot();
     });
 
-    test("should should reject when given invalid options", async () => {
+    // Fixture: click_no_options
+    it("should should reject when given invalid options", async () => {
       try {
         await client.click({});
       } catch (e) {
@@ -294,7 +360,8 @@ describe("Client", () => {
       }
     });
 
-    test("should reject on a 404", async () => {
+    // Fixture: click_404
+    it("should reject on a 404", async () => {
       const badClient = new Client("invalid", "invalid", "invalid");
       try {
         await badClient.click({});
