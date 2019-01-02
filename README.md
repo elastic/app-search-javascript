@@ -2,6 +2,16 @@
 
 [![CircleCI](https://circleci.com/gh/swiftype/swiftype-app-search-javascript.svg?style=svg)](https://circleci.com/gh/swiftype/swiftype-app-search-javascript)
 
+## Browser support
+
+The client is compatible with all modern browsers.
+
+Note that this library depends on the Fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API.
+
+This is not supported by Internet Explorer. If you need backwards compatibility
+for Internet Explorer, you'll need to polyfill the Fetch API with something
+like https://github.com/github/fetch.
+
 ## Getting Started
 
 ### Install from a CDN
