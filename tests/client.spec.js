@@ -30,6 +30,36 @@ describe("Client", () => {
     expect(result).toMatchSnapshot();
   });
 
+  describe("#querySuggestion", () => {
+    // Fixture: query_suggestion
+    it("should suggest queries", async () => {
+      const result = await client.querySuggestion("cat");
+      expect(result).toMatchSnapshot();
+    });
+
+    // Fixture: query_suggestion_with_options
+    it("should suggest with valid options", async () => {
+      const result = await client.querySuggestion("cat", {
+        size: 3,
+        types: {
+          documents: {
+            fields: ["name"]
+          }
+        }
+      });
+      expect(result).toMatchSnapshot();
+    });
+
+    // Fixture: query_suggestion_bad_options
+    it("should reject on a bad option", async () => {
+      try {
+        await client.querySuggestion("cat", { bad: "option" });
+      } catch (e) {
+        expect(e).toEqual(new Error("[400] Options contains invalid key: bad"));
+      }
+    });
+  });
+
   describe("#search", () => {
     // Fixture: search_simple
     it("should query", async () => {

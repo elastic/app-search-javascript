@@ -1,0 +1,31 @@
+POST /api/as/v1/engines/node-modules/query_suggestion
+authorization: Bearer api-hean6g8dmxnm2shqqiag757a
+content-type: application/json
+x-swiftype-client: swiftype-app-search-javascript
+x-swiftype-client-version: 2.2.0
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"query\":\"cat\",\"size\":3,\"types\":{\"documents\":{\"fields\":[\"name\"]}}}
+
+HTTP/1.1 200 OK
+date: Tue, 29 Jan 2019 18:14:07 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 200 OK
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+x-ratelimit-limit: 2400
+x-ratelimit-remaining: 2399
+etag: W/"b0c17abeee72f6e440978d1c979df21a"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 28aa2fbd5ee7e2cbcbb1535c9e85ecfb
+x-runtime: 0.314690
+x-swiftype-frontend-datacenter: dal05
+x-swiftype-frontend-node: web01.dal05
+x-swiftype-edge-datacenter: dal05
+x-swiftype-edge-node: web01.dal05
+
+{"results":{"documents":[{"suggestion":"catwalk"},{"suggestion":"cats"},{"suggestion":"cat4d"}]},"meta":{"request_id":"28aa2fbd5ee7e2cbcbb1535c9e85ecfb"}}
