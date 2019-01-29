@@ -51,7 +51,27 @@ export default class Client {
       : `https://${hostIdentifier}.api.swiftype.com/api/as/v1/`;
     this.searchPath = `engines/${this.engineName}/search`;
     this.multiSearchPath = `engines/${this.engineName}/multi_search`;
+    this.querySuggestionPath = `engines/${this.engineName}/query_suggestion`;
     this.clickPath = `engines/${this.engineName}/click`;
+  }
+
+  /**
+   * Sends a query suggestion request to the Swiftype App Search Api
+   *
+   * @param {String} query String that is used to perform a query suggest.
+   * @param {Object} options Object used for configuring the query suggest, like 'types' or 'size'
+   * @returns {Promise<ResultList>} a Promise that returns results, otherwise throws an Error.
+   */
+  querySuggestion(query, options = {}) {
+    const params = Object.assign({ query: query }, options);
+
+    return request(
+      this.searchKey,
+      this.apiEndpoint,
+      this.querySuggestionPath,
+      params,
+      this.cacheResponses
+    ).then(handleErrorResponse);
   }
 
   /**

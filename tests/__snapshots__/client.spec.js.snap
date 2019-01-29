@@ -1027,6 +1027,69 @@ Array [
 ]
 `;
 
+exports[`Client #querySuggestion should suggest queries 1`] = `
+Object {
+  "meta": Object {
+    "request_id": "0750887ae5330b6c0234b6098f4459e8",
+  },
+  "results": Object {
+    "documents": Array [
+      Object {
+        "suggestion": "catwalk",
+      },
+      Object {
+        "suggestion": "catcher",
+      },
+      Object {
+        "suggestion": "https://github.com/stuartpb/catcher",
+      },
+      Object {
+        "suggestion": "categories",
+      },
+      Object {
+        "suggestion": "categories for",
+      },
+      Object {
+        "suggestion": "categories for javascript",
+      },
+      Object {
+        "suggestion": "http://lcfrs.org/cats",
+      },
+      Object {
+        "suggestion": "cats",
+      },
+      Object {
+        "suggestion": "https://github.com/luciferous/cats",
+      },
+      Object {
+        "suggestion": "cat4d",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Client #querySuggestion should suggest with valid options 1`] = `
+Object {
+  "meta": Object {
+    "request_id": "28aa2fbd5ee7e2cbcbb1535c9e85ecfb",
+  },
+  "results": Object {
+    "documents": Array [
+      Object {
+        "suggestion": "catwalk",
+      },
+      Object {
+        "suggestion": "cats",
+      },
+      Object {
+        "suggestion": "cat4d",
+      },
+    ],
+  },
+}
+`;
+
 exports[`Client #search should query 1`] = `
 ResultList {
   "info": Object {
