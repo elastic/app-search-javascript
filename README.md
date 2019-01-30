@@ -1,18 +1,24 @@
-# Javascript client for the Swiftype App Search Api
+<p align="center"><img src="https://github.com/swiftype/swiftype-app-search-javascript/blob/master/logo-app-search.png?raw=true" alt="Elastic App Search Logo"></p>
 
-[![CircleCI](https://circleci.com/gh/swiftype/swiftype-app-search-javascript.svg?style=svg)](https://circleci.com/gh/swiftype/swiftype-app-search-javascript)
+<p align="center"><a href="https://circleci.com/gh/swiftype/swiftype-app-search-javascript"><img src="https://circleci.com/gh/swiftype/swiftype-app-search-javascript.svg?style=svg" alt="CircleCI buidl"></a>
+<a href="https://github.com/swiftype/swiftype-app-search-javascript/releases"><img src="https://img.shields.io/github/release/swiftype/swiftype-app-search-javascript/all.svg?style=flat-square" alt="GitHub release" /></a></p>
 
-## Browser support
+> A first-party JavaScript client for building excellent, relevant search experiences with [Elastic App Search](https://www.elastic.co/cloud/app-search-service).
 
-The client is compatible with all modern browsers.
+## Contents
 
-Note that this library depends on the Fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API.
+- [Getting started](#getting-started-)
+- [Browser support](#browser-support)
+- [Usage](#usage)
+- [Running tests](#running-tests)
+- [Development](#development)
+- [FAQ](#faq-)
+- [Contribute](#contribute-)
+- [License](#license-)
 
-This is not supported by Internet Explorer. If you need backwards compatibility
-for Internet Explorer, you'll need to polyfill the Fetch API with something
-like https://github.com/github/fetch.
+---
 
-## Getting Started
+## Getting started 🐣
 
 ### Install from a CDN
 
@@ -45,6 +51,16 @@ var SwiftypeAppSearch = require("swiftype-app-search-javascript");
 // ES
 import * as SwiftypeAppSearch from "swiftype-app-search-javascript";
 ```
+
+## Browser support
+
+The client is compatible with all modern browsers.
+
+Note that this library depends on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_AP).
+
+This is not supported by Internet Explorer. If you need backwards compatibility
+for Internet Explorer, you'll need to polyfill the Fetch API with something
+like https://github.com/github/fetch.
 
 ## Usage
 
@@ -216,13 +232,33 @@ document.addEventListener("click", function(e) {
 </a>
 ```
 
+## Running tests
+
+The specs in this project use [node-replay](https://github.com/assaf/node-replay) to capture responses.
+
+The responses are then checked against Jest snapshots.
+
+To capture new responses and update snapshots, run:
+
+```
+nvm use
+REPLAY=record yarn test -u
+```
+
+To run tests:
+
+```
+nvm use
+yarn test
+```
+
 ## Development
 
 ### Node
 
-We depend upon the version of node defined in [.nvmrc](.nvmrc).
+You will probably want to install a node version manager, like nvm.
 
-You will probably want to install a node version manager. nvm is recommended.
+We depend upon the version of node defined in [.nvmrc](.nvmrc).
 
 To install and use the correct node version with nvm:
 
@@ -230,18 +266,21 @@ To install and use the correct node version with nvm:
 nvm install
 ```
 
-### Running Tests
+### Dev Server
+
+Install dependencies:
 
 ```
-nvm use
-yarn test
+yarn
+```
+
+Run dev server:
+
+```
+yarn dev
 ```
 
 ### Build
-
-This is run on `prepare` in [package.json](package.json). That means
-this will be run when running `yarn` to install dependencies, and
-also before publishing to npm.
 
 ```
 nvm use
@@ -255,33 +294,29 @@ nvm use
 yarn publish
 ```
 
-### Adding and updating tests
+## FAQ 🔮
 
-The specs in this project use [node-replay](https://github.com/assaf/node-replay) to capture responses.
+### Where do I report issues with the client?
 
-The responses are then checked against Jest snapshots.
+If something is not working as expected, please open an [issue](https://github.com/swiftype/swiftype-app-search-javascript/issues/new).
 
-To capture new responses and update snapshots, run tests with the following commands:
+### Where can I learn more about App Search?
 
-```
-nvm use // Be sure to use the correct version of node
-REPLAY=record yarn test -u
-```
+Your best bet is to read the [documentation](https://swiftype.com/documentation/app-search).
 
-## Contributions
+### Where else can I go to get help?
 
-To contribute code, please fork the repository and submit a pull request.
+You can checkout the [Elastic App Search community discuss forums](https://discuss.elastic.co/c/app-search).
 
-## Development
+## Contribute 🚀
 
-Install dependencies
+We welcome contributors to the project. Before you begin, a couple notes...
 
-```
-yarn
-```
+- Prior to opening a pull request, please create an issue to [discuss the scope of your proposal](https://github.com/swiftype/swiftype-app-search-javascript/issues).
+- Please write simple code and concise documentation, when appropriate.
 
-Run dev server
+## License 📗
 
-```
-yarn dev
-```
+[MIT](https://github.com/swiftype/swiftype-app-search-javascript/blob/master/LICENSE) © [Elastic](https://github.com/elastic)
+
+Thank you to all the [contributors](https://github.com/swiftype/swiftype-app-search-javascript/graphs/contributors)!
