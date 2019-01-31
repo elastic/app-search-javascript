@@ -144,6 +144,37 @@ ResultItem {
 }
 ```
 
+#### Query Suggestion
+
+```javascript
+var options = {
+  size: 3,
+  types: {
+    documents: {
+      fields: ["name"]
+    }
+  }
+};
+
+client
+  .querySuggestion("cat", {
+    size: 3,
+    types: {
+      documents: {
+        fields: ["name"]
+      }
+    }
+  })
+  .then(response => {
+    response.results.documents.forEach(document => {
+      console.log(document.suggestion);
+    });
+  })
+  .catch(error => {
+    console.log(`error: ${error}`);
+  });
+```
+
 #### Multi Search
 
 It is possible to run multiple queries at once using the `multiSearch` method.
