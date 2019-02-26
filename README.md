@@ -327,6 +327,10 @@ yarn publish
 
 ## FAQ 🔮
 
+### What if I need write operations?
+
+App Search has a first-party [Node.js](https://github.com/swiftype/swiftype-app-search-node) client which supports write operations like indexing.
+
 ### Where do I report issues with the client?
 
 If something is not working as expected, please open an [issue](https://github.com/swiftype/swiftype-app-search-javascript/issues/new).
