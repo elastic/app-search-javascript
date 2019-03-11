@@ -1,6 +1,6 @@
 {
   "name": "swiftype-app-search-javascript",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Javascript client for the Swiftype App Search Api",
   "browser": "dist/swiftype_app_search.umd.js",
   "main": "dist/swiftype_app_search.umd.js",
