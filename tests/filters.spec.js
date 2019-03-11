@@ -28,7 +28,7 @@ describe("Filters", () => {
       });
     });
 
-    test("can remove a nested filters", () => {
+    test("can remove a filter from any, all, or none", () => {
       const filters = new Filters({
         all: [{ c: "c" }, { d: "d" }],
         none: [{ e: "e" }, { f: "f" }],
@@ -46,9 +46,90 @@ describe("Filters", () => {
         any: []
       });
     });
+
+    test("can remove nested filters", () => {
+      const filters = new Filters({
+        all: [
+          {
+            all: [{ c: "c" }, { d: "d" }],
+            none: [{ e: "e" }, { e: "e1" }, { f: "f" }],
+            any: [
+              {
+                g: "g"
+              },
+              {
+                all: [
+                  {
+                    h: "h"
+                  },
+                  {
+                    any: [
+                      {
+                        i: "i"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          { j: "j" }
+        ],
+        any: [
+          {
+            all: [{ k: "k" }],
+            any: [{ l: "l" }]
+          }
+        ]
+      });
+
+      expect(
+        filters
+          .removeFilter("k")
+          .removeFilter("i")
+          .removeFilter("e").filtersJSON
+      ).toEqual({
+        all: [
+          {
+            all: [{ c: "c" }, { d: "d" }],
+            none: [{ f: "f" }],
+            any: [
+              {
+                g: "g"
+              },
+              {
+                all: [
+                  {
+                    h: "h"
+                  },
+                  {
+                    any: []
+                  }
+                ]
+              }
+            ]
+          },
+          { j: "j" }
+        ],
+        any: [
+          {
+            all: [],
+            any: [{ l: "l" }]
+          }
+        ]
+      });
+    });
   });
 
   describe("#getListOfAppliedFilters", () => {
+    test("it should return a single top level value filter", () => {
+      const filters = new Filters({
+        b: "b"
+      });
+
+      expect(filters.getListOfAppliedFilters()).toEqual(["b"]);
+    });
+
     test("it should return a list of top level filters", () => {
       const filters = new Filters({
         b: ["b", "b1"]
@@ -70,6 +151,56 @@ describe("Filters", () => {
         "e",
         "f",
         "g"
+      ]);
+    });
+
+    test("it should return nested filters", () => {
+      const filters = new Filters({
+        all: [
+          {
+            all: [{ c: "c" }, { d: "d" }],
+            none: [{ e: "e" }, { e: "e1" }, { f: "f" }],
+            any: [
+              {
+                g: "g"
+              },
+              {
+                all: [
+                  {
+                    h: "h"
+                  },
+                  {
+                    any: [
+                      {
+                        i: "i"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          { j: "j" }
+        ],
+        any: [
+          {
+            all: [{ k: "k" }],
+            any: [{ l: "l" }]
+          }
+        ]
+      });
+
+      expect(filters.getListOfAppliedFilters()).toEqual([
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l"
       ]);
     });
   });

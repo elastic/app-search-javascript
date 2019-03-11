@@ -1,16 +1,3 @@
-function addPropertyIfKeysDoNotMatch(object, keyToAdd, valueToAdd, skipIfKey) {
-  return {
-    ...object,
-    ...(keyToAdd !== skipIfKey && { [keyToAdd]: valueToAdd })
-  };
-}
-
-function removeObjectsFromArrayIfTheyHaveKey(array, key) {
-  return array.filter(arrayValue => {
-    return !Object.entries(arrayValue).find(([valueKey]) => key === valueKey);
-  });
-}
-
 /**
  * A helper for working with the JSON structure which represent
  * filters in API requests.
@@ -20,30 +7,59 @@ export default class Filters {
     this.filtersJSON = filtersJSON;
   }
 
-  removeFilter(filterKey) {
-    const filtersJSON = Object.entries(this.filtersJSON).reduce(
-      (acc, [key, value]) => {
-        if (!["all", "any", "none"].includes(key)) {
-          return addPropertyIfKeysDoNotMatch(acc, key, value, filterKey);
-        }
-        return {
-          ...acc,
-          [key]: removeObjectsFromArrayIfTheyHaveKey(value, filterKey)
-        };
-      },
-      {}
-    );
-    return new Filters(filtersJSON);
+  removeFilter(filterKey, filtersMap = this.filtersJSON) {
+    function go(filterKey, filtersMap) {
+      const filtered = Object.entries(filtersMap).reduce(
+        (acc, [filterName, filterValue]) => {
+          if (filterName === filterKey) {
+            return acc;
+          }
+
+          if (["all", "any", "none"].includes(filterName)) {
+            const nestedFiltersArray = filterValue;
+            filterValue = nestedFiltersArray.reduce((acc, nestedFiltersMap) => {
+              const updatedNestedFiltersMap = go(filterKey, nestedFiltersMap);
+              if (updatedNestedFiltersMap) {
+                return acc.concat(updatedNestedFiltersMap);
+              } else {
+                return acc;
+              }
+            }, []);
+          }
+
+          return {
+            ...acc,
+            [filterName]: filterValue
+          };
+        },
+        {}
+      );
+
+      if (Object.keys(filtered).length === 0) {
+        return;
+      }
+      return filtered;
+    }
+
+    const filtered = go(filterKey, filtersMap);
+    return new Filters(filtered);
   }
 
-  getListOfAppliedFilters() {
-    const set = Object.entries(this.filtersJSON).reduce((acc, [key, value]) => {
+  getListOfAppliedFilters(filters = this.filtersJSON) {
+    const set = Object.entries(filters).reduce((acc, [key, value]) => {
       if (!["all", "any", "none"].includes(key)) {
         acc.add(key);
       } else {
         value.forEach(nestedValue => {
           Object.keys(nestedValue).forEach(nestedKey => {
-            acc.add(nestedKey);
+            if (!["all", "any", "none"].includes(nestedKey)) {
+              acc.add(nestedKey);
+            } else {
+              acc = new Set([
+                ...acc,
+                ...this.getListOfAppliedFilters(nestedValue)
+              ]);
+            }
           });
         });
       }
