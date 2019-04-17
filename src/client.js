@@ -41,8 +41,9 @@ export default class Client {
     hostIdentifier,
     searchKey,
     engineName,
-    { endpointBase = "", cacheResponses = true } = {}
+    { endpointBase = "", cacheResponses = true, additionalHeaders } = {}
   ) {
+    this.additionalHeaders = additionalHeaders;
     this.searchKey = searchKey;
     this.cacheResponses = cacheResponses;
     this.engineName = engineName;
@@ -70,7 +71,8 @@ export default class Client {
       this.apiEndpoint,
       this.querySuggestionPath,
       params,
-      this.cacheResponses
+      this.cacheResponses,
+      { additionalHeaders: this.additionalHeaders }
     ).then(handleErrorResponse);
   }
 
@@ -207,7 +209,8 @@ export default class Client {
       this.apiEndpoint,
       `${searchPath}.json`,
       params,
-      this.cacheResponses
+      this.cacheResponses,
+      { additionalHeaders: this.additionalHeaders }
     ).then(handleErrorResponse);
   }
 
@@ -233,7 +236,8 @@ export default class Client {
       this.apiEndpoint,
       `${this.clickPath}.json`,
       params,
-      this.cacheResponses
+      this.cacheResponses,
+      { additionalHeaders: this.additionalHeaders }
     ).then(handleErrorResponse);
   }
 }

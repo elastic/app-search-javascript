@@ -1,0 +1,28 @@
+POST /api/as/v1/engines/node-modules/search.json
+authorization: Bearer api-hean6g8dmxnm2shqqiag757a
+content-type: bogus/format
+x-swiftype-client: swiftype-app-search-javascript
+x-swiftype-client-version: 2.3.1
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"query\":\"cat\"}
+
+HTTP/1.1 200 OK
+date: Mon, 09 Jul 2018 14:14:38 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 200 OK
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+etag: W/"a4200d33b39a6f91d97871fd280d0e97"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 8bedbf97e0a9ed0e9335665938502c27
+x-runtime: 0.274941
+x-swiftype-datacenter: dal05
+x-swiftype-frontend-node: web02.dal05
+x-swiftype-edge-node: web02.dal05
+
+{"meta":{"warnings":[],"page":{"current":1,"total_pages":65,"total_results":642,"size":10},"request_id":"8bedbf97e0a9ed0e9335665938502c27"},"results":[{"license":{"raw":["BSD"]},"name":{"raw":"source-map-cat"},"repository":{"raw":null},"created":{"raw":"2013-01-23T04:51:39.995Z"},"dependencies":{"raw":["coffee-script","argparse","source-map"]},"keywords":{"raw":null},"description":{"raw":"WIP cat for JS source maps."},"modified":{"raw":"2013-01-23T04:51:42.782Z"},"id":{"raw":"source-map-cat"},"version":{"raw":"0.0.0"},"owners":{"raw":["gregg@aweber.com"]},"_meta":{"score":19.10181}},{"license":{"raw":null},"name":{"raw":"Cat4D"},"repository":{"raw":["https://github.com/Cat4D/Cat4D"]},"homepage":{"raw":"http://www.dumb.cat"},"created":{"raw":"2012-04-12T06:27:43.515Z"},"dependencies":{"raw":null},"keywords":{"raw":["Cat4D","dumb","cat"]},"description":{"raw":"Cat4D Framework Implementation"},"modified":{"raw":"2012-04-12T06:39:23.334Z"},"id":{"raw":"Cat4D"},"version":{"raw":"0.0.2"},"owners":{"raw":["Cat@Dumb.Cat"]},"_meta":{"score":18.906376}},{"license":{"raw":null},"name":{"raw":"response.require"},"repository":{"raw":["https://github.com/kapetan/response.require"]},"created":{"raw":"2013-01-06T13:43:21.012Z"},"dependencies":{"raw":["rex","cat","htmlparser"]},"keywords":{"raw":["root","rex","require"]},"description":{"raw":"Rex Javascript compiling for root"},"modified":{"raw":"2013-01-06T13:43:23.680Z"},"id":{"raw":"response.require"},"version":{"raw":"0.1.0"},"owners":{"raw":["mirza.kapetanovic@gmail.com"]},"_meta":{"score":17.527254}},{"license":{"raw":null},"name":{"raw":"rex-cli"},"repository":{"raw":["https://github.com/gett/rex"]},"created":{"raw":"2012-05-01T21:32:09.544Z"},"dependencies":{"raw":["common","rex","optimist","cat"]},"keywords":{"raw":["browser","commonjs","cli","require"]},"description":{"raw":"rex-cli is the cli equivivalent of rex"},"modified":{"raw":"2013-01-02T12:48:38.182Z"},"id":{"raw":"rex-cli"},"version":{"raw":"0.3.2"},"owners":{"raw":["mathiasbuus@gmail.com"]},"_meta":{"score":15.753918}},{"license":{"raw":["BSD"]},"name":{"raw":"cats"},"repository":{"raw":["https://github.com/luciferous/cats"]},"homepage":{"raw":"http://lcfrs.org/cats"},"created":{"raw":"2012-10-15T23:26:48.468Z"},"dependencies":{"raw":null},"keywords":{"raw":["monad","functor","monoid","async"]},"description":{"raw":"Categories for Javascript"},"modified":{"raw":"2012-10-18T16:14:10.680Z"},"id":{"raw":"cats"},"version":{"raw":"0.0.2"},"owners":{"raw":["neuman.vong@gmail.com"]},"_meta":{"score":12.959391}},{"license":{"raw":null},"name":{"raw":"cts"},"repository":{"raw":["https://github.com/cts/cts-js"]},"homepage":{"raw":"http://www.treesheets.org"},"created":{"raw":"2013-01-28T16:50:08.471Z"},"dependencies":{"raw":null},"keywords":{"raw":["treesheets","cts","cats","structure","cascading treesheets","tree"]},"description":{"raw":"Declarative structural remapping for the web."},"modified":{"raw":"2013-01-28T16:50:09.891Z"},"id":{"raw":"cts"},"version":{"raw":"0.5.0"},"owners":{"raw":["eob@csail.mit.edu"]},"_meta":{"score":7.3216166}},{"license":{"raw":null},"name":{"raw":"redis-user"},"repository":{"raw":null},"homepage":{"raw":"https://github.com/CatChen/redis-user"},"created":{"raw":"2011-06-24T15:38:51.745Z"},"dependencies":{"raw":["jshelpers"]},"keywords":{"raw":null},"description":{"raw":"A simple user and role system for Node.js and Redis."},"modified":{"raw":"2011-07-20T04:00:12.987Z"},"id":{"raw":"redis-user"},"version":{"raw":"0.2.4"},"owners":{"raw":["cathsfz@gmail.com"]},"_meta":{"score":3.2000966}},{"license":{"raw":null},"name":{"raw":"traceurl"},"repository":{"raw":null},"homepage":{"raw":"https://github.com/CatChen/traceurl"},"created":{"raw":"2011-07-16T16:31:00.287Z"},"dependencies":{"raw":["jshelpers"]},"keywords":{"raw":null},"description":{"raw":"A JavaScript utility to trace the original url of a shortened url."},"modified":{"raw":"2011-12-16T16:38:49.255Z"},"id":{"raw":"traceurl"},"version":{"raw":"0.2.8"},"owners":{"raw":["cathsfz@gmail.com"]},"_meta":{"score":2.8856053}},{"license":{"raw":["MIT"]},"name":{"raw":"catcher"},"repository":{"raw":["https://github.com/stuartpb/catcher"]},"created":{"raw":"2013-01-10T01:48:15.743Z"},"dependencies":{"raw":null},"keywords":{"raw":["error","handling"]},"description":{"raw":"microscopic Node error helpers"},"modified":{"raw":"2013-01-10T01:48:16.381Z"},"id":{"raw":"catcher"},"version":{"raw":"0.1.0"},"owners":{"raw":["stuart@testtrack4.com"]},"_meta":{"score":0.73055637}},{"license":{"raw":null},"name":{"raw":"catwalk"},"repository":{"raw":null},"created":{"raw":"2012-12-20T21:05:36.757Z"},"dependencies":{"raw":null},"keywords":{"raw":null},"description":{"raw":"models++"},"modified":{"raw":"2012-12-20T21:05:38.476Z"},"id":{"raw":"catwalk"},"version":{"raw":"0.0.1"},"owners":{"raw":["a@so.hn"]},"_meta":{"score":0.7191726}}]}

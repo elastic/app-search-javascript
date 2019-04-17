@@ -80,13 +80,14 @@ var client = SwiftypeAppSearch.createClient({
 
 List of configuration options:
 
-| Option         | Required | Description                                                                                                                                                                            |
-| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hostIdentifier | No       | Your **Host Identifier**, should start with `host-`. Required unless explicitly setting `endpointBase`                                                                                 |
-| searchKey      | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                                            |
-| engineName     | Yes      |                                                                                                                                                                                        |
-| endpointBase   | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API, developing against a local server, or a Managed Deploy. Ex. "http://localhost:3002" |
-| cacheResponses | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                                        |
+| Option            | Required | Description                                                                                                                                                                            |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hostIdentifier    | No       | Your **Host Identifier**, should start with `host-`. Required unless explicitly setting `endpointBase`                                                                                 |
+| searchKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                                            |
+| engineName        | Yes      |                                                                                                                                                                                        |
+| endpointBase      | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API, developing against a local server, or a Managed Deploy. Ex. "http://localhost:3002" |
+| cacheResponses    | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                                        |
+| additionalHeaders | No       | An Object with keys and values that will be converted to header names and values on all API requests                                                                                   |
 
 ### Using with App Search Managed Deploys
 

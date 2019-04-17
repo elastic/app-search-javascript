@@ -9,12 +9,14 @@ export function createClient({
   searchKey,
   engineName,
   endpointBase,
-  cacheResponses
+  cacheResponses,
+  additionalHeaders
 }) {
   hostIdentifier = hostIdentifier || accountHostKey; // accountHostKey is deprecated
   searchKey = searchKey || apiKey; //apiKey is deprecated
   return new Client(hostIdentifier, searchKey, engineName, {
     endpointBase,
-    cacheResponses
+    cacheResponses,
+    additionalHeaders
   });
 }

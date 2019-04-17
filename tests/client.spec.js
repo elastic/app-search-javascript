@@ -399,5 +399,15 @@ describe("Client", () => {
         expect(e).toEqual(new Error("[404]"));
       }
     });
+
+    // Fixture: additional_headers
+    it.only("should pass along additional headers", async () => {
+      const headerClient = new Client(hostIdentifier, searchKey, engineName, {
+        additionalHeaders: { "Content-Type": "bogus/format" }
+      });
+      await headerClient.search("cat", {});
+      // REPLAY will fail this spec if the additional helper is not sent
+      expect(true).toBe(true);
+    });
   });
 });
