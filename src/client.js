@@ -57,7 +57,7 @@ export default class Client {
   }
 
   /**
-   * Sends a query suggestion request to the Swiftype App Search Api
+   * Sends a query suggestion request to the Elastic App Search Api
    *
    * @param {String} query String that is used to perform a query suggest.
    * @param {Object} options Object used for configuring the query suggest, like 'types' or 'size'
@@ -77,7 +77,7 @@ export default class Client {
   }
 
   /**
-   * Sends a search request to the Swiftype App Search Api
+   * Sends a search request to the Elastic App Search Api
    *
    * @param {String} query String, Query, or Object that is used to perform a search request.
    * @param {Object} options Object used for configuring the search like search_fields and result_fields
@@ -103,7 +103,7 @@ export default class Client {
   }
 
   /**
-   * Sends multiple search requests to the Swiftype App Search Api, using the
+   * Sends multiple search requests to the Elastic App Search Api, using the
    * "multi_search" endpoint
    *
    * @param {Array[Object]} searches searches to send, valid keys are:
@@ -215,7 +215,7 @@ export default class Client {
   }
 
   /**
-   * Sends a click event to the Swiftype App Search Api, to track a click-through event
+   * Sends a click event to the Elastic App Search Api, to track a click-through event
    *
    * @param {String} query Query that was used to perform the search request
    * @param {String} documentId ID of the document that was clicked

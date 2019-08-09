@@ -1,9 +1,8 @@
-<p align="center"><img src="https://github.com/swiftype/swiftype-app-search-javascript/blob/master/logo-app-search.png?raw=true" alt="Elastic App Search Logo"></p>
+<p align="center"><img src="https://github.com/elastic/app-search-javascript/blob/master/logo-app-search.png?raw=true" alt="Elastic App Search Logo"></p>
 
-<p align="center"><a href="https://circleci.com/gh/swiftype/swiftype-app-search-javascript"><img src="https://circleci.com/gh/swiftype/swiftype-app-search-javascript.svg?style=svg" alt="CircleCI buidl"></a>
-<a href="https://github.com/swiftype/swiftype-app-search-javascript/releases"><img src="https://img.shields.io/github/release/swiftype/swiftype-app-search-javascript/all.svg?style=flat-square" alt="GitHub release" /></a></p>
+<p align="center"><a href="https://circleci.com/gh/elastic/app-search-javascript"><img src="https://circleci.com/gh/elastic/app-search-javascript.svg?style=svg" alt="CircleCI buidl"></a></p>
 
-> A first-party JavaScript client for building excellent, relevant search experiences with [Elastic App Search](https://www.elastic.co/cloud/app-search-service).
+> A first-party JavaScript client for building excellent, relevant search experiences with [Elastic App Search](https://www.elastic.co/products/app-search/service).
 
 ## Contents
 
@@ -25,13 +24,13 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/swiftype-app-search-javascript@2.4.0/dist/swiftype_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@elastic/app-search-javascript@2.4.0/dist/elastic_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
 
 ```javascript
-window.SwiftypeAppSearch;
+window.ElasticAppSearch;
 ```
 
 ### Install from NPM
@@ -39,17 +38,17 @@ window.SwiftypeAppSearch;
 This package can also be installed with `npm` or `yarn`.
 
 ```
-npm install --save swiftype-app-search-javascript
+npm install --save @elastic/app-search-javascript
 ```
 
 The client could then be included into your project like follows:
 
 ```javascript
 // CommonJS
-var SwiftypeAppSearch = require("swiftype-app-search-javascript");
+var ElasticAppSearch = require("@elastic/app-search-javascript");
 
 // ES
-import * as SwiftypeAppSearch from "swiftype-app-search-javascript";
+import * as ElasticAppSearch from "@elastic/app-search-javascript";
 ```
 
 ## Browser support
@@ -69,25 +68,25 @@ like https://github.com/github/fetch.
 Using this client assumes that you have already created an [App Search](https://swiftype.com/app-search) account, and subsequently created an Engine. You'll need to configure the client with the name of your Engine and your authentication credentials, which can be found here: https://app.swiftype.com/as/credentials.
 
 ```javascript
-var client = SwiftypeAppSearch.createClient({
+var client = ElasticAppSearch.createClient({
   hostIdentifier: "host-c5s2mj",
   searchKey: "search-mu75psc5egt9ppzuycnc2mc3",
   engineName: "favorite-videos"
 });
 ```
 
-\* Please note that you should only ever use a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found in the [documentation](https://swiftype.com/documentation/app-search/credentials).
+\* Please note that you should only ever use a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found in the [documentation](https://swiftype.com/documentation/app-search/authentication).
 
 List of configuration options:
 
-| Option            | Required | Description                                                                                                                                                                            |
-| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hostIdentifier    | No       | Your **Host Identifier**, should start with `host-`. Required unless explicitly setting `endpointBase`                                                                                 |
-| searchKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                                            |
-| engineName        | Yes      |                                                                                                                                                                                        |
-| endpointBase      | No       | Overrides the base of the Swiftype API endpoint completely. Useful when proxying the Swiftype API, developing against a local server, or a Managed Deploy. Ex. "http://localhost:3002" |
-| cacheResponses    | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                                        |
-| additionalHeaders | No       | An Object with keys and values that will be converted to header names and values on all API requests                                                                                   |
+| Option            | Required | Description                                                                                                                                                                                |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| hostIdentifier    | No       | Your **Host Identifier**, should start with `host-`. Required unless explicitly setting `endpointBase`                                                                                     |
+| searchKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                                                |
+| engineName        | Yes      |                                                                                                                                                                                            |
+| endpointBase      | No       | Overrides the base of the App Search API endpoint completely. Useful when proxying the App Search API, developing against a local server, or a Managed Deploy. Ex. "http://localhost:3002" |
+| cacheResponses    | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                                            |
+| additionalHeaders | No       | An Object with keys and values that will be converted to header names and values on all API requests                                                                                       |
 
 ### Using with App Search Managed Deploys
 
@@ -96,7 +95,7 @@ The client can be configured to use a managed deploy by using the
 , it can be omitted.
 
 ```javascript
-var client = SwiftypeAppSearch.createClient({
+var client = ElasticAppSearch.createClient({
   searchKey: "search-mu75psc5egt9ppzuycnc2mc3",
   endpointBase: "http://127.0.0.1:3002",
   engineName: "favorite-videos"
@@ -105,7 +104,7 @@ var client = SwiftypeAppSearch.createClient({
 
 ### API Methods
 
-This client is a thin interface to the Swiftype App Search API. Additional details for requests and responses can be
+This client is a thin interface to the Elastic App Search API. Additional details for requests and responses can be
 found in the [documentation](https://swiftype.com/documentation/app-search).
 
 #### Searching
@@ -330,11 +329,11 @@ yarn publish
 
 ### What if I need write operations?
 
-App Search has a first-party [Node.js](https://github.com/swiftype/swiftype-app-search-node) client which supports write operations like indexing.
+App Search has a first-party [Node.js](https://github.com/elastic/app-search-node) client which supports write operations like indexing.
 
 ### Where do I report issues with the client?
 
-If something is not working as expected, please open an [issue](https://github.com/swiftype/swiftype-app-search-javascript/issues/new).
+If something is not working as expected, please open an [issue](https://github.com/elastic/app-search-javascript/issues/new).
 
 ### Where can I learn more about App Search?
 
@@ -348,11 +347,11 @@ You can checkout the [Elastic App Search community discuss forums](https://discu
 
 We welcome contributors to the project. Before you begin, a couple notes...
 
-- Prior to opening a pull request, please create an issue to [discuss the scope of your proposal](https://github.com/swiftype/swiftype-app-search-javascript/issues).
+- Prior to opening a pull request, please create an issue to [discuss the scope of your proposal](https://github.com/elastic/app-search-javascript/issues).
 - Please write simple code and concise documentation, when appropriate.
 
 ## License 📗
 
-[MIT](https://github.com/swiftype/swiftype-app-search-javascript/blob/master/LICENSE) © [Elastic](https://github.com/elastic)
+[Apache 2.0](https://github.com/elastic/app-search-javascript/blob/master/LICENSE.txt) © [Elastic](https://github.com/elastic)
 
-Thank you to all the [contributors](https://github.com/swiftype/swiftype-app-search-javascript/graphs/contributors)!
+Thank you to all the [contributors](https://github.com/elastic/app-search-javascript/graphs/contributors)!

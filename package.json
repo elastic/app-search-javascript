@@ -1,10 +1,10 @@
 {
-  "name": "swiftype-app-search-javascript",
+  "name": "@elastic/app-search-javascript",
   "version": "2.4.0",
-  "description": "Javascript client for the Swiftype App Search Api",
-  "browser": "dist/swiftype_app_search.umd.js",
-  "main": "dist/swiftype_app_search.umd.js",
-  "module": "dist/swiftype_app_search.es.js",
+  "description": "Javascript client for the Elastic App Search Api",
+  "browser": "dist/elastic_app_search.umd.js",
+  "main": "dist/elastic_app_search.umd.js",
+  "module": "dist/elastic_app_search.es.js",
   "scripts": {
     "test": "BABEL_ENV=test jest",
     "format": "prettier --write \"**/*.js\"",
@@ -27,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swiftype/swiftype-app-search-javascript.git"
+    "url": "git+https://github.com/elastic/app-search-javascript.git"
   },
-  "author": "Swiftype",
+  "author": "Elastic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/swiftype/swiftype-app-search-javascript/issues"
+    "url": "https://github.com/elastic/app-search-javascript/issues"
   },
-  "homepage": "https://github.com/swiftype/swiftype-app-search-javascript",
+  "homepage": "https://github.com/elastic/app-search-javascript",
   "dependencies": {
     "object-hash": "^1.3.0"
   },
