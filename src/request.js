@@ -1,4 +1,4 @@
-import { version, name } from "../package.json";
+import { version } from "../package.json";
 import QueryCache from "./query_cache";
 const cache = new QueryCache();
 
@@ -46,7 +46,7 @@ function _request(
   const headers = new Headers({
     Authorization: `Bearer ${searchKey}`,
     "Content-Type": "application/json",
-    "X-Swiftype-Client": name,
+    "X-Swiftype-Client": "elastic-app-search-javascript",
     "X-Swiftype-Client-Version": version,
     ...additionalHeaders
   });

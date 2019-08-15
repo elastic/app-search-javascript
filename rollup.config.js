@@ -6,12 +6,12 @@ import pkg from "./package.json";
 
 export default [
   {
-    input: "src/swiftype_app_search.js",
+    input: "src/elastic_app_search.js",
     output: [
       {
         // browser-friendly UMD build, for Browsers or Node
-        name: "SwiftypeAppSearch",
-        file: "dist/swiftype_app_search.umd.js",
+        name: "ElasticAppSearch",
+        file: "dist/elastic_app_search.umd.js",
         format: "umd"
       },
       {
@@ -28,12 +28,12 @@ export default [
     ]
   },
   {
-    input: "src/swiftype_app_search.js",
+    input: "src/elastic_app_search.js",
     output: [
       {
         // Minified UMD build
-        name: "SwiftypeAppSearch",
-        file: "dist/swiftype_app_search.umd.min.js",
+        name: "ElasticAppSearch",
+        file: "dist/elastic_app_search.umd.min.js",
         format: "umd"
       }
     ],
