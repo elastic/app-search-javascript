@@ -1,6 +1,6 @@
 {
   "name": "@elastic/app-search-javascript",
-  "version": "2.4.0",
+  "version": "0.1.0",
   "description": "Javascript client for the Elastic App Search Api",
   "browser": "dist/elastic_app_search.umd.js",
   "main": "dist/elastic_app_search.umd.js",
@@ -30,7 +30,7 @@
     "url": "git+https://github.com/elastic/app-search-javascript.git"
   },
   "author": "Elastic",
-   "license": "Apache 2.0",
+  "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/elastic/app-search-javascript/issues"
   },
