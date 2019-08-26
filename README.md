@@ -7,6 +7,7 @@
 ## Contents
 
 - [Getting started](#getting-started-)
+- [Versioning](#versioning)
 - [Browser support](#browser-support)
 - [Usage](#usage)
 - [Running tests](#running-tests)
@@ -24,7 +25,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@elastic/app-search-javascript@0.1.0/dist/elastic_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@elastic/app-search-javascript@7.2.0/dist/elastic_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
@@ -50,6 +51,16 @@ var ElasticAppSearch = require("@elastic/app-search-javascript");
 // ES
 import * as ElasticAppSearch from "@elastic/app-search-javascript";
 ```
+
+## Versioning
+
+This client is versioned and released alongside App Search.
+
+To guarantee compatibility, use the most recent version of this library within the major version of the corresponding App Search implementation.
+
+For example, for App Search `7.3`, use `7.3` of this library or above, but not `8.0`.
+
+If you are a [SaaS](https://app.swiftype.com/as) user, simply use the most recent version of this library.
 
 ## Browser support
 
@@ -253,12 +264,14 @@ document.addEventListener("click", function(e) {
 ```
 
 ```html
-<a href="/items/1234567"
-    class="track-click"
-    data-request-id="8b55561954484f13d872728f849ffd22"
-    data-document-id="1234567"
-    data-query="lion"
-    data-tag="Animal">
+<a
+  href="/items/1234567"
+  class="track-click"
+  data-request-id="8b55561954484f13d872728f849ffd22"
+  data-document-id="1234567"
+  data-query="lion"
+  data-tag="Animal"
+>
   Item 1
 </a>
 ```
