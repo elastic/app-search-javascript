@@ -286,14 +286,14 @@ To capture new responses and update snapshots, run:
 
 ```
 nvm use
-REPLAY=record yarn test -u
+REPLAY=record npm run test -u
 ```
 
 To run tests:
 
 ```
 nvm use
-yarn test
+npm run test
 ```
 
 ## Development
@@ -315,27 +315,27 @@ nvm install
 Install dependencies:
 
 ```
-yarn
+npm install
 ```
 
 Run dev server:
 
 ```
-yarn dev
+npm run dev
 ```
 
 ### Build
 
 ```
 nvm use
-yarn build
+npm run build
 ```
 
 ### Publish
 
 ```
 nvm use
-yarn publish
+npm run publish
 ```
 
 ## FAQ 🔮
