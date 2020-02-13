@@ -25,7 +25,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@elastic/app-search-javascript@7.5.0/dist/elastic_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@elastic/app-search-javascript@7.6.0/dist/elastic_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
@@ -88,7 +88,7 @@ var client = ElasticAppSearch.createClient({
 });
 ```
 
-\* Please note that you should only ever use a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found in the [documentation](https://swiftype.com/documentation/app-search/authentication).                                                              
+\* Please note that you should only ever use a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found in the [documentation](https://swiftype.com/documentation/app-search/authentication).
 
 ### Swiftype.com App Search users:
 
@@ -105,14 +105,14 @@ var client = ElasticAppSearch.createClient({
 
 ### List of configuration options:
 
-| Option            | Required | Description                                                                                                                                                                                |
-| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| hostIdentifier    | No       | Your **Host Identifier**, should start with `host-`. Required unless explicitly setting `endpointBase`                                                                                     |
-| searchKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                                                |
-| engineName        | Yes      |                                                                                                                                                                                            |
+| Option            | Required | Description                                                                                                                                                                                                  |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| hostIdentifier    | No       | Your **Host Identifier**, should start with `host-`. Required unless explicitly setting `endpointBase`                                                                                                       |
+| searchKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                                                                  |
+| engineName        | Yes      |                                                                                                                                                                                                              |
 | endpointBase      | No       | Overrides the base of the App Search API endpoint completely. Useful when proxying the App Search API, developing against a local server, or a Self-Managed or Cloud Deployment. Ex. "http://localhost:3002" |
-| cacheResponses    | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                                            |
-| additionalHeaders | No       | An Object with keys and values that will be converted to header names and values on all API requests             
+| cacheResponses    | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                                                              |
+| additionalHeaders | No       | An Object with keys and values that will be converted to header names and values on all API requests                                                                                                         |
 
 ### API Methods
 
