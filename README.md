@@ -2,7 +2,7 @@
 
 <p align="center"><a href="https://circleci.com/gh/elastic/app-search-javascript"><img src="https://circleci.com/gh/elastic/app-search-javascript.svg?style=svg" alt="CircleCI buidl"></a></p>
 
-> A first-party JavaScript client for building excellent, relevant search experiences with [Elastic App Search](https://www.elastic.co/products/app-search/service).
+> A first-party JavaScript client for building excellent, relevant search experiences with [Elastic App Search](https://www.elastic.co/products/app-search).
 
 ## Contents
 
@@ -60,7 +60,7 @@ To guarantee compatibility, use the most recent version of this library within t
 
 For example, for App Search `7.3`, use `7.3` of this library or above, but not `8.0`.
 
-If you are a [SaaS](https://app.swiftype.com/as) user, simply use the most recent version of this library.
+If you are using the [SaaS version available on swiftype.com](https://app.swiftype.com/as) of App Search, you should use the version 7.5.x of the client.
 
 ## Browser support
 
@@ -76,7 +76,24 @@ like https://github.com/github/fetch.
 
 ### Setup: Configuring the client and authentication
 
-Using this client assumes that you have already created an [App Search](https://swiftype.com/app-search) account, and subsequently created an Engine. You'll need to configure the client with the name of your Engine and your authentication credentials, which can be found here: https://app.swiftype.com/as/credentials.
+Using this client assumes that you have already an instance of [Elastic App Search](https://www.elastic.co/products/app-search) up and running.
+
+The client is configured using the `searchKey`, `endpointBase`, and `engineName` parameters.
+
+```javascript
+var client = ElasticAppSearch.createClient({
+  searchKey: "search-mu75psc5egt9ppzuycnc2mc3",
+  endpointBase: "http://127.0.0.1:3002",
+  engineName: "favorite-videos"
+});
+```
+
+\* Please note that you should only ever use a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found in the [documentation](https://swiftype.com/documentation/app-search/authentication).                                                              
+
+### Swiftype.com App Search users:
+
+When using the [SaaS version available on swiftype.com](https://app.swiftype.com/as) of App Search, you can configure the client using your `hostIdentifier` instead of the `endpointBase` parameter.
+The `hostIdentifier` can be found within the [Credentials](https://app.swiftype.com/ascredentials) menu.
 
 ```javascript
 var client = ElasticAppSearch.createClient({
@@ -86,32 +103,16 @@ var client = ElasticAppSearch.createClient({
 });
 ```
 
-\* Please note that you should only ever use a **Public Search Key** within Javascript code on the browser. By default, your account should have a Key prefixed with `search-` that is read-only. More information can be found in the [documentation](https://swiftype.com/documentation/app-search/authentication).
-
-List of configuration options:
+### List of configuration options:
 
 | Option            | Required | Description                                                                                                                                                                                |
 | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | hostIdentifier    | No       | Your **Host Identifier**, should start with `host-`. Required unless explicitly setting `endpointBase`                                                                                     |
 | searchKey         | Yes      | Your **Public Search Key**. It should start with `search-`.                                                                                                                                |
 | engineName        | Yes      |                                                                                                                                                                                            |
-| endpointBase      | No       | Overrides the base of the App Search API endpoint completely. Useful when proxying the App Search API, developing against a local server, or a Managed Deploy. Ex. "http://localhost:3002" |
+| endpointBase      | No       | Overrides the base of the App Search API endpoint completely. Useful when proxying the App Search API, developing against a local server, or a Self-Managed or Cloud Deployment. Ex. "http://localhost:3002" |
 | cacheResponses    | No       | Whether or not API responses should be cached. Default: `true`.                                                                                                                            |
-| additionalHeaders | No       | An Object with keys and values that will be converted to header names and values on all API requests                                                                                       |
-
-### Using with App Search Managed Deploys
-
-The client can be configured to use a managed deploy by using the
-`endpointBase` parameter. Since managed deploys do not rely on a `hostIdentifier`
-, it can be omitted.
-
-```javascript
-var client = ElasticAppSearch.createClient({
-  searchKey: "search-mu75psc5egt9ppzuycnc2mc3",
-  endpointBase: "http://127.0.0.1:3002",
-  engineName: "favorite-videos"
-});
-```
+| additionalHeaders | No       | An Object with keys and values that will be converted to header names and values on all API requests             
 
 ### API Methods
 
