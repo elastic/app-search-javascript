@@ -66,7 +66,7 @@ If you are using the [SaaS version available on swiftype.com](https://app.swifty
 
 The client is compatible with all modern browsers.
 
-Note that this library depends on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_AP).
+Note that this library depends on the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
 This is not supported by Internet Explorer. If you need backwards compatibility
 for Internet Explorer, you'll need to polyfill the Fetch API with something
@@ -185,14 +185,7 @@ var options = {
 };
 
 client
-  .querySuggestion("cat", {
-    size: 3,
-    types: {
-      documents: {
-        fields: ["name"]
-      }
-    }
-  })
+  .querySuggestion("cat", options)
   .then(response => {
     response.results.documents.forEach(document => {
       console.log(document.suggestion);
