@@ -93,7 +93,7 @@ var client = ElasticAppSearch.createClient({
 ### Swiftype.com App Search users:
 
 When using the [SaaS version available on swiftype.com](https://app.swiftype.com/as) of App Search, you can configure the client using your `hostIdentifier` instead of the `endpointBase` parameter.
-The `hostIdentifier` can be found within the [Credentials](https://app.swiftype.com/ascredentials) menu.
+The `hostIdentifier` can be found within the [Credentials](https://app.swiftype.com/as#/credentials) menu.
 
 ```javascript
 var client = ElasticAppSearch.createClient({
