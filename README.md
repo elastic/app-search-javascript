@@ -308,15 +308,39 @@ nvm install
 
 Install dependencies:
 
-```
+```bash
+nvm use
 npm install
+```
+
+Build artifacts in `dist` directory:
+
+```bash
+# This will create files in the `dist` directory
+npm run build
+```
+
+Add an `index.html` file to your `dist` directory
+
+```html
+<html>
+  <head>
+    <script src="elastic_app_search.umd.js"></script>
+  </head>
+  <body>
+
+  </body>
+</html>
 ```
 
 Run dev server:
 
-```
+```bash
+# This will serve files in the `dist` directory
 npm run dev
 ```
+
+Navigate to http://127.0.0.1:8080 and execute JavaScript commands through the browser Dev Console.
 
 ### Build
 
