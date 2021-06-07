@@ -44,7 +44,7 @@ function _request(
   { additionalHeaders } = {}
 ) {
   const headers = new Headers({
-    Authorization: `Bearer ${searchKey}`,
+    ...(searchKey && { Authorization: `Bearer ${searchKey}` }),
     "Content-Type": "application/json",
     "X-Swiftype-Client": "elastic-app-search-javascript",
     "X-Swiftype-Client-Version": version,
