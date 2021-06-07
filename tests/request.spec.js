@@ -19,25 +19,34 @@ describe("request", () => {
 
   beforeEach(() => {
     global.Headers = Headers;
+    jest.resetAllMocks();
     global.fetch = jest
       .fn()
       .mockImplementation(() => Promise.resolve(response));
   });
 
-  beforeEach(() => {
-    global.fetch.mockClear();
-  });
-
-  it("can fetch", async () => {
-    const res = await request(searchKey, endpoint, path, params, true);
+  it("can send a fetch request, authenticated by the provided search key", async () => {
+    const res = await request(searchKey, endpoint, path, params, false);
     expect(res.response).toBe(response);
     expect(global.fetch.mock.calls.length).toBe(1);
+    var [_, options] = global.fetch.mock.calls[0];
+    expect(options.headers.get("Authorization")).toEqual("Bearer api-12345");
+  });
+
+  // The use case for this is mostly internal to Elastic, where we rely on the logged in user session (via cookies) to authenticate
+  it("can send an authenticated fetch request, when no search key is provided", async () => {
+    const res = await request(undefined, endpoint, path, params, false);
+    expect(global.fetch.mock.calls.length).toBe(1);
+    var [_, options] = global.fetch.mock.calls[0];
+    expect(options.headers.has("Authorization")).toBe(false);
   });
 
   it("will return a cached response if already called once", async () => {
     const res = await request(searchKey, endpoint, path, params, true);
+    await request(searchKey, endpoint, path, params, true);
+    await request(searchKey, endpoint, path, params, true);
     expect(res.response).toBe(response);
-    expect(global.fetch.mock.calls.length).toBe(0);
+    expect(global.fetch.mock.calls.length).toBe(1);
   });
 
   it("will not return the cached response if endpoint changes", async () => {
