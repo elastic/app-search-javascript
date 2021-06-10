@@ -8,6 +8,7 @@ export function request(
   path,
   params,
   cacheResponses,
+  fetchFunction = fetch,
   { additionalHeaders } = {}
 ) {
   const method = "POST";
@@ -19,7 +20,7 @@ export function request(
     }
   }
 
-  return _request(method, searchKey, apiEndpoint, path, params, {
+  return _request(method, searchKey, apiEndpoint, path, params, fetchFunction, {
     additionalHeaders
   }).then(response => {
     return response
@@ -41,6 +42,7 @@ function _request(
   apiEndpoint,
   path,
   params,
+  fetchFunction,
   { additionalHeaders } = {}
 ) {
   const headers = new Headers({
@@ -51,7 +53,7 @@ function _request(
     ...additionalHeaders
   });
 
-  return fetch(`${apiEndpoint}${path}`, {
+  return fetchFunction(`${apiEndpoint}${path}`, {
     method,
     headers,
     body: JSON.stringify(params),
