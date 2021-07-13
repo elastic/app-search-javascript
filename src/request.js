@@ -8,7 +8,8 @@ export function request(
   path,
   params,
   cacheResponses,
-  { additionalHeaders } = {}
+  { additionalHeaders } = {},
+  fetchFunction = fetch,
 ) {
   const method = "POST";
   const key = cache.getKey(method, apiEndpoint + path, params);
@@ -19,9 +20,15 @@ export function request(
     }
   }
 
-  return _request(method, searchKey, apiEndpoint, path, params, {
-    additionalHeaders
-  }).then(response => {
+  return _request(
+    method,
+    searchKey,
+    apiEndpoint,
+    path,
+    params,
+    { additionalHeaders },
+    fetchFunction,
+  ).then(response => {
     return response
       .json()
       .then(json => {
@@ -41,7 +48,8 @@ function _request(
   apiEndpoint,
   path,
   params,
-  { additionalHeaders } = {}
+  { additionalHeaders } = {},
+  fetchFunction = fetch,
 ) {
   const headers = new Headers({
     ...(searchKey && { Authorization: `Bearer ${searchKey}` }),
@@ -51,7 +59,7 @@ function _request(
     ...additionalHeaders
   });
 
-  return fetch(`${apiEndpoint}${path}`, {
+  return fetchFunction(`${apiEndpoint}${path}`, {
     method,
     headers,
     body: JSON.stringify(params),

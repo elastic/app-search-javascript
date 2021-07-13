@@ -63,7 +63,7 @@ export default class Client {
    * @param {Object} options Object used for configuring the query suggest, like 'types' or 'size'
    * @returns {Promise<ResultList>} a Promise that returns results, otherwise throws an Error.
    */
-  querySuggestion(query, options = {}) {
+  querySuggestion(query, options = {}, fetchFunction = fetch) {
     const params = Object.assign({ query: query }, options);
 
     return request(
@@ -72,7 +72,8 @@ export default class Client {
       this.querySuggestionPath,
       params,
       this.cacheResponses,
-      { additionalHeaders: this.additionalHeaders }
+      { additionalHeaders: this.additionalHeaders },
+      fetchFunction,
     ).then(handleErrorResponse);
   }
 
@@ -83,7 +84,7 @@ export default class Client {
    * @param {Object} options Object used for configuring the search like search_fields and result_fields
    * @returns {Promise<ResultList>} a Promise that returns a {ResultList} when resolved, otherwise throws an Error.
    */
-  search(query, options = {}) {
+  search(query, options = {}, fetchFunction = fetch) {
     const {
       disjunctiveFacets,
       disjunctiveFacetsAnalyticsTags,
@@ -99,7 +100,7 @@ export default class Client {
         disjunctiveFacetsAnalyticsTags
       ).then(formatResultsJSON);
     }
-    return this._performSearch(params).then(formatResultsJSON);
+    return this._performSearch(params, SEARCH_TYPES.SEARCH, fetchFunction).then(formatResultsJSON);
   }
 
   /**
@@ -111,7 +112,7 @@ export default class Client {
    * - options: Object (optional)
    * @returns {Promise<[ResultList]>} a Promise that returns an array of {ResultList} when resolved, otherwise throws an Error.
    */
-  multiSearch(searches) {
+  multiSearch(searches, fetchFunction = fetch) {
     const params = searches.map(search => ({
       query: search.query,
       ...(search.options || {})
@@ -119,7 +120,8 @@ export default class Client {
 
     return this._performSearch(
       { queries: params },
-      SEARCH_TYPES.MULTI_SEARCH
+      SEARCH_TYPES.MULTI_SEARCH,
+      fetchFunction,
     ).then(responses => responses.map(formatResultsJSON));
   }
 
@@ -145,9 +147,10 @@ export default class Client {
   _performDisjunctiveSearch(
     params,
     disjunctiveFacets,
-    disjunctiveFacetsAnalyticsTags = ["Facet-Only"]
+    disjunctiveFacetsAnalyticsTags = ["Facet-Only"],
+    fetchFunction = fetch,
   ) {
-    const baseQueryPromise = this._performSearch(params);
+    const baseQueryPromise = this._performSearch(params, SEARCH_TYPES.SEARCH, fetchFunction);
 
     const filters = new Filters(params.filters);
     const appliedFilers = filters.getListOfAppliedFilters();
@@ -182,7 +185,7 @@ export default class Client {
           facets: {
             [appliedDisjunctiveFilter]: params.facets[appliedDisjunctiveFilter]
           }
-        });
+        }, SEARCH_TYPES.SEARCH, fetchFunction);
       }
     );
 
@@ -199,7 +202,7 @@ export default class Client {
     );
   }
 
-  _performSearch(params, searchType = SEARCH_TYPES.SEARCH) {
+  _performSearch(params, searchType = SEARCH_TYPES.SEARCH, fetchFunction = fetch) {
     const searchPath =
       searchType === SEARCH_TYPES.MULTI_SEARCH
         ? this.multiSearchPath
@@ -210,7 +213,8 @@ export default class Client {
       `${searchPath}.json`,
       params,
       this.cacheResponses,
-      { additionalHeaders: this.additionalHeaders }
+      { additionalHeaders: this.additionalHeaders },
+      fetchFunction,
     ).then(handleErrorResponse);
   }
 
@@ -223,7 +227,7 @@ export default class Client {
    * @param {String[]} tags Tags to categorize this request in the Dashboard
    * @returns {Promise} An empty Promise, otherwise throws an Error.
    */
-  click({ query, documentId, requestId, tags = [] }) {
+  click({ query, documentId, requestId, tags = [], fetchFunction = fetch }) {
     const params = {
       query,
       document_id: documentId,
@@ -237,7 +241,8 @@ export default class Client {
       `${this.clickPath}.json`,
       params,
       this.cacheResponses,
-      { additionalHeaders: this.additionalHeaders }
+      { additionalHeaders: this.additionalHeaders },
+      fetchFunction,
     ).then(handleErrorResponse);
   }
 }
