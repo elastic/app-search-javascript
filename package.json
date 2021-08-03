@@ -1,6 +1,6 @@
 {
   "name": "@elastic/app-search-javascript",
-  "version": "7.13.1",
+  "version": "7.14.0",
   "description": "Javascript client for the Elastic App Search Api",
   "browser": "dist/elastic_app_search.umd.js",
   "main": "dist/elastic_app_search.umd.js",
