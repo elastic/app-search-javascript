@@ -1,5 +1,6 @@
 import { request } from "../src/request";
 import { Headers } from "node-fetch";
+import { version } from "../package.json";
 
 describe("request", () => {
   const responseJson = {};
@@ -115,5 +116,20 @@ describe("request", () => {
     const res = await request(searchKey, endpoint, path, params, false);
     expect(res.response).toBe(response);
     expect(global.fetch.mock.calls.length).toBe(1);
+  });
+
+  it("will have the correct browser based meta headers when running in browser context", async () => {
+    expect(global.window).toBeDefined();
+    const res = await request(searchKey, endpoint, path, params, false);
+    expect(res.response).toBe(response);
+    expect(global.fetch.mock.calls.length).toBe(1);
+    var [_, options] = global.fetch.mock.calls[0];
+    expect(options.headers.get("x-elastic-client-meta")).toEqual(
+      `ent=${version}-legacy,js=browser,t=${version}-legacy,ft=universal`
+    );
+    const validHeaderRegex = /^[a-z]{1,}=[a-z0-9\.\-]{1,}(?:,[a-z]{1,}=[a-z0-9\.\-]+)*$/;
+    expect(options.headers.get("x-elastic-client-meta")).toMatch(
+      validHeaderRegex
+    );
   });
 });

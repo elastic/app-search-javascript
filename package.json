@@ -16,7 +16,8 @@
     "precommit": "lint-staged"
   },
   "jest": {
-    "testURL": "http://localhost/"
+    "testURL": "http://localhost/",
+    "testEnvironment": "jsdom"
   },
   "lint-staged": {
     "*.js": [
