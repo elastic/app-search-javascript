@@ -37,5 +37,9 @@ describe("request", () => {
     expect(options.headers.get("x-elastic-client-meta")).toEqual(
       `ent=${version}-legacy,js=${nodeVersion},t=${version}-legacy,ft=universal`
     );
+    const validHeaderRegex = /^[a-z]{1,}=[a-z0-9\.\-]{1,}(?:,[a-z]{1,}=[a-z0-9\.\-]+)*$/;
+    expect(options.headers.get("x-elastic-client-meta")).toMatch(
+      validHeaderRegex
+    );
   });
 });
