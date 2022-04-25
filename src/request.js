@@ -43,11 +43,14 @@ function _request(
   params,
   { additionalHeaders } = {}
 ) {
+  const jsVersion = typeof window !== "undefined" ? "browser" : process.version;
+  const metaHeader = `ent=${version}-legacy,js=${jsVersion},t=${version}-legacy,ft=universal`;
   const headers = new Headers({
     ...(searchKey && { Authorization: `Bearer ${searchKey}` }),
     "Content-Type": "application/json",
     "X-Swiftype-Client": "elastic-app-search-javascript",
     "X-Swiftype-Client-Version": version,
+    "x-elastic-client-meta": metaHeader,
     ...additionalHeaders
   });
 
