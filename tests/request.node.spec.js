@@ -7,7 +7,7 @@ import { Headers } from "node-fetch";
 import { version } from "../package.json";
 const nodeVersion = process.version;
 
-describe("request", () => {
+describe("request - within node context", () => {
   const responseJson = {};
   const response = {
     json: () => Promise.resolve(responseJson)
