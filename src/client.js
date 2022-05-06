@@ -172,6 +172,7 @@ export default class Client {
         return this._performSearch({
           ...params,
           filters: filters.removeFilter(appliedDisjunctiveFilter).filtersJSON,
+          record_analytics: false,
           page: {
             ...page,
             // Set this to 0 for performance, since disjunctive queries

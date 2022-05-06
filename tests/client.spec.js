@@ -225,7 +225,7 @@ describe("Client", () => {
         );
       });
 
-      // Fixture: disjunctive_license
+      // Fixture: disjunctive_license_override_tags
       // Fixture: search_filter_and_multi_facet_with_tags
       it("will not pass tags through on disjunctive queries", async () => {
         // Note, this is tested implicitly by using the same disjunctive fixture as the previous test. This
@@ -401,7 +401,7 @@ describe("Client", () => {
     });
 
     // Fixture: additional_headers
-    it.only("should pass along additional headers", async () => {
+    it("should pass along additional headers", async () => {
       const headerClient = new Client(hostIdentifier, searchKey, engineName, {
         additionalHeaders: { "Content-Type": "bogus/format" }
       });
