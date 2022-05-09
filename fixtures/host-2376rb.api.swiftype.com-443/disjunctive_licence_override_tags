@@ -6,10 +6,10 @@ x-swiftype-client-version: 8.1.1
 x-elastic-client-meta: ent=8.1.1-legacy,js=browser,t=8.1.1-legacy,ft=universal
 accept: */*
 accept-encoding: gzip,deflate
-body: {\"query\":\"cat\",\"page\":{\"size\":0},\"filters\":{},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}]},\"analytics\":{\"tags\":[\"Facet-Only\"]},\"record_analytics\":false}
+body: {\"query\":\"cat\",\"page\":{\"size\":0},\"filters\":{},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}]},\"analytics\":{\"tags\":[\"FromSERP\",\"Disjunctive\"]},\"record_analytics\":false}
 
 HTTP/1.1 200 OK
-date: Fri, 06 May 2022 15:25:51 GMT
+date: Fri, 06 May 2022 19:35:53 GMT
 content-type: application/json; charset=utf-8
 transfer-encoding: chunked
 connection: close
@@ -22,14 +22,14 @@ x-swiftype-backend-region: dal
 x-swiftype-backend-datacenter: dal10
 x-swiftype-backend-node: app-api03a.dal10
 x-ratelimit-limit: 12000
-x-ratelimit-remaining: 11998
-etag: W/"680394011bb0efcb7a53ebd964a1127f"
+x-ratelimit-remaining: 11999
+etag: W/"10be0071db0ead6986f2ddf45b896207"
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 73ed894a358f45bc79fb829d2427d9d9
-x-runtime: 0.086157
+x-request-id: 78e10ad9edfafd32ff71faddaaaa6292
+x-runtime: 0.244323
 x-swiftype-frontend-datacenter: dal10
 x-swiftype-frontend-node: web02b.dal10
 x-swiftype-edge-datacenter: dal10
 x-swiftype-edge-node: web02b.dal10
 
-{"meta":{"alerts":[],"warnings":[],"page":{"current":1,"total_pages":1,"total_results":642,"size":0},"request_id":"73ed894a358f45bc79fb829d2427d9d9"},"results":[],"facets":{"license":[{"type":"value","data":[{"value":"MIT","count":101},{"value":"BSD","count":33},{"value":"MIT/X11","count":3}]}]}}
+{"meta":{"alerts":[],"warnings":[],"page":{"current":1,"total_pages":1,"total_results":642,"size":0},"request_id":"78e10ad9edfafd32ff71faddaaaa6292"},"results":[],"facets":{"license":[{"type":"value","data":[{"value":"MIT","count":101},{"value":"BSD","count":33},{"value":"MIT/X11","count":3}]}]}}

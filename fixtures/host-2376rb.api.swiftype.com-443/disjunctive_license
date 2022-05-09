@@ -5,7 +5,7 @@ x-swiftype-client: elastic-app-search-javascript
 x-swiftype-client-version: 8.1.1
 accept: */*
 accept-encoding: gzip,deflate
-body: {\"query\":\"cat\",\"page\":{\"size\":0},\"filters\":{},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}]},\"analytics\":{\"tags\":[\"Facet-Only\"]}}
+body: {\"query\":\"cat\",\"page\":{\"size\":0},\"filters\":{},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}]},\"record_analytics\":false,\"analytics\":{\"tags\":[\"Facet-Only\"]}}
 
 HTTP/1.1 200 OK
 date: Thu, 27 Sep 2018 20:36:08 GMT
