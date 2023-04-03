@@ -189,12 +189,17 @@ export default class Client {
 
     return Promise.all([baseQueryPromise, ...disjunctiveQueriesPromises]).then(
       ([baseQueryResults, ...disjunctiveQueries]) => {
-        disjunctiveQueries.forEach(disjunctiveQueryResults => {
-          const [facetName, facetValue] = Object.entries(
-            disjunctiveQueryResults.facets
-          )[0];
-          baseQueryResults.facets[facetName] = facetValue;
-        });
+        if (
+          baseQueryResults.facets &&
+          Object.keys(baseQueryResults.facets).length
+        ) {
+          disjunctiveQueries.forEach(disjunctiveQueryResults => {
+            const [facetName, facetValue] = Object.entries(
+              disjunctiveQueryResults.facets
+            )[0];
+            baseQueryResults.facets[facetName] = facetValue;
+          });
+        }
         return baseQueryResults;
       }
     );

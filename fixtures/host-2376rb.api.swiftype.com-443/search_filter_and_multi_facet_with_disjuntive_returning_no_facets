@@ -1,0 +1,29 @@
+POST /api/as/v1/engines/node-modules/search.json
+authorization: Bearer api-hean6g8dmxnm2shqqiag757a
+content-type: application/json
+x-swiftype-client: elastic-app-search-javascript
+x-swiftype-client-version: 8.7.0
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"query\":\"dog\",\"page\":{\"size\":1},\"filters\":{\"license\":\"BSD\"},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}],\"dependencies\":[{\"type\":\"value\",\"size\":3}]}}
+
+HTTP/1.1 200 OK
+date: Thu, 27 Sep 2018 20:53:56 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 200 OK
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+etag: W/"5010d52221547ddec5baceeb9f8a4931"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 8369bdda4d5c018ddbd85fc2859fbadb
+x-runtime: 0.212519
+x-swiftype-frontend-datacenter: dal05
+x-swiftype-frontend-node: web01.dal05
+x-swiftype-edge-datacenter: dal05
+x-swiftype-edge-node: web01.dal05
+
+{"meta":{"warnings":[],"page":{"current":1,"total_pages":0,"total_results":0,"size":10},"request_id":"8369bdda4d5c018ddbd85fc2859fbadb"},"results":[]}

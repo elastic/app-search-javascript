@@ -1,0 +1,29 @@
+POST /api/as/v1/engines/node-modules/search.json
+authorization: Bearer api-hean6g8dmxnm2shqqiag757a
+content-type: application/json
+x-swiftype-client: elastic-app-search-javascript
+x-swiftype-client-version: 8.7.0
+accept: */*
+accept-encoding: gzip,deflate
+body: {\"query\":\"dog\",\"page\":{\"size\":0},\"filters\":{},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}]},\"record_analytics\":false,\"analytics\":{\"tags\":[\"Facet-Only\"]}}
+
+HTTP/1.1 200 OK
+date: Thu, 27 Sep 2018 20:36:08 GMT
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: close
+vary: Accept-Encoding, Origin
+status: 200 OK
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+etag: W/"d31aa222a68122cb8392577cf4a1a7f1"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 91197d45d104a3e2281a60eecec630ff
+x-runtime: 0.270027
+x-swiftype-frontend-datacenter: dal05
+x-swiftype-frontend-node: web01.dal05
+x-swiftype-edge-datacenter: dal05
+x-swiftype-edge-node: web01.dal05
+
+{"meta":{"warnings":[],"page":{"current":1,"total_pages":0,"total_results":0,"size":1},"request_id":"91197d45d104a3e2281a60eecec630ff"},"results":[]}
