@@ -2,7 +2,7 @@ POST /api/as/v1/engines/node-modules/search.json
 authorization: Bearer api-hean6g8dmxnm2shqqiag757a
 content-type: application/json
 x-swiftype-client: elastic-app-search-javascript
-x-swiftype-client-version: 8.9.0
+x-swiftype-client-version: 8.13.0
 accept: */*
 accept-encoding: gzip,deflate
 body: {\"query\":\"cat\",\"page\":{\"size\":1},\"facets\":{\"license\":[{\"type\":\"value\",\"size\":3}],\"dependencies\":[{\"type\":\"value\",\"size\":3}]}}

@@ -25,7 +25,7 @@
 The easiest way to install this client is to simply include the built distribution from the [jsDelivr](https://www.jsdelivr.com/) CDN.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@elastic/app-search-javascript@8.9.0/dist/elastic_app_search.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@elastic/app-search-javascript@8.13.0/dist/elastic_app_search.umd.js"></script>
 ```
 
 This will make the client available globally at:
