@@ -248,6 +248,24 @@ describe("Client", () => {
         });
       });
 
+      // Fixture: disjunctive_license_returning_no_facets
+      // Fixture: search_filter_and_multi_facet_returning_no_facets
+      it("will handle not having `facets` in the backend response without throwing", async () => {
+        const result = await client.search("dog", {
+          ...config,
+          filters: {
+            license: "BSD"
+          },
+          facets: {
+            license: [{ type: "value", size: 3 }],
+            dependencies: [{ type: "value", size: 3 }]
+          },
+          disjunctiveFacets: ["license", "dependencies"]
+        });
+
+        expect(result.info.facets).toBeUndefined();
+      });
+
       // Fixture: disjunctive_license_with_override_tags
       // Fixture: Fixture: search_filter_and_multi_facet_with_tags
       it("will accept an alternative analytics tag for disjunctive queries", async () => {
